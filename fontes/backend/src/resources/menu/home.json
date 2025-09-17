@@ -1,6 +1,6 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:49.094861Z", 
+        "modified": "2025-09-17T19:12:29.544235Z", 
         "name": "home", 
         "type": "sandwich",
         "defaultMenu": true
@@ -8,82 +8,82 @@
     "itens": [ 
         { 
             "name": "CartaoConsumo", 
-            "routeUrl": "/", 
+            "routeUrl": "/cartaoConsumo", 
             "icon": "feather:box"
         },
         { 
             "name": "Cliente", 
-            "routeUrl": "/", 
+            "routeUrl": "/clientes", 
             "icon": "feather:box"
         },
         { 
             "name": "CadastroCliente", 
-            "routeUrl": "/", 
+            "routeUrl": "/cadastroCliente", 
             "icon": "feather:box"
         },
         { 
             "name": "CartaoCliente", 
-            "routeUrl": "/", 
+            "routeUrl": "/cartaoCliente", 
             "icon": "feather:box"
         },
         { 
             "name": "Categoria", 
-            "routeUrl": "/", 
+            "routeUrl": "/categoria", 
             "icon": "feather:box"
         },
         { 
             "name": "Cozinha", 
-            "routeUrl": "/", 
+            "routeUrl": "/cozinha", 
             "icon": "feather:box"
         },
         { 
             "name": "Endereco", 
-            "routeUrl": "/", 
+            "routeUrl": "/endereco", 
             "icon": "feather:box"
         },
         { 
             "name": "Garcon", 
-            "routeUrl": "/", 
+            "routeUrl": "/garcon", 
             "icon": "feather:box"
         },
         { 
             "name": "ItemPedido", 
-            "routeUrl": "/", 
+            "routeUrl": "/itemPedido", 
             "icon": "feather:box"
         },
         { 
             "name": "Cardapio", 
-            "routeUrl": "/", 
+            "routeUrl": "/cardapio", 
             "icon": "feather:box"
         },
         { 
             "name": "Opcional", 
-            "routeUrl": "/", 
+            "routeUrl": "/opcional", 
             "icon": "feather:box"
         },
         { 
             "name": "Pagamento", 
-            "routeUrl": "/", 
+            "routeUrl": "/pagamento", 
             "icon": "feather:box"
         },
         { 
             "name": "Pedido", 
-            "routeUrl": "/", 
+            "routeUrl": "/pedido", 
             "icon": "feather:box"
         },
         { 
             "name": "Produto", 
-            "routeUrl": "/", 
+            "routeUrl": "/produto", 
             "icon": "feather:box"
         },
         { 
             "name": "TipoPagamento", 
-            "routeUrl": "/", 
+            "routeUrl": "/tipoPagamento", 
             "icon": "feather:box"
         },
         { 
             "name": "Entrega", 
-            "routeUrl": "/", 
+            "routeUrl": "/entrega", 
             "icon": "feather:box"
         }
     ] 
