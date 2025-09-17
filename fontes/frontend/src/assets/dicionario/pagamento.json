@@ -1,0 +1,75 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:29.778649Z", 
+        "description": "Pagamento",  
+        "name": "Pagamento", 
+        "apiUrl": "api/pagamento",
+        "route": "",
+        "title": { 
+            "pt": "Pagamento", 
+            "en": "Payment" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"valorPagamento", 
+            "type": "number", 
+            "mask": "Numero", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"datahoraPagamento", 
+            "type": "number", 
+            "mask": "Numero", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"tipoPagamento", 
+            "type": "foreignKey", 
+            "className": "TipoPagamento", 
+            "many": false, 
+            "apiUrl": "api/tipoPagamento",
+            "fieldDisplayedInLabel": "tipoPagamento",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "tipoPagamento", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        }
+    ] 
+}

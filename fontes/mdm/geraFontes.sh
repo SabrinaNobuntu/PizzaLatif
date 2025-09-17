@@ -40,114 +40,104 @@ cd frontend
 npm install
 cd ..
 cd frontend/src/app/modules/
-ng g m empreendimento --routing
-cd empreendimento
-ng g c EmpreendimentoForm
-ng g c ListEmpreendimento
+ng g m cartaoConsumo --routing
+cd cartao-consumo
+ng g c CartaoConsumoForm
+ng g c ListCartaoConsumo
 mkdir shared
 cd ..
-ng g m estabelecimento --routing
-cd estabelecimento
-ng g c EstabelecimentoForm
-ng g c ListEstabelecimento
+ng g m cliente --routing
+cd cliente
+ng g c ClienteForm
+ng g c ListCliente
 mkdir shared
 cd ..
-ng g m areaDeNegocio --routing
-cd area-de-negocio
-ng g c AreaDeNegocioForm
-ng g c ListAreaDeNegocio
+ng g m cadastroCliente --routing
+cd cadastro-cliente
+ng g c CadastroClienteForm
+ng g c ListCadastroCliente
 mkdir shared
 cd ..
-ng g m planoDeContas --routing
-cd plano-de-contas
-ng g c PlanoDeContasForm
-ng g c ListPlanoDeContas
+ng g m cartaoCliente --routing
+cd cartao-cliente
+ng g c CartaoClienteForm
+ng g c ListCartaoCliente
 mkdir shared
 cd ..
-ng g m centroDeCusto --routing
-cd centro-de-custo
-ng g c CentroDeCustoForm
-ng g c ListCentroDeCusto
+ng g m categoria --routing
+cd categoria
+ng g c CategoriaForm
+ng g c ListCategoria
 mkdir shared
 cd ..
-ng g m projeto --routing
-cd projeto
-ng g c ProjetoForm
-ng g c ListProjeto
+ng g m cozinha --routing
+cd cozinha
+ng g c CozinhaForm
+ng g c ListCozinha
 mkdir shared
 cd ..
-ng g m historicoPadrao --routing
-cd historico-padrao
-ng g c HistoricoPadraoForm
-ng g c ListHistoricoPadrao
+ng g m endereco --routing
+cd endereco
+ng g c EnderecoForm
+ng g c ListEndereco
 mkdir shared
 cd ..
-ng g m planilhaDoOrcamento --routing
-cd planilha-do-orcamento
-ng g c PlanilhaDoOrcamentoForm
-ng g c ListPlanilhaDoOrcamento
+ng g m garcon --routing
+cd garcon
+ng g c GarconForm
+ng g c ListGarcon
 mkdir shared
 cd ..
-ng g m estruturaDoOrcamento --routing
-cd estrutura-do-orcamento
-ng g c EstruturaDoOrcamentoForm
-ng g c ListEstruturaDoOrcamento
+ng g m itemPedido --routing
+cd item-pedido
+ng g c ItemPedidoForm
+ng g c ListItemPedido
 mkdir shared
 cd ..
-ng g m funcaoDePrevisao --routing
-cd funcao-de-previsao
-ng g c FuncaoDePrevisaoForm
-ng g c ListFuncaoDePrevisao
+ng g m cardapio --routing
+cd cardapio
+ng g c CardapioForm
+ng g c ListCardapio
 mkdir shared
 cd ..
-ng g m indicador --routing
-cd indicador
-ng g c IndicadorForm
-ng g c ListIndicador
+ng g m opcional --routing
+cd opcional
+ng g c OpcionalForm
+ng g c ListOpcional
 mkdir shared
 cd ..
-ng g m registroDeIndicador --routing
-cd registro-de-indicador
-ng g c RegistroDeIndicadorForm
-ng g c ListRegistroDeIndicador
+ng g m pagamento --routing
+cd pagamento
+ng g c PagamentoForm
+ng g c ListPagamento
 mkdir shared
 cd ..
-ng g m partidaDoLancamento --routing
-cd partida-do-lancamento
-ng g c PartidaDoLancamentoForm
-ng g c ListPartidaDoLancamento
+ng g m pedido --routing
+cd pedido
+ng g c PedidoForm
+ng g c ListPedido
 mkdir shared
 cd ..
-ng g m usuarioDoEstabelecimento --routing
-cd usuario-do-estabelecimento
-ng g c UsuarioDoEstabelecimentoForm
-ng g c ListUsuarioDoEstabelecimento
+ng g m produto --routing
+cd produto
+ng g c ProdutoForm
+ng g c ListProduto
 mkdir shared
 cd ..
-ng g m tabelaMoeda --routing
-cd tabela-moeda
-ng g c TabelaMoedaForm
-ng g c ListTabelaMoeda
+ng g m tipoPagamento --routing
+cd tipo-pagamento
+ng g c TipoPagamentoForm
+ng g c ListTipoPagamento
 mkdir shared
 cd ..
-ng g m cotacaoMoeda --routing
-cd cotacao-moeda
-ng g c CotacaoMoedaForm
-ng g c ListCotacaoMoeda
-mkdir shared
-cd ..
-ng g m lancamentoContabil --routing
-cd lancamento-contabil
-ng g c LancamentoContabilForm
-ng g c ListLancamentoContabil
+ng g m entrega --routing
+cd entrega
+ng g c EntregaForm
+ng g c ListEntrega
 mkdir shared
 cd ..
 cd ..
 cd consultas
-ng g m consultaLivroRazao --routing
-cd consulta-livro-razao
-ng g c ConsultaLivroRazao
-cd ..
 cd ../..
 cd ../..
 mi g app mean indexSequelize > backend/src/infra/database/sequelize/models/index.ts
@@ -158,289 +148,266 @@ mi g app angular appRouting > frontend/src/app/app-routing.module.ts
 mi g app angular appComponentHTML > frontend/src/app/app.component.html
 mi g app angular appComponentTS > frontend/src/app/app.component.ts
 mi g app angular indexHTML > frontend/src/index.html
-mapperidea generate app mean validator entityName=Empreendimento > backend/src/infra/http/validators/empreendimento.validator.ts
-mapperidea generate app mean validator entityName=Estabelecimento > backend/src/infra/http/validators/estabelecimento.validator.ts
-mapperidea generate app mean validator entityName=AreaDeNegocio > backend/src/infra/http/validators/areaDeNegocio.validator.ts
-mapperidea generate app mean validator entityName=PlanoDeContas > backend/src/infra/http/validators/planoDeContas.validator.ts
-mapperidea generate app mean validator entityName=CentroDeCusto > backend/src/infra/http/validators/centroDeCusto.validator.ts
-mapperidea generate app mean validator entityName=Projeto > backend/src/infra/http/validators/projeto.validator.ts
-mapperidea generate app mean validator entityName=HistoricoPadrao > backend/src/infra/http/validators/historicoPadrao.validator.ts
-mapperidea generate app mean validator entityName=PlanilhaDoOrcamento > backend/src/infra/http/validators/planilhaDoOrcamento.validator.ts
-mapperidea generate app mean validator entityName=EstruturaDoOrcamento > backend/src/infra/http/validators/estruturaDoOrcamento.validator.ts
-mapperidea generate app mean validator entityName=FuncaoDePrevisao > backend/src/infra/http/validators/funcaoDePrevisao.validator.ts
-mapperidea generate app mean validator entityName=Indicador > backend/src/infra/http/validators/indicador.validator.ts
-mapperidea generate app mean validator entityName=RegistroDeIndicador > backend/src/infra/http/validators/registroDeIndicador.validator.ts
-mapperidea generate app mean validator entityName=PartidaDoLancamento > backend/src/infra/http/validators/partidaDoLancamento.validator.ts
-mapperidea generate app mean validator entityName=UsuarioDoEstabelecimento > backend/src/infra/http/validators/usuarioDoEstabelecimento.validator.ts
-mapperidea generate app mean validator entityName=TabelaMoeda > backend/src/infra/http/validators/tabelaMoeda.validator.ts
-mapperidea generate app mean validator entityName=CotacaoMoeda > backend/src/infra/http/validators/cotacaoMoeda.validator.ts
-mapperidea generate app mean validator entityName=LancamentoContabil > backend/src/infra/http/validators/lancamentoContabil.validator.ts
-mapperidea generate app mean sequelizeModel entityName=Empreendimento > backend/src/infra/database/sequelize/models/empreendimento.model.ts
-mapperidea generate app mean mongoModel entityName=Empreendimento > backend/src/infra/database/mongoose/models/empreendimento.model.ts
-mapperidea generate app mean model entityName=Empreendimento > backend/src/domain/entities/empreendimento.model.ts
-mapperidea generate app mean sequelizeModel entityName=Estabelecimento > backend/src/infra/database/sequelize/models/estabelecimento.model.ts
-mapperidea generate app mean mongoModel entityName=Estabelecimento > backend/src/infra/database/mongoose/models/estabelecimento.model.ts
-mapperidea generate app mean model entityName=Estabelecimento > backend/src/domain/entities/estabelecimento.model.ts
-mapperidea generate app mean sequelizeModel entityName=AreaDeNegocio > backend/src/infra/database/sequelize/models/areaDeNegocio.model.ts
-mapperidea generate app mean mongoModel entityName=AreaDeNegocio > backend/src/infra/database/mongoose/models/areaDeNegocio.model.ts
-mapperidea generate app mean model entityName=AreaDeNegocio > backend/src/domain/entities/areaDeNegocio.model.ts
-mapperidea generate app mean sequelizeModel entityName=PlanoDeContas > backend/src/infra/database/sequelize/models/planoDeContas.model.ts
-mapperidea generate app mean mongoModel entityName=PlanoDeContas > backend/src/infra/database/mongoose/models/planoDeContas.model.ts
-mapperidea generate app mean model entityName=PlanoDeContas > backend/src/domain/entities/planoDeContas.model.ts
-mapperidea generate app mean sequelizeModel entityName=CentroDeCusto > backend/src/infra/database/sequelize/models/centroDeCusto.model.ts
-mapperidea generate app mean mongoModel entityName=CentroDeCusto > backend/src/infra/database/mongoose/models/centroDeCusto.model.ts
-mapperidea generate app mean model entityName=CentroDeCusto > backend/src/domain/entities/centroDeCusto.model.ts
-mapperidea generate app mean sequelizeModel entityName=Projeto > backend/src/infra/database/sequelize/models/projeto.model.ts
-mapperidea generate app mean mongoModel entityName=Projeto > backend/src/infra/database/mongoose/models/projeto.model.ts
-mapperidea generate app mean model entityName=Projeto > backend/src/domain/entities/projeto.model.ts
-mapperidea generate app mean sequelizeModel entityName=HistoricoPadrao > backend/src/infra/database/sequelize/models/historicoPadrao.model.ts
-mapperidea generate app mean mongoModel entityName=HistoricoPadrao > backend/src/infra/database/mongoose/models/historicoPadrao.model.ts
-mapperidea generate app mean model entityName=HistoricoPadrao > backend/src/domain/entities/historicoPadrao.model.ts
-mapperidea generate app mean sequelizeModel entityName=PlanilhaDoOrcamento > backend/src/infra/database/sequelize/models/planilhaDoOrcamento.model.ts
-mapperidea generate app mean mongoModel entityName=PlanilhaDoOrcamento > backend/src/infra/database/mongoose/models/planilhaDoOrcamento.model.ts
-mapperidea generate app mean model entityName=PlanilhaDoOrcamento > backend/src/domain/entities/planilhaDoOrcamento.model.ts
-mapperidea generate app mean sequelizeModel entityName=EstruturaDoOrcamento > backend/src/infra/database/sequelize/models/estruturaDoOrcamento.model.ts
-mapperidea generate app mean mongoModel entityName=EstruturaDoOrcamento > backend/src/infra/database/mongoose/models/estruturaDoOrcamento.model.ts
-mapperidea generate app mean model entityName=EstruturaDoOrcamento > backend/src/domain/entities/estruturaDoOrcamento.model.ts
-mapperidea generate app mean sequelizeModel entityName=FuncaoDePrevisao > backend/src/infra/database/sequelize/models/funcaoDePrevisao.model.ts
-mapperidea generate app mean mongoModel entityName=FuncaoDePrevisao > backend/src/infra/database/mongoose/models/funcaoDePrevisao.model.ts
-mapperidea generate app mean model entityName=FuncaoDePrevisao > backend/src/domain/entities/funcaoDePrevisao.model.ts
-mapperidea generate app mean sequelizeModel entityName=Indicador > backend/src/infra/database/sequelize/models/indicador.model.ts
-mapperidea generate app mean mongoModel entityName=Indicador > backend/src/infra/database/mongoose/models/indicador.model.ts
-mapperidea generate app mean model entityName=Indicador > backend/src/domain/entities/indicador.model.ts
-mapperidea generate app mean sequelizeModel entityName=RegistroDeIndicador > backend/src/infra/database/sequelize/models/registroDeIndicador.model.ts
-mapperidea generate app mean mongoModel entityName=RegistroDeIndicador > backend/src/infra/database/mongoose/models/registroDeIndicador.model.ts
-mapperidea generate app mean model entityName=RegistroDeIndicador > backend/src/domain/entities/registroDeIndicador.model.ts
-mapperidea generate app mean sequelizeModel entityName=PartidaDoLancamento > backend/src/infra/database/sequelize/models/partidaDoLancamento.model.ts
-mapperidea generate app mean mongoModel entityName=PartidaDoLancamento > backend/src/infra/database/mongoose/models/partidaDoLancamento.model.ts
-mapperidea generate app mean model entityName=PartidaDoLancamento > backend/src/domain/entities/partidaDoLancamento.model.ts
-mapperidea generate app mean sequelizeModel entityName=UsuarioDoEstabelecimento > backend/src/infra/database/sequelize/models/usuarioDoEstabelecimento.model.ts
-mapperidea generate app mean mongoModel entityName=UsuarioDoEstabelecimento > backend/src/infra/database/mongoose/models/usuarioDoEstabelecimento.model.ts
-mapperidea generate app mean model entityName=UsuarioDoEstabelecimento > backend/src/domain/entities/usuarioDoEstabelecimento.model.ts
-mapperidea generate app mean sequelizeModel entityName=TabelaMoeda > backend/src/infra/database/sequelize/models/tabelaMoeda.model.ts
-mapperidea generate app mean mongoModel entityName=TabelaMoeda > backend/src/infra/database/mongoose/models/tabelaMoeda.model.ts
-mapperidea generate app mean model entityName=TabelaMoeda > backend/src/domain/entities/tabelaMoeda.model.ts
-mapperidea generate app mean sequelizeModel entityName=CotacaoMoeda > backend/src/infra/database/sequelize/models/cotacaoMoeda.model.ts
-mapperidea generate app mean mongoModel entityName=CotacaoMoeda > backend/src/infra/database/mongoose/models/cotacaoMoeda.model.ts
-mapperidea generate app mean model entityName=CotacaoMoeda > backend/src/domain/entities/cotacaoMoeda.model.ts
-mapperidea generate app mean sequelizeModel entityName=LancamentoContabil > backend/src/infra/database/sequelize/models/lancamentoContabil.model.ts
-mapperidea generate app mean mongoModel entityName=LancamentoContabil > backend/src/infra/database/mongoose/models/lancamentoContabil.model.ts
-mapperidea generate app mean model entityName=LancamentoContabil > backend/src/domain/entities/lancamentoContabil.model.ts
-mi g app json jsonClass entityName=Empreendimento > frontend/src/assets/dicionario/empreendimento.json
-mi g app json jsonClass entityName=Estabelecimento > frontend/src/assets/dicionario/estabelecimento.json
-mi g app json jsonClass entityName=AreaDeNegocio > frontend/src/assets/dicionario/areaDeNegocio.json
-mi g app json jsonClass entityName=PlanoDeContas > frontend/src/assets/dicionario/planoDeContas.json
-mi g app json jsonClass entityName=CentroDeCusto > frontend/src/assets/dicionario/centroDeCusto.json
-mi g app json jsonClass entityName=Projeto > frontend/src/assets/dicionario/projeto.json
-mi g app json jsonClass entityName=HistoricoPadrao > frontend/src/assets/dicionario/historicoPadrao.json
-mi g app json jsonClass entityName=PlanilhaDoOrcamento > frontend/src/assets/dicionario/planilhaDoOrcamento.json
-mi g app json jsonClass entityName=EstruturaDoOrcamento > frontend/src/assets/dicionario/estruturaDoOrcamento.json
-mi g app json jsonClass entityName=FuncaoDePrevisao > frontend/src/assets/dicionario/funcaoDePrevisao.json
-mi g app json jsonClass entityName=Indicador > frontend/src/assets/dicionario/indicador.json
-mi g app json jsonClass entityName=RegistroDeIndicador > frontend/src/assets/dicionario/registroDeIndicador.json
-mi g app json jsonClass entityName=PartidaDoLancamento > frontend/src/assets/dicionario/partidaDoLancamento.json
-mi g app json jsonClass entityName=UsuarioDoEstabelecimento > frontend/src/assets/dicionario/usuarioDoEstabelecimento.json
-mi g app json jsonClass entityName=TabelaMoeda > frontend/src/assets/dicionario/tabelaMoeda.json
-mi g app json jsonClass entityName=CotacaoMoeda > frontend/src/assets/dicionario/cotacaoMoeda.json
-mi g app json jsonClass entityName=LancamentoContabil > frontend/src/assets/dicionario/lancamentoContabil.json
-mapperidea generate app mean repository entityName=Empreendimento > backend/src/domain/repositories/empreendimento.repository.ts
-mapperidea generate app mean repository entityName=Estabelecimento > backend/src/domain/repositories/estabelecimento.repository.ts
-mapperidea generate app mean repository entityName=AreaDeNegocio > backend/src/domain/repositories/areaDeNegocio.repository.ts
-mapperidea generate app mean repository entityName=PlanoDeContas > backend/src/domain/repositories/planoDeContas.repository.ts
-mapperidea generate app mean repository entityName=CentroDeCusto > backend/src/domain/repositories/centroDeCusto.repository.ts
-mapperidea generate app mean repository entityName=Projeto > backend/src/domain/repositories/projeto.repository.ts
-mapperidea generate app mean repository entityName=HistoricoPadrao > backend/src/domain/repositories/historicoPadrao.repository.ts
-mapperidea generate app mean repository entityName=PlanilhaDoOrcamento > backend/src/domain/repositories/planilhaDoOrcamento.repository.ts
-mapperidea generate app mean repository entityName=EstruturaDoOrcamento > backend/src/domain/repositories/estruturaDoOrcamento.repository.ts
-mapperidea generate app mean repository entityName=FuncaoDePrevisao > backend/src/domain/repositories/funcaoDePrevisao.repository.ts
-mapperidea generate app mean repository entityName=Indicador > backend/src/domain/repositories/indicador.repository.ts
-mapperidea generate app mean repository entityName=RegistroDeIndicador > backend/src/domain/repositories/registroDeIndicador.repository.ts
-mapperidea generate app mean repository entityName=PartidaDoLancamento > backend/src/domain/repositories/partidaDoLancamento.repository.ts
-mapperidea generate app mean repository entityName=UsuarioDoEstabelecimento > backend/src/domain/repositories/usuarioDoEstabelecimento.repository.ts
-mapperidea generate app mean repository entityName=TabelaMoeda > backend/src/domain/repositories/tabelaMoeda.repository.ts
-mapperidea generate app mean repository entityName=CotacaoMoeda > backend/src/domain/repositories/cotacaoMoeda.repository.ts
-mapperidea generate app mean repository entityName=LancamentoContabil > backend/src/domain/repositories/lancamentoContabil.repository.ts
-mapperidea generate app mean apiController entityName=Empreendimento > backend/src/infra/http/controllers/empreendimento.controller.ts
-mapperidea generate app mean apiController entityName=Estabelecimento > backend/src/infra/http/controllers/estabelecimento.controller.ts
-mapperidea generate app mean apiController entityName=AreaDeNegocio > backend/src/infra/http/controllers/areaDeNegocio.controller.ts
-mapperidea generate app mean apiController entityName=PlanoDeContas > backend/src/infra/http/controllers/planoDeContas.controller.ts
-mapperidea generate app mean apiController entityName=CentroDeCusto > backend/src/infra/http/controllers/centroDeCusto.controller.ts
-mapperidea generate app mean apiController entityName=Projeto > backend/src/infra/http/controllers/projeto.controller.ts
-mapperidea generate app mean apiController entityName=HistoricoPadrao > backend/src/infra/http/controllers/historicoPadrao.controller.ts
-mapperidea generate app mean apiController entityName=PlanilhaDoOrcamento > backend/src/infra/http/controllers/planilhaDoOrcamento.controller.ts
-mapperidea generate app mean apiController entityName=EstruturaDoOrcamento > backend/src/infra/http/controllers/estruturaDoOrcamento.controller.ts
-mapperidea generate app mean apiController entityName=FuncaoDePrevisao > backend/src/infra/http/controllers/funcaoDePrevisao.controller.ts
-mapperidea generate app mean apiController entityName=Indicador > backend/src/infra/http/controllers/indicador.controller.ts
-mapperidea generate app mean apiController entityName=RegistroDeIndicador > backend/src/infra/http/controllers/registroDeIndicador.controller.ts
-mapperidea generate app mean apiController entityName=PartidaDoLancamento > backend/src/infra/http/controllers/partidaDoLancamento.controller.ts
-mapperidea generate app mean apiController entityName=UsuarioDoEstabelecimento > backend/src/infra/http/controllers/usuarioDoEstabelecimento.controller.ts
-mapperidea generate app mean apiController entityName=TabelaMoeda > backend/src/infra/http/controllers/tabelaMoeda.controller.ts
-mapperidea generate app mean apiController entityName=CotacaoMoeda > backend/src/infra/http/controllers/cotacaoMoeda.controller.ts
-mapperidea generate app mean apiController entityName=LancamentoContabil > backend/src/infra/http/controllers/lancamentoContabil.controller.ts
-mapperidea generate app angular model entityName=Empreendimento > frontend/src/app/modules/empreendimento/shared/empreendimento.model.ts
-mapperidea generate app angular model entityName=Estabelecimento > frontend/src/app/modules/estabelecimento/shared/estabelecimento.model.ts
-mapperidea generate app angular model entityName=AreaDeNegocio > frontend/src/app/modules/area-de-negocio/shared/area-de-negocio.model.ts
-mapperidea generate app angular model entityName=PlanoDeContas > frontend/src/app/modules/plano-de-contas/shared/plano-de-contas.model.ts
-mapperidea generate app angular model entityName=CentroDeCusto > frontend/src/app/modules/centro-de-custo/shared/centro-de-custo.model.ts
-mapperidea generate app angular model entityName=Projeto > frontend/src/app/modules/projeto/shared/projeto.model.ts
-mapperidea generate app angular model entityName=HistoricoPadrao > frontend/src/app/modules/historico-padrao/shared/historico-padrao.model.ts
-mapperidea generate app angular model entityName=PlanilhaDoOrcamento > frontend/src/app/modules/planilha-do-orcamento/shared/planilha-do-orcamento.model.ts
-mapperidea generate app angular model entityName=EstruturaDoOrcamento > frontend/src/app/modules/estrutura-do-orcamento/shared/estrutura-do-orcamento.model.ts
-mapperidea generate app angular model entityName=FuncaoDePrevisao > frontend/src/app/modules/funcao-de-previsao/shared/funcao-de-previsao.model.ts
-mapperidea generate app angular model entityName=Indicador > frontend/src/app/modules/indicador/shared/indicador.model.ts
-mapperidea generate app angular model entityName=RegistroDeIndicador > frontend/src/app/modules/registro-de-indicador/shared/registro-de-indicador.model.ts
-mapperidea generate app angular model entityName=PartidaDoLancamento > frontend/src/app/modules/partida-do-lancamento/shared/partida-do-lancamento.model.ts
-mapperidea generate app angular model entityName=UsuarioDoEstabelecimento > frontend/src/app/modules/usuario-do-estabelecimento/shared/usuario-do-estabelecimento.model.ts
-mapperidea generate app angular model entityName=TabelaMoeda > frontend/src/app/modules/tabela-moeda/shared/tabela-moeda.model.ts
-mapperidea generate app angular model entityName=CotacaoMoeda > frontend/src/app/modules/cotacao-moeda/shared/cotacao-moeda.model.ts
-mapperidea generate app angular model entityName=LancamentoContabil > frontend/src/app/modules/lancamento-contabil/shared/lancamento-contabil.model.ts
-mi g app angular dataService entityName=Empreendimento > frontend/src/app/modules/empreendimento/shared/empreendimento.service.ts
-mi g app angular dataService entityName=Estabelecimento > frontend/src/app/modules/estabelecimento/shared/estabelecimento.service.ts
-mi g app angular dataService entityName=AreaDeNegocio > frontend/src/app/modules/area-de-negocio/shared/area-de-negocio.service.ts
-mi g app angular dataService entityName=PlanoDeContas > frontend/src/app/modules/plano-de-contas/shared/plano-de-contas.service.ts
-mi g app angular dataService entityName=CentroDeCusto > frontend/src/app/modules/centro-de-custo/shared/centro-de-custo.service.ts
-mi g app angular dataService entityName=Projeto > frontend/src/app/modules/projeto/shared/projeto.service.ts
-mi g app angular dataService entityName=HistoricoPadrao > frontend/src/app/modules/historico-padrao/shared/historico-padrao.service.ts
-mi g app angular dataService entityName=PlanilhaDoOrcamento > frontend/src/app/modules/planilha-do-orcamento/shared/planilha-do-orcamento.service.ts
-mi g app angular dataService entityName=EstruturaDoOrcamento > frontend/src/app/modules/estrutura-do-orcamento/shared/estrutura-do-orcamento.service.ts
-mi g app angular dataService entityName=FuncaoDePrevisao > frontend/src/app/modules/funcao-de-previsao/shared/funcao-de-previsao.service.ts
-mi g app angular dataService entityName=Indicador > frontend/src/app/modules/indicador/shared/indicador.service.ts
-mi g app angular dataService entityName=RegistroDeIndicador > frontend/src/app/modules/registro-de-indicador/shared/registro-de-indicador.service.ts
-mi g app angular dataService entityName=PartidaDoLancamento > frontend/src/app/modules/partida-do-lancamento/shared/partida-do-lancamento.service.ts
-mi g app angular dataService entityName=UsuarioDoEstabelecimento > frontend/src/app/modules/usuario-do-estabelecimento/shared/usuario-do-estabelecimento.service.ts
-mi g app angular dataService entityName=TabelaMoeda > frontend/src/app/modules/tabela-moeda/shared/tabela-moeda.service.ts
-mi g app angular dataService entityName=CotacaoMoeda > frontend/src/app/modules/cotacao-moeda/shared/cotacao-moeda.service.ts
-mi g app angular dataService entityName=LancamentoContabil > frontend/src/app/modules/lancamento-contabil/shared/lancamento-contabil.service.ts
-mi g app angular appRoutingChild entityName=Empreendimento > frontend/src/app/modules/empreendimento/empreendimento-routing.module.ts
-mi g app angular appRoutingChild entityName=Estabelecimento > frontend/src/app/modules/estabelecimento/estabelecimento-routing.module.ts
-mi g app angular appRoutingChild entityName=AreaDeNegocio > frontend/src/app/modules/area-de-negocio/area-de-negocio-routing.module.ts
-mi g app angular appRoutingChild entityName=PlanoDeContas > frontend/src/app/modules/plano-de-contas/plano-de-contas-routing.module.ts
-mi g app angular appRoutingChild entityName=CentroDeCusto > frontend/src/app/modules/centro-de-custo/centro-de-custo-routing.module.ts
-mi g app angular appRoutingChild entityName=Projeto > frontend/src/app/modules/projeto/projeto-routing.module.ts
-mi g app angular appRoutingChild entityName=HistoricoPadrao > frontend/src/app/modules/historico-padrao/historico-padrao-routing.module.ts
-mi g app angular appRoutingChild entityName=PlanilhaDoOrcamento > frontend/src/app/modules/planilha-do-orcamento/planilha-do-orcamento-routing.module.ts
-mi g app angular appRoutingChild entityName=EstruturaDoOrcamento > frontend/src/app/modules/estrutura-do-orcamento/estrutura-do-orcamento-routing.module.ts
-mi g app angular appRoutingChild entityName=FuncaoDePrevisao > frontend/src/app/modules/funcao-de-previsao/funcao-de-previsao-routing.module.ts
-mi g app angular appRoutingChild entityName=Indicador > frontend/src/app/modules/indicador/indicador-routing.module.ts
-mi g app angular appRoutingChild entityName=RegistroDeIndicador > frontend/src/app/modules/registro-de-indicador/registro-de-indicador-routing.module.ts
-mi g app angular appRoutingChild entityName=PartidaDoLancamento > frontend/src/app/modules/partida-do-lancamento/partida-do-lancamento-routing.module.ts
-mi g app angular appRoutingChild entityName=UsuarioDoEstabelecimento > frontend/src/app/modules/usuario-do-estabelecimento/usuario-do-estabelecimento-routing.module.ts
-mi g app angular appRoutingChild entityName=TabelaMoeda > frontend/src/app/modules/tabela-moeda/tabela-moeda-routing.module.ts
-mi g app angular appRoutingChild entityName=CotacaoMoeda > frontend/src/app/modules/cotacao-moeda/cotacao-moeda-routing.module.ts
-mi g app angular appRoutingChild entityName=LancamentoContabil > frontend/src/app/modules/lancamento-contabil/lancamento-contabil-routing.module.ts
-mi g app mean routes entityName=Empreendimento > backend/src/infra/http/routes/empreendimento.route.ts
-mi g app mean routes entityName=Estabelecimento > backend/src/infra/http/routes/estabelecimento.route.ts
-mi g app mean routes entityName=AreaDeNegocio > backend/src/infra/http/routes/areaDeNegocio.route.ts
-mi g app mean routes entityName=PlanoDeContas > backend/src/infra/http/routes/planoDeContas.route.ts
-mi g app mean routes entityName=CentroDeCusto > backend/src/infra/http/routes/centroDeCusto.route.ts
-mi g app mean routes entityName=Projeto > backend/src/infra/http/routes/projeto.route.ts
-mi g app mean routes entityName=HistoricoPadrao > backend/src/infra/http/routes/historicoPadrao.route.ts
-mi g app mean routes entityName=PlanilhaDoOrcamento > backend/src/infra/http/routes/planilhaDoOrcamento.route.ts
-mi g app mean routes entityName=EstruturaDoOrcamento > backend/src/infra/http/routes/estruturaDoOrcamento.route.ts
-mi g app mean routes entityName=FuncaoDePrevisao > backend/src/infra/http/routes/funcaoDePrevisao.route.ts
-mi g app mean routes entityName=Indicador > backend/src/infra/http/routes/indicador.route.ts
-mi g app mean routes entityName=RegistroDeIndicador > backend/src/infra/http/routes/registroDeIndicador.route.ts
-mi g app mean routes entityName=PartidaDoLancamento > backend/src/infra/http/routes/partidaDoLancamento.route.ts
-mi g app mean routes entityName=UsuarioDoEstabelecimento > backend/src/infra/http/routes/usuarioDoEstabelecimento.route.ts
-mi g app mean routes entityName=TabelaMoeda > backend/src/infra/http/routes/tabelaMoeda.route.ts
-mi g app mean routes entityName=CotacaoMoeda > backend/src/infra/http/routes/cotacaoMoeda.route.ts
-mi g app mean routes entityName=LancamentoContabil > backend/src/infra/http/routes/lancamentoContabil.route.ts
-mi g app angular listComponentHTML listName=Empreendimento >  frontend/src/app/modules/empreendimento/list-empreendimento/list-empreendimento.component.html
-mi g app angular listComponentTS listName=Empreendimento >  frontend/src/app/modules/empreendimento/list-empreendimento/list-empreendimento.component.ts
-mi g app angular detailsComponentHTML editorName=Empreendimento >  frontend/src/app/modules/empreendimento/empreendimento-form/empreendimento-form.component.html
-mi g app angular detailsComponentTS editorName=Empreendimento >  frontend/src/app/modules/empreendimento/empreendimento-form/empreendimento-form.component.ts
-mi g app angular listComponentHTML listName=Estabelecimento >  frontend/src/app/modules/estabelecimento/list-estabelecimento/list-estabelecimento.component.html
-mi g app angular listComponentTS listName=Estabelecimento >  frontend/src/app/modules/estabelecimento/list-estabelecimento/list-estabelecimento.component.ts
-mi g app angular detailsComponentHTML editorName=Estabelecimento >  frontend/src/app/modules/estabelecimento/estabelecimento-form/estabelecimento-form.component.html
-mi g app angular detailsComponentTS editorName=Estabelecimento >  frontend/src/app/modules/estabelecimento/estabelecimento-form/estabelecimento-form.component.ts
-mi g app angular listComponentHTML listName=AreaDeNegocio >  frontend/src/app/modules/area-de-negocio/list-area-de-negocio/list-area-de-negocio.component.html
-mi g app angular listComponentTS listName=AreaDeNegocio >  frontend/src/app/modules/area-de-negocio/list-area-de-negocio/list-area-de-negocio.component.ts
-mi g app angular detailsComponentHTML editorName=AreaDeNegocio >  frontend/src/app/modules/area-de-negocio/area-de-negocio-form/area-de-negocio-form.component.html
-mi g app angular detailsComponentTS editorName=AreaDeNegocio >  frontend/src/app/modules/area-de-negocio/area-de-negocio-form/area-de-negocio-form.component.ts
-mi g app angular listComponentHTML listName=PlanoDeContas >  frontend/src/app/modules/plano-de-contas/list-plano-de-contas/list-plano-de-contas.component.html
-mi g app angular listComponentTS listName=PlanoDeContas >  frontend/src/app/modules/plano-de-contas/list-plano-de-contas/list-plano-de-contas.component.ts
-mi g app angular detailsComponentHTML editorName=PlanoDeContas >  frontend/src/app/modules/plano-de-contas/plano-de-contas-form/plano-de-contas-form.component.html
-mi g app angular detailsComponentTS editorName=PlanoDeContas >  frontend/src/app/modules/plano-de-contas/plano-de-contas-form/plano-de-contas-form.component.ts
-mi g app angular listComponentHTML listName=CentroDeCusto >  frontend/src/app/modules/centro-de-custo/list-centro-de-custo/list-centro-de-custo.component.html
-mi g app angular listComponentTS listName=CentroDeCusto >  frontend/src/app/modules/centro-de-custo/list-centro-de-custo/list-centro-de-custo.component.ts
-mi g app angular detailsComponentHTML editorName=CentroDeCusto >  frontend/src/app/modules/centro-de-custo/centro-de-custo-form/centro-de-custo-form.component.html
-mi g app angular detailsComponentTS editorName=CentroDeCusto >  frontend/src/app/modules/centro-de-custo/centro-de-custo-form/centro-de-custo-form.component.ts
-mi g app angular listComponentHTML listName=Projeto >  frontend/src/app/modules/projeto/list-projeto/list-projeto.component.html
-mi g app angular listComponentTS listName=Projeto >  frontend/src/app/modules/projeto/list-projeto/list-projeto.component.ts
-mi g app angular detailsComponentHTML editorName=Projeto >  frontend/src/app/modules/projeto/projeto-form/projeto-form.component.html
-mi g app angular detailsComponentTS editorName=Projeto >  frontend/src/app/modules/projeto/projeto-form/projeto-form.component.ts
-mi g app angular listComponentHTML listName=HistoricoPadrao >  frontend/src/app/modules/historico-padrao/list-historico-padrao/list-historico-padrao.component.html
-mi g app angular listComponentTS listName=HistoricoPadrao >  frontend/src/app/modules/historico-padrao/list-historico-padrao/list-historico-padrao.component.ts
-mi g app angular detailsComponentHTML editorName=HistoricoPadrao >  frontend/src/app/modules/historico-padrao/historico-padrao-form/historico-padrao-form.component.html
-mi g app angular detailsComponentTS editorName=HistoricoPadrao >  frontend/src/app/modules/historico-padrao/historico-padrao-form/historico-padrao-form.component.ts
-mi g app angular listComponentHTML listName=PlanilhaDoOrcamento >  frontend/src/app/modules/planilha-do-orcamento/list-planilha-do-orcamento/list-planilha-do-orcamento.component.html
-mi g app angular listComponentTS listName=PlanilhaDoOrcamento >  frontend/src/app/modules/planilha-do-orcamento/list-planilha-do-orcamento/list-planilha-do-orcamento.component.ts
-mi g app angular detailsComponentHTML editorName=PlanilhaDoOrcamento >  frontend/src/app/modules/planilha-do-orcamento/planilha-do-orcamento-form/planilha-do-orcamento-form.component.html
-mi g app angular detailsComponentTS editorName=PlanilhaDoOrcamento >  frontend/src/app/modules/planilha-do-orcamento/planilha-do-orcamento-form/planilha-do-orcamento-form.component.ts
-mi g app angular listComponentHTML listName=EstruturaDoOrcamento >  frontend/src/app/modules/estrutura-do-orcamento/list-estrutura-do-orcamento/list-estrutura-do-orcamento.component.html
-mi g app angular listComponentTS listName=EstruturaDoOrcamento >  frontend/src/app/modules/estrutura-do-orcamento/list-estrutura-do-orcamento/list-estrutura-do-orcamento.component.ts
-mi g app angular detailsComponentHTML editorName=EstruturaDoOrcamento >  frontend/src/app/modules/estrutura-do-orcamento/estrutura-do-orcamento-form/estrutura-do-orcamento-form.component.html
-mi g app angular detailsComponentTS editorName=EstruturaDoOrcamento >  frontend/src/app/modules/estrutura-do-orcamento/estrutura-do-orcamento-form/estrutura-do-orcamento-form.component.ts
-mi g app angular listComponentHTML listName=FuncaoDePrevisao >  frontend/src/app/modules/funcao-de-previsao/list-funcao-de-previsao/list-funcao-de-previsao.component.html
-mi g app angular listComponentTS listName=FuncaoDePrevisao >  frontend/src/app/modules/funcao-de-previsao/list-funcao-de-previsao/list-funcao-de-previsao.component.ts
-mi g app angular detailsComponentHTML editorName=FuncaoDePrevisao >  frontend/src/app/modules/funcao-de-previsao/funcao-de-previsao-form/funcao-de-previsao-form.component.html
-mi g app angular detailsComponentTS editorName=FuncaoDePrevisao >  frontend/src/app/modules/funcao-de-previsao/funcao-de-previsao-form/funcao-de-previsao-form.component.ts
-mi g app angular listComponentHTML listName=Indicador >  frontend/src/app/modules/indicador/list-indicador/list-indicador.component.html
-mi g app angular listComponentTS listName=Indicador >  frontend/src/app/modules/indicador/list-indicador/list-indicador.component.ts
-mi g app angular detailsComponentHTML editorName=Indicador >  frontend/src/app/modules/indicador/indicador-form/indicador-form.component.html
-mi g app angular detailsComponentTS editorName=Indicador >  frontend/src/app/modules/indicador/indicador-form/indicador-form.component.ts
-mi g app angular listComponentHTML listName=RegistroDeIndicador >  frontend/src/app/modules/registro-de-indicador/list-registro-de-indicador/list-registro-de-indicador.component.html
-mi g app angular listComponentTS listName=RegistroDeIndicador >  frontend/src/app/modules/registro-de-indicador/list-registro-de-indicador/list-registro-de-indicador.component.ts
-mi g app angular detailsComponentHTML editorName=RegistroDeIndicador >  frontend/src/app/modules/registro-de-indicador/registro-de-indicador-form/registro-de-indicador-form.component.html
-mi g app angular detailsComponentTS editorName=RegistroDeIndicador >  frontend/src/app/modules/registro-de-indicador/registro-de-indicador-form/registro-de-indicador-form.component.ts
-mi g app angular listComponentHTML listName=PartidaDoLancamento >  frontend/src/app/modules/partida-do-lancamento/list-partida-do-lancamento/list-partida-do-lancamento.component.html
-mi g app angular listComponentTS listName=PartidaDoLancamento >  frontend/src/app/modules/partida-do-lancamento/list-partida-do-lancamento/list-partida-do-lancamento.component.ts
-mi g app angular detailsComponentHTML editorName=PartidaDoLancamento >  frontend/src/app/modules/partida-do-lancamento/partida-do-lancamento-form/partida-do-lancamento-form.component.html
-mi g app angular detailsComponentTS editorName=PartidaDoLancamento >  frontend/src/app/modules/partida-do-lancamento/partida-do-lancamento-form/partida-do-lancamento-form.component.ts
-mi g app angular listComponentHTML listName=UsuarioDoEstabelecimento >  frontend/src/app/modules/usuario-do-estabelecimento/list-usuario-do-estabelecimento/list-usuario-do-estabelecimento.component.html
-mi g app angular listComponentTS listName=UsuarioDoEstabelecimento >  frontend/src/app/modules/usuario-do-estabelecimento/list-usuario-do-estabelecimento/list-usuario-do-estabelecimento.component.ts
-mi g app angular detailsComponentHTML editorName=UsuarioDoEstabelecimento >  frontend/src/app/modules/usuario-do-estabelecimento/usuario-do-estabelecimento-form/usuario-do-estabelecimento-form.component.html
-mi g app angular detailsComponentTS editorName=UsuarioDoEstabelecimento >  frontend/src/app/modules/usuario-do-estabelecimento/usuario-do-estabelecimento-form/usuario-do-estabelecimento-form.component.ts
-mi g app angular listComponentHTML listName=TabelaMoeda >  frontend/src/app/modules/tabela-moeda/list-tabela-moeda/list-tabela-moeda.component.html
-mi g app angular listComponentTS listName=TabelaMoeda >  frontend/src/app/modules/tabela-moeda/list-tabela-moeda/list-tabela-moeda.component.ts
-mi g app angular detailsComponentHTML editorName=TabelaMoeda >  frontend/src/app/modules/tabela-moeda/tabela-moeda-form/tabela-moeda-form.component.html
-mi g app angular detailsComponentTS editorName=TabelaMoeda >  frontend/src/app/modules/tabela-moeda/tabela-moeda-form/tabela-moeda-form.component.ts
-mi g app angular listComponentHTML listName=CotacaoMoeda >  frontend/src/app/modules/cotacao-moeda/list-cotacao-moeda/list-cotacao-moeda.component.html
-mi g app angular listComponentTS listName=CotacaoMoeda >  frontend/src/app/modules/cotacao-moeda/list-cotacao-moeda/list-cotacao-moeda.component.ts
-mi g app angular detailsComponentHTML editorName=CotacaoMoeda >  frontend/src/app/modules/cotacao-moeda/cotacao-moeda-form/cotacao-moeda-form.component.html
-mi g app angular detailsComponentTS editorName=CotacaoMoeda >  frontend/src/app/modules/cotacao-moeda/cotacao-moeda-form/cotacao-moeda-form.component.ts
-mi g app angular listComponentHTML listName=LancamentoContabil >  frontend/src/app/modules/lancamento-contabil/list-lancamento-contabil/list-lancamento-contabil.component.html
-mi g app angular listComponentTS listName=LancamentoContabil >  frontend/src/app/modules/lancamento-contabil/list-lancamento-contabil/list-lancamento-contabil.component.ts
-mi g app angular detailsComponentHTML editorName=LancamentoContabil >  frontend/src/app/modules/lancamento-contabil/lancamento-contabil-form/lancamento-contabil-form.component.html
-mi g app angular detailsComponentTS editorName=LancamentoContabil >  frontend/src/app/modules/lancamento-contabil/lancamento-contabil-form/lancamento-contabil-form.component.ts
-mi g app angular listComponentHTML listName=ConsultaLivroRazao >  frontend/src/app/consultas/consulta-livro-razao/consulta-livro-razao/consulta-livro-razao.component.html
-mi g app angular consultaComponentTS consultaName=ConsultaLivroRazao >  frontend/src/app/consultas/consulta-livro-razao/consulta-livro-razao/consulta-livro-razao.component.ts
-mi g app angular appRoutingChildConsulta consultaName=ConsultaLivroRazao >  frontend/src/app/consultas/consulta-livro-razao/consulta-livro-razao-routing.module.ts
-mi g app json jsonConsulta consultaName=ConsultaLivroRazao > frontend/src/assets/dicionario/consulta/consultaLivroRazao.json
-mi g app json jsonClass entityName=Empreendimento > frontend/src/assets/dicionario/empreendimento.json
-mi g app json jsonClass entityName=Estabelecimento > frontend/src/assets/dicionario/estabelecimento.json
-mi g app json jsonClass entityName=AreaDeNegocio > frontend/src/assets/dicionario/areaDeNegocio.json
-mi g app json jsonClass entityName=PlanoDeContas > frontend/src/assets/dicionario/planoDeContas.json
-mi g app json jsonClass entityName=CentroDeCusto > frontend/src/assets/dicionario/centroDeCusto.json
-mi g app json jsonClass entityName=Projeto > frontend/src/assets/dicionario/projeto.json
-mi g app json jsonClass entityName=HistoricoPadrao > frontend/src/assets/dicionario/historicoPadrao.json
-mi g app json jsonClass entityName=PlanilhaDoOrcamento > frontend/src/assets/dicionario/planilhaDoOrcamento.json
-mi g app json jsonClass entityName=EstruturaDoOrcamento > frontend/src/assets/dicionario/estruturaDoOrcamento.json
-mi g app json jsonClass entityName=FuncaoDePrevisao > frontend/src/assets/dicionario/funcaoDePrevisao.json
-mi g app json jsonClass entityName=Indicador > frontend/src/assets/dicionario/indicador.json
-mi g app json jsonClass entityName=RegistroDeIndicador > frontend/src/assets/dicionario/registroDeIndicador.json
-mi g app json jsonClass entityName=PartidaDoLancamento > frontend/src/assets/dicionario/partidaDoLancamento.json
-mi g app json jsonClass entityName=UsuarioDoEstabelecimento > frontend/src/assets/dicionario/usuarioDoEstabelecimento.json
-mi g app json jsonClass entityName=TabelaMoeda > frontend/src/assets/dicionario/tabelaMoeda.json
-mi g app json jsonClass entityName=CotacaoMoeda > frontend/src/assets/dicionario/cotacaoMoeda.json
-mi g app json jsonClass entityName=LancamentoContabil > frontend/src/assets/dicionario/lancamentoContabil.json
+mapperidea generate app mean validator entityName=CartaoConsumo > backend/src/infra/http/validators/cartaoConsumo.validator.ts
+mapperidea generate app mean validator entityName=Cliente > backend/src/infra/http/validators/cliente.validator.ts
+mapperidea generate app mean validator entityName=CadastroCliente > backend/src/infra/http/validators/cadastroCliente.validator.ts
+mapperidea generate app mean validator entityName=CartaoCliente > backend/src/infra/http/validators/cartaoCliente.validator.ts
+mapperidea generate app mean validator entityName=Categoria > backend/src/infra/http/validators/categoria.validator.ts
+mapperidea generate app mean validator entityName=Cozinha > backend/src/infra/http/validators/cozinha.validator.ts
+mapperidea generate app mean validator entityName=Endereco > backend/src/infra/http/validators/endereco.validator.ts
+mapperidea generate app mean validator entityName=Garcon > backend/src/infra/http/validators/garcon.validator.ts
+mapperidea generate app mean validator entityName=ItemPedido > backend/src/infra/http/validators/itemPedido.validator.ts
+mapperidea generate app mean validator entityName=Cardapio > backend/src/infra/http/validators/cardapio.validator.ts
+mapperidea generate app mean validator entityName=Opcional > backend/src/infra/http/validators/opcional.validator.ts
+mapperidea generate app mean validator entityName=Pagamento > backend/src/infra/http/validators/pagamento.validator.ts
+mapperidea generate app mean validator entityName=Pedido > backend/src/infra/http/validators/pedido.validator.ts
+mapperidea generate app mean validator entityName=Produto > backend/src/infra/http/validators/produto.validator.ts
+mapperidea generate app mean validator entityName=TipoPagamento > backend/src/infra/http/validators/tipoPagamento.validator.ts
+mapperidea generate app mean validator entityName=Entrega > backend/src/infra/http/validators/entrega.validator.ts
+mapperidea generate app mean sequelizeModel entityName=CartaoConsumo > backend/src/infra/database/sequelize/models/cartaoConsumo.model.ts
+mapperidea generate app mean mongoModel entityName=CartaoConsumo > backend/src/infra/database/mongoose/models/cartaoConsumo.model.ts
+mapperidea generate app mean model entityName=CartaoConsumo > backend/src/domain/entities/cartaoConsumo.model.ts
+mapperidea generate app mean sequelizeModel entityName=Cliente > backend/src/infra/database/sequelize/models/cliente.model.ts
+mapperidea generate app mean mongoModel entityName=Cliente > backend/src/infra/database/mongoose/models/cliente.model.ts
+mapperidea generate app mean model entityName=Cliente > backend/src/domain/entities/cliente.model.ts
+mapperidea generate app mean sequelizeModel entityName=CadastroCliente > backend/src/infra/database/sequelize/models/cadastroCliente.model.ts
+mapperidea generate app mean mongoModel entityName=CadastroCliente > backend/src/infra/database/mongoose/models/cadastroCliente.model.ts
+mapperidea generate app mean model entityName=CadastroCliente > backend/src/domain/entities/cadastroCliente.model.ts
+mapperidea generate app mean sequelizeModel entityName=CartaoCliente > backend/src/infra/database/sequelize/models/cartaoCliente.model.ts
+mapperidea generate app mean mongoModel entityName=CartaoCliente > backend/src/infra/database/mongoose/models/cartaoCliente.model.ts
+mapperidea generate app mean model entityName=CartaoCliente > backend/src/domain/entities/cartaoCliente.model.ts
+mapperidea generate app mean sequelizeModel entityName=Categoria > backend/src/infra/database/sequelize/models/categoria.model.ts
+mapperidea generate app mean mongoModel entityName=Categoria > backend/src/infra/database/mongoose/models/categoria.model.ts
+mapperidea generate app mean model entityName=Categoria > backend/src/domain/entities/categoria.model.ts
+mapperidea generate app mean sequelizeModel entityName=Cozinha > backend/src/infra/database/sequelize/models/cozinha.model.ts
+mapperidea generate app mean mongoModel entityName=Cozinha > backend/src/infra/database/mongoose/models/cozinha.model.ts
+mapperidea generate app mean model entityName=Cozinha > backend/src/domain/entities/cozinha.model.ts
+mapperidea generate app mean sequelizeModel entityName=Endereco > backend/src/infra/database/sequelize/models/endereco.model.ts
+mapperidea generate app mean mongoModel entityName=Endereco > backend/src/infra/database/mongoose/models/endereco.model.ts
+mapperidea generate app mean model entityName=Endereco > backend/src/domain/entities/endereco.model.ts
+mapperidea generate app mean sequelizeModel entityName=Garcon > backend/src/infra/database/sequelize/models/garcon.model.ts
+mapperidea generate app mean mongoModel entityName=Garcon > backend/src/infra/database/mongoose/models/garcon.model.ts
+mapperidea generate app mean model entityName=Garcon > backend/src/domain/entities/garcon.model.ts
+mapperidea generate app mean sequelizeModel entityName=ItemPedido > backend/src/infra/database/sequelize/models/itemPedido.model.ts
+mapperidea generate app mean mongoModel entityName=ItemPedido > backend/src/infra/database/mongoose/models/itemPedido.model.ts
+mapperidea generate app mean model entityName=ItemPedido > backend/src/domain/entities/itemPedido.model.ts
+mapperidea generate app mean sequelizeModel entityName=Cardapio > backend/src/infra/database/sequelize/models/cardapio.model.ts
+mapperidea generate app mean mongoModel entityName=Cardapio > backend/src/infra/database/mongoose/models/cardapio.model.ts
+mapperidea generate app mean model entityName=Cardapio > backend/src/domain/entities/cardapio.model.ts
+mapperidea generate app mean sequelizeModel entityName=Opcional > backend/src/infra/database/sequelize/models/opcional.model.ts
+mapperidea generate app mean mongoModel entityName=Opcional > backend/src/infra/database/mongoose/models/opcional.model.ts
+mapperidea generate app mean model entityName=Opcional > backend/src/domain/entities/opcional.model.ts
+mapperidea generate app mean sequelizeModel entityName=Pagamento > backend/src/infra/database/sequelize/models/pagamento.model.ts
+mapperidea generate app mean mongoModel entityName=Pagamento > backend/src/infra/database/mongoose/models/pagamento.model.ts
+mapperidea generate app mean model entityName=Pagamento > backend/src/domain/entities/pagamento.model.ts
+mapperidea generate app mean sequelizeModel entityName=Pedido > backend/src/infra/database/sequelize/models/pedido.model.ts
+mapperidea generate app mean mongoModel entityName=Pedido > backend/src/infra/database/mongoose/models/pedido.model.ts
+mapperidea generate app mean model entityName=Pedido > backend/src/domain/entities/pedido.model.ts
+mapperidea generate app mean sequelizeModel entityName=Produto > backend/src/infra/database/sequelize/models/produto.model.ts
+mapperidea generate app mean mongoModel entityName=Produto > backend/src/infra/database/mongoose/models/produto.model.ts
+mapperidea generate app mean model entityName=Produto > backend/src/domain/entities/produto.model.ts
+mapperidea generate app mean sequelizeModel entityName=TipoPagamento > backend/src/infra/database/sequelize/models/tipoPagamento.model.ts
+mapperidea generate app mean mongoModel entityName=TipoPagamento > backend/src/infra/database/mongoose/models/tipoPagamento.model.ts
+mapperidea generate app mean model entityName=TipoPagamento > backend/src/domain/entities/tipoPagamento.model.ts
+mapperidea generate app mean sequelizeModel entityName=Entrega > backend/src/infra/database/sequelize/models/entrega.model.ts
+mapperidea generate app mean mongoModel entityName=Entrega > backend/src/infra/database/mongoose/models/entrega.model.ts
+mapperidea generate app mean model entityName=Entrega > backend/src/domain/entities/entrega.model.ts
+mi g app json jsonClass entityName=CartaoConsumo > frontend/src/assets/dicionario/cartaoConsumo.json
+mi g app json jsonClass entityName=Cliente > frontend/src/assets/dicionario/cliente.json
+mi g app json jsonClass entityName=CadastroCliente > frontend/src/assets/dicionario/cadastroCliente.json
+mi g app json jsonClass entityName=CartaoCliente > frontend/src/assets/dicionario/cartaoCliente.json
+mi g app json jsonClass entityName=Categoria > frontend/src/assets/dicionario/categoria.json
+mi g app json jsonClass entityName=Cozinha > frontend/src/assets/dicionario/cozinha.json
+mi g app json jsonClass entityName=Endereco > frontend/src/assets/dicionario/endereco.json
+mi g app json jsonClass entityName=Garcon > frontend/src/assets/dicionario/garcon.json
+mi g app json jsonClass entityName=ItemPedido > frontend/src/assets/dicionario/itemPedido.json
+mi g app json jsonClass entityName=Cardapio > frontend/src/assets/dicionario/cardapio.json
+mi g app json jsonClass entityName=Opcional > frontend/src/assets/dicionario/opcional.json
+mi g app json jsonClass entityName=Pagamento > frontend/src/assets/dicionario/pagamento.json
+mi g app json jsonClass entityName=Pedido > frontend/src/assets/dicionario/pedido.json
+mi g app json jsonClass entityName=Produto > frontend/src/assets/dicionario/produto.json
+mi g app json jsonClass entityName=TipoPagamento > frontend/src/assets/dicionario/tipoPagamento.json
+mi g app json jsonClass entityName=Entrega > frontend/src/assets/dicionario/entrega.json
+mapperidea generate app mean repository entityName=CartaoConsumo > backend/src/domain/repositories/cartaoConsumo.repository.ts
+mapperidea generate app mean repository entityName=Cliente > backend/src/domain/repositories/cliente.repository.ts
+mapperidea generate app mean repository entityName=CadastroCliente > backend/src/domain/repositories/cadastroCliente.repository.ts
+mapperidea generate app mean repository entityName=CartaoCliente > backend/src/domain/repositories/cartaoCliente.repository.ts
+mapperidea generate app mean repository entityName=Categoria > backend/src/domain/repositories/categoria.repository.ts
+mapperidea generate app mean repository entityName=Cozinha > backend/src/domain/repositories/cozinha.repository.ts
+mapperidea generate app mean repository entityName=Endereco > backend/src/domain/repositories/endereco.repository.ts
+mapperidea generate app mean repository entityName=Garcon > backend/src/domain/repositories/garcon.repository.ts
+mapperidea generate app mean repository entityName=ItemPedido > backend/src/domain/repositories/itemPedido.repository.ts
+mapperidea generate app mean repository entityName=Cardapio > backend/src/domain/repositories/cardapio.repository.ts
+mapperidea generate app mean repository entityName=Opcional > backend/src/domain/repositories/opcional.repository.ts
+mapperidea generate app mean repository entityName=Pagamento > backend/src/domain/repositories/pagamento.repository.ts
+mapperidea generate app mean repository entityName=Pedido > backend/src/domain/repositories/pedido.repository.ts
+mapperidea generate app mean repository entityName=Produto > backend/src/domain/repositories/produto.repository.ts
+mapperidea generate app mean repository entityName=TipoPagamento > backend/src/domain/repositories/tipoPagamento.repository.ts
+mapperidea generate app mean repository entityName=Entrega > backend/src/domain/repositories/entrega.repository.ts
+mapperidea generate app mean apiController entityName=CartaoConsumo > backend/src/infra/http/controllers/cartaoConsumo.controller.ts
+mapperidea generate app mean apiController entityName=Cliente > backend/src/infra/http/controllers/cliente.controller.ts
+mapperidea generate app mean apiController entityName=CadastroCliente > backend/src/infra/http/controllers/cadastroCliente.controller.ts
+mapperidea generate app mean apiController entityName=CartaoCliente > backend/src/infra/http/controllers/cartaoCliente.controller.ts
+mapperidea generate app mean apiController entityName=Categoria > backend/src/infra/http/controllers/categoria.controller.ts
+mapperidea generate app mean apiController entityName=Cozinha > backend/src/infra/http/controllers/cozinha.controller.ts
+mapperidea generate app mean apiController entityName=Endereco > backend/src/infra/http/controllers/endereco.controller.ts
+mapperidea generate app mean apiController entityName=Garcon > backend/src/infra/http/controllers/garcon.controller.ts
+mapperidea generate app mean apiController entityName=ItemPedido > backend/src/infra/http/controllers/itemPedido.controller.ts
+mapperidea generate app mean apiController entityName=Cardapio > backend/src/infra/http/controllers/cardapio.controller.ts
+mapperidea generate app mean apiController entityName=Opcional > backend/src/infra/http/controllers/opcional.controller.ts
+mapperidea generate app mean apiController entityName=Pagamento > backend/src/infra/http/controllers/pagamento.controller.ts
+mapperidea generate app mean apiController entityName=Pedido > backend/src/infra/http/controllers/pedido.controller.ts
+mapperidea generate app mean apiController entityName=Produto > backend/src/infra/http/controllers/produto.controller.ts
+mapperidea generate app mean apiController entityName=TipoPagamento > backend/src/infra/http/controllers/tipoPagamento.controller.ts
+mapperidea generate app mean apiController entityName=Entrega > backend/src/infra/http/controllers/entrega.controller.ts
+mapperidea generate app angular model entityName=CartaoConsumo > frontend/src/app/modules/cartao-consumo/shared/cartao-consumo.model.ts
+mapperidea generate app angular model entityName=Cliente > frontend/src/app/modules/cliente/shared/cliente.model.ts
+mapperidea generate app angular model entityName=CadastroCliente > frontend/src/app/modules/cadastro-cliente/shared/cadastro-cliente.model.ts
+mapperidea generate app angular model entityName=CartaoCliente > frontend/src/app/modules/cartao-cliente/shared/cartao-cliente.model.ts
+mapperidea generate app angular model entityName=Categoria > frontend/src/app/modules/categoria/shared/categoria.model.ts
+mapperidea generate app angular model entityName=Cozinha > frontend/src/app/modules/cozinha/shared/cozinha.model.ts
+mapperidea generate app angular model entityName=Endereco > frontend/src/app/modules/endereco/shared/endereco.model.ts
+mapperidea generate app angular model entityName=Garcon > frontend/src/app/modules/garcon/shared/garcon.model.ts
+mapperidea generate app angular model entityName=ItemPedido > frontend/src/app/modules/item-pedido/shared/item-pedido.model.ts
+mapperidea generate app angular model entityName=Cardapio > frontend/src/app/modules/cardapio/shared/cardapio.model.ts
+mapperidea generate app angular model entityName=Opcional > frontend/src/app/modules/opcional/shared/opcional.model.ts
+mapperidea generate app angular model entityName=Pagamento > frontend/src/app/modules/pagamento/shared/pagamento.model.ts
+mapperidea generate app angular model entityName=Pedido > frontend/src/app/modules/pedido/shared/pedido.model.ts
+mapperidea generate app angular model entityName=Produto > frontend/src/app/modules/produto/shared/produto.model.ts
+mapperidea generate app angular model entityName=TipoPagamento > frontend/src/app/modules/tipo-pagamento/shared/tipo-pagamento.model.ts
+mapperidea generate app angular model entityName=Entrega > frontend/src/app/modules/entrega/shared/entrega.model.ts
+mi g app angular dataService entityName=CartaoConsumo > frontend/src/app/modules/cartao-consumo/shared/cartao-consumo.service.ts
+mi g app angular dataService entityName=Cliente > frontend/src/app/modules/cliente/shared/cliente.service.ts
+mi g app angular dataService entityName=CadastroCliente > frontend/src/app/modules/cadastro-cliente/shared/cadastro-cliente.service.ts
+mi g app angular dataService entityName=CartaoCliente > frontend/src/app/modules/cartao-cliente/shared/cartao-cliente.service.ts
+mi g app angular dataService entityName=Categoria > frontend/src/app/modules/categoria/shared/categoria.service.ts
+mi g app angular dataService entityName=Cozinha > frontend/src/app/modules/cozinha/shared/cozinha.service.ts
+mi g app angular dataService entityName=Endereco > frontend/src/app/modules/endereco/shared/endereco.service.ts
+mi g app angular dataService entityName=Garcon > frontend/src/app/modules/garcon/shared/garcon.service.ts
+mi g app angular dataService entityName=ItemPedido > frontend/src/app/modules/item-pedido/shared/item-pedido.service.ts
+mi g app angular dataService entityName=Cardapio > frontend/src/app/modules/cardapio/shared/cardapio.service.ts
+mi g app angular dataService entityName=Opcional > frontend/src/app/modules/opcional/shared/opcional.service.ts
+mi g app angular dataService entityName=Pagamento > frontend/src/app/modules/pagamento/shared/pagamento.service.ts
+mi g app angular dataService entityName=Pedido > frontend/src/app/modules/pedido/shared/pedido.service.ts
+mi g app angular dataService entityName=Produto > frontend/src/app/modules/produto/shared/produto.service.ts
+mi g app angular dataService entityName=TipoPagamento > frontend/src/app/modules/tipo-pagamento/shared/tipo-pagamento.service.ts
+mi g app angular dataService entityName=Entrega > frontend/src/app/modules/entrega/shared/entrega.service.ts
+mi g app angular appRoutingChild entityName=CartaoConsumo > frontend/src/app/modules/cartao-consumo/cartao-consumo-routing.module.ts
+mi g app angular appRoutingChild entityName=Cliente > frontend/src/app/modules/cliente/cliente-routing.module.ts
+mi g app angular appRoutingChild entityName=CadastroCliente > frontend/src/app/modules/cadastro-cliente/cadastro-cliente-routing.module.ts
+mi g app angular appRoutingChild entityName=CartaoCliente > frontend/src/app/modules/cartao-cliente/cartao-cliente-routing.module.ts
+mi g app angular appRoutingChild entityName=Categoria > frontend/src/app/modules/categoria/categoria-routing.module.ts
+mi g app angular appRoutingChild entityName=Cozinha > frontend/src/app/modules/cozinha/cozinha-routing.module.ts
+mi g app angular appRoutingChild entityName=Endereco > frontend/src/app/modules/endereco/endereco-routing.module.ts
+mi g app angular appRoutingChild entityName=Garcon > frontend/src/app/modules/garcon/garcon-routing.module.ts
+mi g app angular appRoutingChild entityName=ItemPedido > frontend/src/app/modules/item-pedido/item-pedido-routing.module.ts
+mi g app angular appRoutingChild entityName=Cardapio > frontend/src/app/modules/cardapio/cardapio-routing.module.ts
+mi g app angular appRoutingChild entityName=Opcional > frontend/src/app/modules/opcional/opcional-routing.module.ts
+mi g app angular appRoutingChild entityName=Pagamento > frontend/src/app/modules/pagamento/pagamento-routing.module.ts
+mi g app angular appRoutingChild entityName=Pedido > frontend/src/app/modules/pedido/pedido-routing.module.ts
+mi g app angular appRoutingChild entityName=Produto > frontend/src/app/modules/produto/produto-routing.module.ts
+mi g app angular appRoutingChild entityName=TipoPagamento > frontend/src/app/modules/tipo-pagamento/tipo-pagamento-routing.module.ts
+mi g app angular appRoutingChild entityName=Entrega > frontend/src/app/modules/entrega/entrega-routing.module.ts
+mi g app mean routes entityName=CartaoConsumo > backend/src/infra/http/routes/cartaoConsumo.route.ts
+mi g app mean routes entityName=Cliente > backend/src/infra/http/routes/cliente.route.ts
+mi g app mean routes entityName=CadastroCliente > backend/src/infra/http/routes/cadastroCliente.route.ts
+mi g app mean routes entityName=CartaoCliente > backend/src/infra/http/routes/cartaoCliente.route.ts
+mi g app mean routes entityName=Categoria > backend/src/infra/http/routes/categoria.route.ts
+mi g app mean routes entityName=Cozinha > backend/src/infra/http/routes/cozinha.route.ts
+mi g app mean routes entityName=Endereco > backend/src/infra/http/routes/endereco.route.ts
+mi g app mean routes entityName=Garcon > backend/src/infra/http/routes/garcon.route.ts
+mi g app mean routes entityName=ItemPedido > backend/src/infra/http/routes/itemPedido.route.ts
+mi g app mean routes entityName=Cardapio > backend/src/infra/http/routes/cardapio.route.ts
+mi g app mean routes entityName=Opcional > backend/src/infra/http/routes/opcional.route.ts
+mi g app mean routes entityName=Pagamento > backend/src/infra/http/routes/pagamento.route.ts
+mi g app mean routes entityName=Pedido > backend/src/infra/http/routes/pedido.route.ts
+mi g app mean routes entityName=Produto > backend/src/infra/http/routes/produto.route.ts
+mi g app mean routes entityName=TipoPagamento > backend/src/infra/http/routes/tipoPagamento.route.ts
+mi g app mean routes entityName=Entrega > backend/src/infra/http/routes/entrega.route.ts
+mi g app angular listComponentHTML listName=CartaoConsumo >  frontend/src/app/modules/cartao-consumo/list-cartao-consumo/list-cartao-consumo.component.html
+mi g app angular listComponentTS listName=CartaoConsumo >  frontend/src/app/modules/cartao-consumo/list-cartao-consumo/list-cartao-consumo.component.ts
+mi g app angular detailsComponentHTML editorName=CartaoConsumo >  frontend/src/app/modules/cartao-consumo/cartao-consumo-form/cartao-consumo-form.component.html
+mi g app angular detailsComponentTS editorName=CartaoConsumo >  frontend/src/app/modules/cartao-consumo/cartao-consumo-form/cartao-consumo-form.component.ts
+mi g app angular listComponentHTML listName=Cliente >  frontend/src/app/modules/cliente/list-cliente/list-cliente.component.html
+mi g app angular listComponentTS listName=Cliente >  frontend/src/app/modules/cliente/list-cliente/list-cliente.component.ts
+mi g app angular detailsComponentHTML editorName=Cliente >  frontend/src/app/modules/cliente/cliente-form/cliente-form.component.html
+mi g app angular detailsComponentTS editorName=Cliente >  frontend/src/app/modules/cliente/cliente-form/cliente-form.component.ts
+mi g app angular listComponentHTML listName=CadastroCliente >  frontend/src/app/modules/cadastro-cliente/list-cadastro-cliente/list-cadastro-cliente.component.html
+mi g app angular listComponentTS listName=CadastroCliente >  frontend/src/app/modules/cadastro-cliente/list-cadastro-cliente/list-cadastro-cliente.component.ts
+mi g app angular detailsComponentHTML editorName=CadastroCliente >  frontend/src/app/modules/cadastro-cliente/cadastro-cliente-form/cadastro-cliente-form.component.html
+mi g app angular detailsComponentTS editorName=CadastroCliente >  frontend/src/app/modules/cadastro-cliente/cadastro-cliente-form/cadastro-cliente-form.component.ts
+mi g app angular listComponentHTML listName=CartaoCliente >  frontend/src/app/modules/cartao-cliente/list-cartao-cliente/list-cartao-cliente.component.html
+mi g app angular listComponentTS listName=CartaoCliente >  frontend/src/app/modules/cartao-cliente/list-cartao-cliente/list-cartao-cliente.component.ts
+mi g app angular detailsComponentHTML editorName=CartaoCliente >  frontend/src/app/modules/cartao-cliente/cartao-cliente-form/cartao-cliente-form.component.html
+mi g app angular detailsComponentTS editorName=CartaoCliente >  frontend/src/app/modules/cartao-cliente/cartao-cliente-form/cartao-cliente-form.component.ts
+mi g app angular listComponentHTML listName=Categoria >  frontend/src/app/modules/categoria/list-categoria/list-categoria.component.html
+mi g app angular listComponentTS listName=Categoria >  frontend/src/app/modules/categoria/list-categoria/list-categoria.component.ts
+mi g app angular detailsComponentHTML editorName=Categoria >  frontend/src/app/modules/categoria/categoria-form/categoria-form.component.html
+mi g app angular detailsComponentTS editorName=Categoria >  frontend/src/app/modules/categoria/categoria-form/categoria-form.component.ts
+mi g app angular listComponentHTML listName=Cozinha >  frontend/src/app/modules/cozinha/list-cozinha/list-cozinha.component.html
+mi g app angular listComponentTS listName=Cozinha >  frontend/src/app/modules/cozinha/list-cozinha/list-cozinha.component.ts
+mi g app angular detailsComponentHTML editorName=Cozinha >  frontend/src/app/modules/cozinha/cozinha-form/cozinha-form.component.html
+mi g app angular detailsComponentTS editorName=Cozinha >  frontend/src/app/modules/cozinha/cozinha-form/cozinha-form.component.ts
+mi g app angular listComponentHTML listName=Endereco >  frontend/src/app/modules/endereco/list-endereco/list-endereco.component.html
+mi g app angular listComponentTS listName=Endereco >  frontend/src/app/modules/endereco/list-endereco/list-endereco.component.ts
+mi g app angular detailsComponentHTML editorName=Endereco >  frontend/src/app/modules/endereco/endereco-form/endereco-form.component.html
+mi g app angular detailsComponentTS editorName=Endereco >  frontend/src/app/modules/endereco/endereco-form/endereco-form.component.ts
+mi g app angular listComponentHTML listName=Garcon >  frontend/src/app/modules/garcon/list-garcon/list-garcon.component.html
+mi g app angular listComponentTS listName=Garcon >  frontend/src/app/modules/garcon/list-garcon/list-garcon.component.ts
+mi g app angular detailsComponentHTML editorName=Garcon >  frontend/src/app/modules/garcon/garcon-form/garcon-form.component.html
+mi g app angular detailsComponentTS editorName=Garcon >  frontend/src/app/modules/garcon/garcon-form/garcon-form.component.ts
+mi g app angular listComponentHTML listName=ItemPedido >  frontend/src/app/modules/item-pedido/list-item-pedido/list-item-pedido.component.html
+mi g app angular listComponentTS listName=ItemPedido >  frontend/src/app/modules/item-pedido/list-item-pedido/list-item-pedido.component.ts
+mi g app angular detailsComponentHTML editorName=ItemPedido >  frontend/src/app/modules/item-pedido/item-pedido-form/item-pedido-form.component.html
+mi g app angular detailsComponentTS editorName=ItemPedido >  frontend/src/app/modules/item-pedido/item-pedido-form/item-pedido-form.component.ts
+mi g app angular listComponentHTML listName=Cardapio >  frontend/src/app/modules/cardapio/list-cardapio/list-cardapio.component.html
+mi g app angular listComponentTS listName=Cardapio >  frontend/src/app/modules/cardapio/list-cardapio/list-cardapio.component.ts
+mi g app angular detailsComponentHTML editorName=Cardapio >  frontend/src/app/modules/cardapio/cardapio-form/cardapio-form.component.html
+mi g app angular detailsComponentTS editorName=Cardapio >  frontend/src/app/modules/cardapio/cardapio-form/cardapio-form.component.ts
+mi g app angular listComponentHTML listName=Opcional >  frontend/src/app/modules/opcional/list-opcional/list-opcional.component.html
+mi g app angular listComponentTS listName=Opcional >  frontend/src/app/modules/opcional/list-opcional/list-opcional.component.ts
+mi g app angular detailsComponentHTML editorName=Opcional >  frontend/src/app/modules/opcional/opcional-form/opcional-form.component.html
+mi g app angular detailsComponentTS editorName=Opcional >  frontend/src/app/modules/opcional/opcional-form/opcional-form.component.ts
+mi g app angular listComponentHTML listName=Pagamento >  frontend/src/app/modules/pagamento/list-pagamento/list-pagamento.component.html
+mi g app angular listComponentTS listName=Pagamento >  frontend/src/app/modules/pagamento/list-pagamento/list-pagamento.component.ts
+mi g app angular detailsComponentHTML editorName=Pagamento >  frontend/src/app/modules/pagamento/pagamento-form/pagamento-form.component.html
+mi g app angular detailsComponentTS editorName=Pagamento >  frontend/src/app/modules/pagamento/pagamento-form/pagamento-form.component.ts
+mi g app angular listComponentHTML listName=Pedido >  frontend/src/app/modules/pedido/list-pedido/list-pedido.component.html
+mi g app angular listComponentTS listName=Pedido >  frontend/src/app/modules/pedido/list-pedido/list-pedido.component.ts
+mi g app angular detailsComponentHTML editorName=Pedido >  frontend/src/app/modules/pedido/pedido-form/pedido-form.component.html
+mi g app angular detailsComponentTS editorName=Pedido >  frontend/src/app/modules/pedido/pedido-form/pedido-form.component.ts
+mi g app angular listComponentHTML listName=Produto >  frontend/src/app/modules/produto/list-produto/list-produto.component.html
+mi g app angular listComponentTS listName=Produto >  frontend/src/app/modules/produto/list-produto/list-produto.component.ts
+mi g app angular detailsComponentHTML editorName=Produto >  frontend/src/app/modules/produto/produto-form/produto-form.component.html
+mi g app angular detailsComponentTS editorName=Produto >  frontend/src/app/modules/produto/produto-form/produto-form.component.ts
+mi g app angular listComponentHTML listName=TipoPagamento >  frontend/src/app/modules/tipo-pagamento/list-tipo-pagamento/list-tipo-pagamento.component.html
+mi g app angular listComponentTS listName=TipoPagamento >  frontend/src/app/modules/tipo-pagamento/list-tipo-pagamento/list-tipo-pagamento.component.ts
+mi g app angular detailsComponentHTML editorName=TipoPagamento >  frontend/src/app/modules/tipo-pagamento/tipo-pagamento-form/tipo-pagamento-form.component.html
+mi g app angular detailsComponentTS editorName=TipoPagamento >  frontend/src/app/modules/tipo-pagamento/tipo-pagamento-form/tipo-pagamento-form.component.ts
+mi g app angular listComponentHTML listName=Entrega >  frontend/src/app/modules/entrega/list-entrega/list-entrega.component.html
+mi g app angular listComponentTS listName=Entrega >  frontend/src/app/modules/entrega/list-entrega/list-entrega.component.ts
+mi g app angular detailsComponentHTML editorName=Entrega >  frontend/src/app/modules/entrega/entrega-form/entrega-form.component.html
+mi g app angular detailsComponentTS editorName=Entrega >  frontend/src/app/modules/entrega/entrega-form/entrega-form.component.ts
+mi g app json jsonClass entityName=CartaoConsumo > frontend/src/assets/dicionario/cartaoConsumo.json
+mi g app json jsonClass entityName=Cliente > frontend/src/assets/dicionario/cliente.json
+mi g app json jsonClass entityName=CadastroCliente > frontend/src/assets/dicionario/cadastroCliente.json
+mi g app json jsonClass entityName=CartaoCliente > frontend/src/assets/dicionario/cartaoCliente.json
+mi g app json jsonClass entityName=Categoria > frontend/src/assets/dicionario/categoria.json
+mi g app json jsonClass entityName=Cozinha > frontend/src/assets/dicionario/cozinha.json
+mi g app json jsonClass entityName=Endereco > frontend/src/assets/dicionario/endereco.json
+mi g app json jsonClass entityName=Garcon > frontend/src/assets/dicionario/garcon.json
+mi g app json jsonClass entityName=ItemPedido > frontend/src/assets/dicionario/itemPedido.json
+mi g app json jsonClass entityName=Cardapio > frontend/src/assets/dicionario/cardapio.json
+mi g app json jsonClass entityName=Opcional > frontend/src/assets/dicionario/opcional.json
+mi g app json jsonClass entityName=Pagamento > frontend/src/assets/dicionario/pagamento.json
+mi g app json jsonClass entityName=Pedido > frontend/src/assets/dicionario/pedido.json
+mi g app json jsonClass entityName=Produto > frontend/src/assets/dicionario/produto.json
+mi g app json jsonClass entityName=TipoPagamento > frontend/src/assets/dicionario/tipoPagamento.json
+mi g app json jsonClass entityName=Entrega > frontend/src/assets/dicionario/entrega.json
 mi g app json jsonTransloco translate=en > frontend/src/assets/i18n/en.json
 mi g app json jsonTransloco translate=pt > frontend/src/assets/i18n/pt.json
-mi g app json jsonCoreTransloco translate=en > frontend/src/assets/i18n/core/en.json
-mi g app json jsonCoreTransloco translate=pt > frontend/src/assets/i18n/core/pt.json
 mi g app angular environment > frontend/src/environments/environment.ts
 mi g app angular environment > frontend/src/environments/environment.development.ts
-mi g app json jsonMenu > frontend/src/assets/dicionario/menu/menu.json
 mi g app mean envBackend > backend/.env
 mi g app mean routeConsultas > backend/src/infra/http/routes/consulta.route.ts
 mi g app mean controllerConsultas > backend/src/infra/http/controllers/consulta.controller.ts
@@ -448,4 +415,5 @@ mi g app mean serviceConsultas > backend/src/domain/services/consulta.service.ts
 mi g app mean repositoryConsultas > backend/src/domain/repositories/consulta.repository.ts
 mi g app mean routeRelatorios > backend/src/infra/http/routes/dashboard.route.ts
 mi g app mean controllerRelatorios > backend/src/infra/http/controllers/dashboard.controller.ts
-mi g app json jsonDashboard relatorioName=Painel > frontend/src/assets/dicionario/dashboard/painel.json
+mi g app json jsonMenu menuName=home > frontend/src/assets/dicionario/menu/home.json
+mi g app json jsonMenu menuName=home > backend/src/resources/menu/home.json

@@ -1,0 +1,196 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:28.76441Z", 
+        "description": "Opcional",  
+        "name": "Opcional", 
+        "apiUrl": "api/opcional",
+        "route": "",
+        "title": { 
+            "pt": "Opcional", 
+            "en": "Optional" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"nomeOpcional", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"tipoOpcional", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"maximaOpcionais", 
+            "type": "number", 
+            "mask": "Numero", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"produto", 
+            "type": "foreignKey", 
+            "className": "Produto", 
+            "many": false, 
+            "apiUrl": "",
+            "fieldDisplayedInLabel": "",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "nomeProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "codigo", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "descricaoProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "precoProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "imagem", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "categoria", 
+            "fieldDisplayedInLabel": "nomeCategoria",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "opcional", 
+            "fieldDisplayedInLabel": "nomeOpcional",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        },
+        { 
+            "name":"categoria", 
+            "type": "foreignKey", 
+            "className": "Categoria", 
+            "many": false, 
+            "apiUrl": "api/categoria",
+            "fieldDisplayedInLabel": "nomeCategoria",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "nomeCategoria", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "usaopcoesTamanho", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "usaopcoesBorda", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "setor", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        }
+    ] 
+}

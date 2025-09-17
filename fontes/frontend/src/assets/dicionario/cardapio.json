@@ -1,0 +1,142 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:27.754224Z", 
+        "description": "Cardapio",  
+        "name": "Cardapio", 
+        "apiUrl": "api/cardapio",
+        "route": "",
+        "title": { 
+            "pt": "cardapio", 
+            "en": "Menu" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"nomeMenu", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"descricaoMenu", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"preco", 
+            "type": "number", 
+            "mask": "Numero", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"produto", 
+            "type": "foreignKey", 
+            "className": "Produto", 
+            "many": false, 
+            "apiUrl": "api/produto",
+            "fieldDisplayedInLabel": "nomeProduto",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "nomeProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "codigo", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "descricaoProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "precoProduto", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "imagem", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "categoria", 
+            "fieldDisplayedInLabel": "nomeCategoria",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "opcional", 
+            "fieldDisplayedInLabel": "nomeOpcional",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        }
+    ] 
+}

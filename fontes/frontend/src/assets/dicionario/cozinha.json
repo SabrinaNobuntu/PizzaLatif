@@ -1,0 +1,122 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:23.637434Z", 
+        "description": "Cozinha",  
+        "name": "Cozinha", 
+        "apiUrl": "api/cozinha",
+        "route": "",
+        "title": { 
+            "pt": "Cozinha", 
+            "en": "Kitchen" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"nomePedido", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"dataHora", 
+            "type": "number", 
+            "mask": "Numero", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"statusPedido", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"itemPedido", 
+            "type": "foreignKey", 
+            "className": "ItemPedido", 
+            "many": false, 
+            "apiUrl": "api/itemPedido",
+            "fieldDisplayedInLabel": "nomePedido quantidadePedido precoPedido numeroMesa descricao",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "nomePedido", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "descricao", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "quantidadePedido", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "precoPedido", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "numeroMesa", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        }
+    ] 
+}

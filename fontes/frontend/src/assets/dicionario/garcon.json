@@ -1,0 +1,70 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:25.729976Z", 
+        "description": "Garçon",  
+        "name": "Garcon", 
+        "apiUrl": "api/garcon",
+        "route": "",
+        "title": { 
+            "pt": "Garçon", 
+            "en": "Garcon" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"nomeGarcon", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"login", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"senha", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"comissao", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        }
+    ] 
+}

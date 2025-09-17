@@ -1,0 +1,37 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:32.805328Z", 
+        "description": "Tipo do Pagamento",  
+        "name": "TipoPagamento", 
+        "apiUrl": "api/tipoPagamento",
+        "route": "",
+        "title": { 
+            "pt": "Tipo Pagamento", 
+            "en": "Payment Type" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"tipoPagamento", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        }
+    ] 
+}

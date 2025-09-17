@@ -1,0 +1,90 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:49.094861Z", 
+        "name": "home", 
+        "type": "sandwich",
+        "defaultMenu": true
+    }, 
+    "itens": [ 
+        { 
+            "name": "CartaoConsumo", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Cliente", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "CadastroCliente", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "CartaoCliente", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Categoria", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Cozinha", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Endereco", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Garcon", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "ItemPedido", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Cardapio", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Opcional", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Pagamento", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Pedido", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Produto", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "TipoPagamento", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Entrega", 
+            "routeUrl": "/", 
+            "icon": "feather:box"
+        }
+    ] 
+}

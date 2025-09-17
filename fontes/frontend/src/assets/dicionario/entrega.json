@@ -1,0 +1,276 @@
+{
+    "config":{ 
+        "modified": "2025-09-17T18:00:33.802852Z", 
+        "description": "Entrega",  
+        "name": "Entrega", 
+        "apiUrl": "api/entrega",
+        "route": "",
+        "title": { 
+            "pt": "Entrega", 
+            "en": "Delivery" 
+        }, 
+        "searchableFields": [
+        ], 
+
+        "localStorage": true,
+        "filter": true, 
+        "addNew": true, 
+        "edit": true, 
+        "columnsQuantity": 3,
+        "delete": true,
+        "isFormStepper": false,
+        "isLinearFormStepper": false
+    }, 
+    "attributes": [ 
+        { 
+            "name":"status", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"dataEntregaPrevista", 
+            "type": "date", 
+            "mask": "Data", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"horaEntregaPrevista", 
+            "type": "time", 
+            "mask": "Time", 
+            "defaultValue":"00:00", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"dataEntregaReal", 
+            "type": "date", 
+            "mask": "Data", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"horaEntregaReal", 
+            "type": "time", 
+            "mask": "Time", 
+            "defaultValue":"00:00", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"motoboy", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"observacoes", 
+            "type": "string", 
+            "mask": "Texto", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"pedido", 
+            "type": "foreignKey", 
+            "className": "Pedido", 
+            "many": false, 
+            "apiUrl": "api/pedido",
+            "fieldDisplayedInLabel": "itemPedido",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "pedidoCancelado", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "datahoraPedido", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "pagamento", 
+            "fieldDisplayedInLabel": "valorPagamento",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "garcon", 
+            "fieldDisplayedInLabel": "nomeGarcon",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "itemPedido", 
+            "fieldDisplayedInLabel": "nomePedido",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "cartaoConsumo", 
+            "fieldDisplayedInLabel": "numeroCartao",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        },
+        { 
+            "name":"valor", 
+            "type": "number", 
+            "limiteOfChars": 5, 
+            "numberOfDecimals": 2, 
+            "mask": "Double", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"endereco", 
+            "type": "foreignKey", 
+            "className": "Endereco", 
+            "many": false, 
+            "apiUrl": "api/endereco",
+            "fieldDisplayedInLabel": "rua",
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "forageinKey": "id", 
+            "lookup": true, 
+            "viewDetails": true, 
+        "addNew": true, 
+            "properties": [ 
+                { 
+                    "type": "string", 
+                    "name": "rua", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "bairro", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "cidade", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "numeroMoradia", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "number", 
+                    "name": "cep", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "string", 
+                    "name": "complemento", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+           "type": "foreignKey", 
+            "name": "cadastroCliente", 
+            "fieldDisplayedInLabel": "nomeCliente sobrenomeCliente",  
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                }
+            ] 
+        }
+    ] 
+}
