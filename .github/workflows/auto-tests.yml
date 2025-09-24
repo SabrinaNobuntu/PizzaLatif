@@ -7,7 +7,6 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  # O job 'detect-changes' é responsável por detectar arquivos modificados
   detect-changes:
     runs-on: ubuntu-latest
     outputs:
@@ -27,18 +26,17 @@ jobs:
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-  # O job 'run-tests' utiliza uma matriz para rodar os testes em paralelo
   run-tests:
     runs-on: ubuntu-latest
     needs: detect-changes
     if: needs.detect-changes.outputs.changed_files != ''
     strategy:
-      fail-fast: false  # Garante que todos os testes rodem, mesmo se um falhar
+      fail-fast: false
       matrix:
         test: [frontend, backend, python]
     permissions:
       contents: read
-
+    
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -73,7 +71,6 @@ jobs:
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh "${{ needs.detect-changes.outputs.changed_files }}" "${{ matrix.test }}"
           
-  # O job 'report-status' coleta os resultados e comenta no PR
   report-status:
     runs-on: ubuntu-latest
     needs: run-tests
@@ -90,9 +87,9 @@ jobs:
         id: check_status
         run: |
           if [ "${{ needs.run-tests.result }}" == "success" ]; then
-            echo "::set-output name=status::success"
+            echo "status=success" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=status::failure"
+            echo "status=failure" >> $GITHUB_OUTPUT
           fi
       
       - name: Comentar no PR com o relatório de testes
@@ -100,7 +97,6 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const core = require('@actions/core');
             const report = fs.readFileSync('relatorio_testes.txt', 'utf8');
             const status = core.getInput('job_status');
             const commentBody = `### Relatório de Testes\n\n**Status:** ${status === 'success' ? '✅ Passou' : '❌ Falhou'}\n\n${report}`;
