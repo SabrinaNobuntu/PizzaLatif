@@ -3,8 +3,6 @@ name: Testes automáticos de PR/Issue
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  issues:
-    types: [opened]
 
 jobs:
   selective-tests:
@@ -21,14 +19,8 @@ jobs:
       - name: Definir BASE e HEAD
         id: set-range
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
-            echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
-          else
-            # Para issues, podemos testar a branch atual do default branch
-            echo "BASE=$(git rev-parse origin/main~1)" >> $GITHUB_ENV
-            echo "HEAD=$(git rev-parse origin/main)" >> $GITHUB_ENV
-          fi
+          echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+          echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
 
       - name: Detectar arquivos modificados
         id: detect
@@ -51,7 +43,7 @@ jobs:
         with:
           script: |
             github.issues.createComment({
-              issue_number: ${{ github.event.pull_request.number || github.event.issue.number }},
+              issue_number: ${{ github.event.pull_request.number }},
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: "Testes concluídos ✅"
