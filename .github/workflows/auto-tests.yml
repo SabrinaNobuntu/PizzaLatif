@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      
+
       - name: Detectar arquivos modificados
         id: detect
         run: |
@@ -72,6 +72,12 @@ jobs:
         run: |
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
+
+      - name: Upload do relatório de testes
+        uses: actions/upload-artifact@v3
+        with:
+          name: relatorio_testes
+          path: relatorio_testes.txt
 
   report-status:
     runs-on: ubuntu-latest
