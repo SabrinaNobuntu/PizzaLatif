@@ -20,11 +20,18 @@ done
 run_test() {
   local dir="$1"
   local cmd="$2"
-  [ -d "$dir" ] && { cd "$dir"; eval "$cmd" || exit 1; cd "$ROOT_DIR"; }
+  if [ -d "$dir" ]; then
+    echo "Executando testes em $dir..."
+    cd "$dir"
+    eval "$cmd" || { echo "Testes em $dir falharam"; exit 1; }
+    cd "$ROOT_DIR"
+  else
+    echo "Diretório $dir não encontrado — pulando."
+  fi
 }
 
 $run_frontend && run_test "fontes/frontend" "npm ci && npm test -- --watchAll=false"
 $run_backend && run_test "fontes/backend" "npm ci && npm test"
-$run_python && { python -m pip install -r requirements.txt; pytest -q || exit 1; }
+$run_python && { echo "Executando testes Python..."; cd "$ROOT_DIR"; python -m pip install -r requirements.txt; pytest -q || exit 1; }
 
 [ $run_frontend = false ] && [ $run_backend = false ] && [ $run_python = false ] && echo "Nenhum teste mapeado."
