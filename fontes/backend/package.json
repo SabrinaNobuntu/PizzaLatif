@@ -10,7 +10,7 @@
     "migrate": "npx sequelize-cli db:migrate --config config/config.js",
     "seed": "npx sequelize-cli db:seed:all --config config/config.js",
     "healthcheck": "bash src/scripts/healthcheck.sh",
-    "test": "jest"
+    "test": "npx jest"
   },
   "keywords": [],
   "author": "",
