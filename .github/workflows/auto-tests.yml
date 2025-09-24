@@ -1,4 +1,4 @@
-name: Testes Automáticos PR e Push
+name: Testes Automáticos PR
 
 on:
   push:
@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: write
 
     steps:
       - name: Checkout do código
@@ -22,14 +23,7 @@ jobs:
         id: detect
         run: |
           chmod +x .github/scripts/detect_changed_files.sh
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE=${{ github.event.pull_request.base.sha }}
-            HEAD=${{ github.event.pull_request.head.sha }}
-          else
-            BASE=$(git rev-parse HEAD~1)
-            HEAD=$(git rev-parse HEAD)
-          fi
-          CHANGED=$(.github/scripts/detect_changed_files.sh "$BASE" "$HEAD")
+          CHANGED=$(.github/scripts/detect_changed_files.sh ${{ github.event.before }} ${{ github.sha }})
           echo "changed_files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -40,14 +34,16 @@ jobs:
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh "${{ steps.detect.outputs.changed_files }}"
 
-      - name: Comentar resultado no PR
-        if: github.event_name == 'pull_request'
+      - name: Criar Issue se algum teste falhar
+        if: failure()
         uses: actions/github-script@v7
         with:
           script: |
-            github.issues.createComment({
-              issue_number: context.payload.pull_request.number,
+            const fs = require('fs');
+            const report = fs.readFileSync('relatorio_testes.txt', 'utf8');
+            github.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "Testes concluídos ✅"
+              title: `Falha nos testes - ${new Date().toISOString()}`,
+              body: `Ocorreu uma falha nos testes automáticos.\n\nRelatório:\n\n${report}`
             })

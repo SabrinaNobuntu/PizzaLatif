@@ -7,6 +7,9 @@ CHANGED_RAW="${1:-}"
 
 read -r -a files <<< "$CHANGED_RAW"
 
+REPORT="$ROOT_DIR/relatorio_testes.txt"
+echo "Relatório de testes - $(date)" > "$REPORT"
+
 run_frontend=false
 run_backend=false
 run_python=false
@@ -21,17 +24,23 @@ run_test() {
   local dir="$1"
   local cmd="$2"
   if [ -d "$dir" ]; then
-    echo "Executando testes em $dir..."
+    echo "Executando testes em $dir..." | tee -a "$REPORT"
     cd "$dir"
-    eval "$cmd" || { echo "Testes em $dir falharam"; exit 1; }
+    if eval "$cmd"; then
+      echo "✅ Testes em $dir OK" | tee -a "$REPORT"
+    else
+      echo "❌ Testes em $dir FALHARAM" | tee -a "$REPORT"
+      cd "$ROOT_DIR"
+      return 1
+    fi
     cd "$ROOT_DIR"
   else
-    echo "Diretório $dir não encontrado — pulando."
+    echo "Diretório $dir não encontrado — pulando." | tee -a "$REPORT"
   fi
 }
 
 $run_frontend && run_test "fontes/frontend" "npm ci && npm test -- --watchAll=false"
 $run_backend && run_test "fontes/backend" "npm ci && npm test"
-$run_python && { echo "Executando testes Python..."; cd "$ROOT_DIR"; python -m pip install -r requirements.txt; pytest -q || exit 1; }
+$run_python && { python -m pip install -r requirements.txt; pytest -q || exit 1; }
 
-[ $run_frontend = false ] && [ $run_backend = false ] && [ $run_python = false ] && echo "Nenhum teste mapeado."
+[ $run_frontend = false ] && [ $run_backend = false ] && [ $run_python = false ] && echo "Nenhum teste mapeado." | tee -a "$REPORT"
