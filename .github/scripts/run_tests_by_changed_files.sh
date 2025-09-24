@@ -3,44 +3,34 @@ set -euo pipefail
 
 ROOT_DIR="$(pwd)"
 CHANGED_RAW="${1:-}"
-[ -z "$CHANGED_RAW" ] && { echo "Nenhum arquivo alterado. Saindo."; exit 0; }
+TEST_CATEGORY="${2:-}"
 
-read -r -a files <<< "$CHANGED_RAW"
+[ -z "$CHANGED_RAW" ] && { echo "Nenhum arquivo alterado. Saindo."; exit 0; }
+[ -z "$TEST_CATEGORY" ] && { echo "Erro: Categoria de teste não especificada."; exit 1; }
+
+# Verifica se a ferramenta 'jq' está instalada
+if ! command -v jq &> /dev/null; then
+  echo "Erro: 'jq' não está instalado. É necessário para processar o JSON." >&2
+  exit 1
+fi
 
 REPORT="$ROOT_DIR/relatorio_testes.txt"
 echo "Relatório de testes - $(date)" > "$REPORT"
 
-run_frontend=false
-run_backend=false
-run_python=false
+# Lendo o JSON e encontrando o comando para a categoria de teste específica
+RULES_JSON=$(cat test-rules.json)
+RULE_CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(.category == \"$TEST_CATEGORY\") | .cmd")
 
-for f in "${files[@]}"; do
-  [[ "$f" == fontes/frontend/* ]] && run_frontend=true
-  [[ "$f" == fontes/backend/* ]] && run_backend=true
-  [[ "$f" == *.py ]] && run_python=true
-done
+if [ -z "$RULE_CMD" ]; then
+  echo "Nenhum comando de teste encontrado para a categoria '$TEST_CATEGORY'." | tee -a "$REPORT"
+  exit 0
+fi
 
-run_test() {
-  local dir="$1"
-  local cmd="$2"
-  if [ -d "$dir" ]; then
-    echo "Executando testes em $dir..." | tee -a "$REPORT"
-    cd "$dir"
-    if eval "$cmd"; then
-      echo "✅ Testes em $dir OK" | tee -a "$REPORT"
-    else
-      echo "❌ Testes em $dir FALHARAM" | tee -a "$REPORT"
-      cd "$ROOT_DIR"
-      return 1
-    fi
-    cd "$ROOT_DIR"
-  else
-    echo "Diretório $dir não encontrado — pulando." | tee -a "$REPORT"
-  fi
-}
-
-$run_frontend && run_test "fontes/frontend" "npm ci && npm test -- --watchAll=false"
-$run_backend && run_test "fontes/backend" "npm ci && npm test"
-$run_python && { python -m pip install -r requirements.txt; pytest -q || exit 1; }
-
-[ $run_frontend = false ] && [ $run_backend = false ] && [ $run_python = false ] && echo "Nenhum teste mapeado." | tee -a "$REPORT"
+# Executando o teste
+echo "Executando teste para a categoria: $TEST_CATEGORY" | tee -a "$REPORT"
+if eval "$RULE_CMD"; then
+  echo "✅ Teste OK para '$TEST_CATEGORY'" | tee -a "$REPORT"
+else
+  echo "❌ Teste FALHOU para '$TEST_CATEGORY'" | tee -a "$REPORT"
+  exit 1
+fi
