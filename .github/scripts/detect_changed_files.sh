@@ -9,7 +9,7 @@ if [ -z "$BASE" ] || [ -z "$HEAD" ]; then
   exit 2
 fi
 
-echo "Detectando arquivos modificados entre $BASE e $HEAD..."
+echo "Detectando arquivos modificados entre $BASE e $HEAD..." >&2
 git fetch --no-tags --prune --depth=50 origin || true
 
 # branch inicial ou sem histórico

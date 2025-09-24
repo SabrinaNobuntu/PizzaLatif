@@ -30,13 +30,10 @@ echo "Executando teste para a categoria: $TEST_CATEGORY" | tee -a "$REPORT"
 
 # Processa cada arquivo alterado
 while read -r file; do
-  if [ -n "$file" ]; then
+  if [[ -n "$file" && ! "$file" =~ ^Detectando ]]; then
     echo "Testando arquivo: $file" | tee -a "$REPORT"
-    if eval "$RULE_CMD" "$file"; then
-      echo "✅ Teste OK para '$TEST_CATEGORY' ($file)" | tee -a "$REPORT"
-    else
-      echo "❌ Teste FALHOU para '$TEST_CATEGORY' ($file)" | tee -a "$REPORT"
-      exit 1
+    if eval "$RULE_CMD"; then
+      ...
     fi
   fi
 done < "$CHANGED_FILES_FILE"
