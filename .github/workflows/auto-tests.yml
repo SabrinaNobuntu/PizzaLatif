@@ -68,17 +68,16 @@ jobs:
       - name: Salvar arquivos alterados em arquivo
         run: echo "${{ needs.detect-changes.outputs.changed_files }}" > /tmp/changed_files.txt
 
-      - name: Executar testes e gerar relatório
+      - name: Executar testes
         run: |
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
-        working-directory: fontes/${{ matrix.test }}
 
       - name: Upload do relatório de testes
         uses: actions/upload-artifact@v4
         with:
           name: relatorio_testes_${{ matrix.test }}
-          path: fontes/${{ matrix.test }}/relatorio_testes_${{ matrix.test }}.txt
+          path: relatorio_testes_${{ matrix.test }}.txt
 
   report-status:
     runs-on: ubuntu-latest
@@ -94,13 +93,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-      - name: Baixar artifacts de relatórios frontend
+      - name: Baixar artifacts de relatórios
         uses: actions/download-artifact@v4
         with:
           name: relatorio_testes_frontend
           path: ./artifacts/frontend
 
-      - name: Baixar artifacts de relatórios backend
+      - name: Baixar artifacts de relatórios
         uses: actions/download-artifact@v4
         with:
           name: relatorio_testes_backend
