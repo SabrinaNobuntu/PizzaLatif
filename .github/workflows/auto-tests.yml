@@ -101,20 +101,29 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+
             let report = '';
             try {
               report = fs.readFileSync('relatorio_testes.txt', 'utf8');
             } catch (err) {
               report = 'Relatório de testes não encontrado.';
             }
+
             const status = '${{ steps.check_status.outputs.status }}';
             const commentBody = `### Relatório de Testes\n\n**Status:** ${status === 'success' ? '✅ Passou' : '❌ Falhou'}\n\n${report}`;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: commentBody
-            });
+
+            // Verifica se existe PR associado ao evento
+            const prNumber = context.payload.pull_request?.number;
+            if (prNumber) {
+              github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: commentBody
+              });
+            } else {
+              console.log('Não há PR associado a este evento. Comentário ignorado.');
+            }
 
       - name: Criar Issue se algum teste falhar
         if: steps.check_status.outputs.status == 'failure'
@@ -122,12 +131,14 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+
             let report = '';
             try {
               report = fs.readFileSync('relatorio_testes.txt', 'utf8');
             } catch (err) {
               report = 'Relatório de testes não encontrado.';
             }
+
             github.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
