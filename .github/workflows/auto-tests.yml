@@ -57,10 +57,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
+      - name: Salvar arquivos alterados em arquivo
+        run: |
+          echo "${{ needs.detect-changes.outputs.changed_files }}" > /tmp/changed_files.txt
+
       - name: Executar testes
         run: |
           chmod +x .github/scripts/run_tests_by_changed_files.sh
-          .github/scripts/run_tests_by_changed_files.sh "${{ needs.detect-changes.outputs.changed_files }}" "${{ matrix.test }}"
+          .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
           
   report-status:
     runs-on: ubuntu-latest

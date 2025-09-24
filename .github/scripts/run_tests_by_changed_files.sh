@@ -2,10 +2,10 @@
 set -euo pipefail
 
 ROOT_DIR="$(pwd)"
-CHANGED_RAW="${1:-}"
+CHANGED_FILES_FILE="${1:-}"
 TEST_CATEGORY="${2:-}"
 
-[ -z "$CHANGED_RAW" ] && { echo "Nenhum arquivo alterado. Saindo."; exit 0; }
+[ -z "$CHANGED_FILES_FILE" ] && { echo "Nenhum arquivo alterado. Saindo."; exit 0; }
 [ -z "$TEST_CATEGORY" ] && { echo "Erro: Categoria de teste não especificada."; exit 1; }
 
 # Verifica se a ferramenta 'jq' está instalada
@@ -26,11 +26,17 @@ if [ -z "$RULE_CMD" ]; then
   exit 0
 fi
 
-# Executando o teste
 echo "Executando teste para a categoria: $TEST_CATEGORY" | tee -a "$REPORT"
-if eval "$RULE_CMD"; then
-  echo "✅ Teste OK para '$TEST_CATEGORY'" | tee -a "$REPORT"
-else
-  echo "❌ Teste FALHOU para '$TEST_CATEGORY'" | tee -a "$REPORT"
-  exit 1
-fi
+
+# Processa cada arquivo alterado
+while read -r file; do
+  if [ -n "$file" ]; then
+    echo "Testando arquivo: $file" | tee -a "$REPORT"
+    if eval "$RULE_CMD" "$file"; then
+      echo "✅ Teste OK para '$TEST_CATEGORY' ($file)" | tee -a "$REPORT"
+    else
+      echo "❌ Teste FALHOU para '$TEST_CATEGORY' ($file)" | tee -a "$REPORT"
+      exit 1
+    fi
+  fi
+done < "$CHANGED_FILES_FILE"
