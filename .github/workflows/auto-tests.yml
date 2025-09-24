@@ -101,7 +101,12 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('relatorio_testes.txt', 'utf8');
+            let report = '';
+            try {
+              report = fs.readFileSync('relatorio_testes.txt', 'utf8');
+            } catch (err) {
+              report = 'Relatório de testes não encontrado.';
+            }
             const status = '${{ steps.check_status.outputs.status }}';
             const commentBody = `### Relatório de Testes\n\n**Status:** ${status === 'success' ? '✅ Passou' : '❌ Falhou'}\n\n${report}`;
             github.rest.issues.createComment({
@@ -117,7 +122,12 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('relatorio_testes.txt', 'utf8');
+            let report = '';
+            try {
+              report = fs.readFileSync('relatorio_testes.txt', 'utf8');
+            } catch (err) {
+              report = 'Relatório de testes não encontrado.';
+            }
             github.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
