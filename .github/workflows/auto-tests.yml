@@ -64,6 +64,15 @@ jobs:
         if: ${{ matrix.test == 'backend' }}
         run: chmod +x fontes/backend/node_modules/.bin/jest || true
 
+      - name: Instalar dependências
+        if: ${{ matrix.test == 'frontend' || matrix.test == 'backend' }}
+        run: npm install
+        working-directory: fontes/${{ matrix.test }}
+
+      - name: Garantir permissão de execução ao Jest
+        if: ${{ matrix.test == 'backend' }}
+        run: chmod +x fontes/backend/node_modules/.bin/jest || true
+
       - name: Salvar arquivos alterados em arquivo
         run: |
           echo "${{ needs.detect-changes.outputs.changed_files }}" > /tmp/changed_files.txt
@@ -71,6 +80,10 @@ jobs:
         run: |
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 18ca58faf2c11376d4057bb9f35510cffeb85f02
       
   report-status:
     runs-on: ubuntu-latest
