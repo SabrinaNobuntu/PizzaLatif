@@ -4,5 +4,9 @@
   "description": "Configuração centralizada para o projeto",
   "scripts": {
     "test": "npx jest"
+  },
+  "devDependencies": {
+    "ts-jest": "^29.4.4",
+    "typescript": "^5.9.2"
   }
 }
