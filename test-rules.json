@@ -1,7 +1,19 @@
 {
   "rules": [
-    { "pattern": "^fontes/frontend/", "cmd": "cd fontes/frontend && npm ci && npm test -- --watchAll=false" },
-    { "pattern": "^fontes/backend/", "cmd": "cd fontes/backend && npm ci && npm test" },
-    { "pattern": "\\.py$", "cmd": "pip install -r requirements.txt && pytest -q" }
+    {
+      "category": "frontend",
+      "pattern": "^fontes/frontend/",
+      "cmd": "cd fontes/frontend && npm ci && npm test -- --watchAll=false"
+    },
+    {
+      "category": "backend",
+      "pattern": "^fontes/backend/",
+      "cmd": "cd fontes/backend && npm ci && npm test"
+    },
+    {
+      "category": "python",
+      "pattern": "\\.py$",
+      "cmd": "pip install -r requirements.txt && pytest -q"
+    }
   ]
 }
