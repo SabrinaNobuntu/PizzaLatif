@@ -3,7 +3,7 @@
     {
       "category": "frontend",
       "pattern": "^fontes/frontend/",
-      "cmd": "cd fontes/frontend && npm ci && npm test -- --watchAll=false"
+      "cmd": "cd fontes/frontend && npm ci && npm test -- --no-watch"
     },
     {
       "category": "backend",
@@ -12,8 +12,8 @@
     },
     {
       "category": "python",
-      "pattern": "\\.py$",
-      "cmd": "pip install -r requirements.txt && pytest -q"
+      "pattern": "^fontes/python/",
+      "cmd": "cd fontes/python/ && pip install -r requirements.txt && pytest -q"
     }
   ]
 }
