@@ -42,7 +42,7 @@ done
 if $run_frontend; then
   echo "Executando testes frontend..."
   if [ -d frontend ]; then
-    cd frontend
+    cd fontes/frontend
     npm ci
     npm test -- --watchAll=false || { echo "Testes frontend falharam"; exit 1; }
     cd -
@@ -54,7 +54,7 @@ fi
 if $run_backend; then
   echo "Executando testes backend..."
   if [ -d backend ]; then
-    cd backend
+    cd fontes/backend
     npm ci
     npm test || { echo "Testes backend falharam"; exit 1; }
     cd -
