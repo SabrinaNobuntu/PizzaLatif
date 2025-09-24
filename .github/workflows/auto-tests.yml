@@ -76,7 +76,7 @@ jobs:
       - name: Upload do relatório de testes
         uses: actions/upload-artifact@v4
         with:
-          name: relatorio_testes
+          name: relatorio_testes_${{ matrix.test }}
           path: relatorio_testes.txt
 
   report-status:
