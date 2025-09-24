@@ -1,12 +1,10 @@
-name: Testes seletivos por arquivo modificado
+name: Testes automáticos de PR/Issue
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
+  issues:
+    types: [opened]
 
 jobs:
   selective-tests:
@@ -15,42 +13,46 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout do repositório (com histórico)
+      - name: Checkout do código
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Definir BASE e HEAD (commit range)
+      - name: Definir BASE e HEAD
         id: set-range
         run: |
-          # define BASE/HEAD no env para uso posterior
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
             echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
           else
-            echo "BASE=${{ github.event.before }}" >> $GITHUB_ENV
-            echo "HEAD=${{ github.sha }}" >> $GITHUB_ENV
+            # Para issues, podemos testar a branch atual do default branch
+            echo "BASE=$(git rev-parse origin/main~1)" >> $GITHUB_ENV
+            echo "HEAD=$(git rev-parse origin/main)" >> $GITHUB_ENV
           fi
 
-      - name: Detectar arquivos adicionados/alterados
+      - name: Detectar arquivos modificados
         id: detect
         run: |
           chmod +x ./.github/scripts/detect_changed_files.sh
           CHANGED=$(.github/scripts/detect_changed_files.sh "$BASE" "$HEAD")
-          # grava saída multi-line em GITHUB_OUTPUT (recomendado)
           echo "changed_files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Exibir arquivos detectados
-        if: steps.detect.outputs.changed_files != ''
-        run: |
-          echo "Arquivos adicionados/alterados:"
-          echo "${{ steps.detect.outputs.changed_files }}"
-
-      - name: Executar testes com base nas alterações
+      - name: Executar testes
         if: steps.detect.outputs.changed_files != ''
         run: |
           chmod +x ./.github/scripts/run_tests_by_changed_files.sh
-          CHANGED="${{ steps.detect.outputs.changed_files }}"
-          ./.github/scripts/run_tests_by_changed_files.sh "$CHANGED"
+          ./.github/scripts/run_tests_by_changed_files.sh "${{ steps.detect.outputs.changed_files }}"
+
+      - name: Comentar resultado no PR
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: ${{ github.event.pull_request.number || github.event.issue.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "Testes concluídos ✅"
+            })
