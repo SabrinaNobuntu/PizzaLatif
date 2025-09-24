@@ -1,11 +1,11 @@
-name: Testes automáticos de PR/Issue
+name: Testes Automáticos PR
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  selective-tests:
+  run-tests:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -16,17 +16,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Definir BASE e HEAD
-        id: set-range
-        run: |
-          echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
-          echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
-
       - name: Detectar arquivos modificados
         id: detect
         run: |
-          chmod +x ./.github/scripts/detect_changed_files.sh
-          CHANGED=$(.github/scripts/detect_changed_files.sh "$BASE" "$HEAD")
+          chmod +x .github/scripts/detect_changed_files.sh
+          CHANGED=$(.github/scripts/detect_changed_files.sh ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "changed_files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -34,8 +28,8 @@ jobs:
       - name: Executar testes
         if: steps.detect.outputs.changed_files != ''
         run: |
-          chmod +x ./.github/scripts/run_tests_by_changed_files.sh
-          ./.github/scripts/run_tests_by_changed_files.sh "${{ steps.detect.outputs.changed_files }}"
+          chmod +x .github/scripts/run_tests_by_changed_files.sh
+          .github/scripts/run_tests_by_changed_files.sh "${{ steps.detect.outputs.changed_files }}"
 
       - name: Comentar resultado no PR
         if: always()
