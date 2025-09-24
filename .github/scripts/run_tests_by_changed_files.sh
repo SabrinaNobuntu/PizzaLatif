@@ -31,7 +31,7 @@ echo "Executando teste para a categoria: $TEST_CATEGORY" | tee -a "$REPORT"
 # Processa cada arquivo alterado
 while read -r file; do
   # Ignora arquivos de workflow e não JS/TS (ou conforme sua stack)
-  if [[ -n "$file" && ! "$file" =~ ^Detectando && "$file" =~ \.(js|ts|jsx|tsx)$ ]]; then
+ if [[ -n "$file" && ! "$file" =~ ^Detectando && "$file" =~ \.(js|ts|jsx|tsx|sh)$ ]]; then
     echo "Testando arquivo: $file" | tee -a "$REPORT"
     if eval "$RULE_CMD"; then
       echo "✅ Teste passou: $file" | tee -a "$REPORT"
