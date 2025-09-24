@@ -25,7 +25,6 @@ jobs:
           echo "changed_files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-
   run-tests:
     runs-on: ubuntu-latest
     needs: detect-changes
@@ -45,7 +44,7 @@ jobs:
 
       - name: Instalar 'jq' para processar JSON
         run: sudo apt-get install -y jq
-      
+
       - name: Caching de dependências do Node.js
         if: ${{ matrix.test == 'frontend' || matrix.test == 'backend' }}
         uses: actions/cache@v3
@@ -56,16 +55,23 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-
+      - name: Instalar dependências
+        if: ${{ matrix.test == 'frontend' || matrix.test == 'backend' }}
+        run: npm install
+        working-directory: fontes/${{ matrix.test }}
+
+      - name: Garantir permissão de execução ao Jest
+        if: ${{ matrix.test == 'backend' }}
+        run: chmod +x fontes/backend/node_modules/.bin/jest || true
 
       - name: Salvar arquivos alterados em arquivo
         run: |
           echo "${{ needs.detect-changes.outputs.changed_files }}" > /tmp/changed_files.txt
-
       - name: Executar testes
         run: |
           chmod +x .github/scripts/run_tests_by_changed_files.sh
           .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
-          
+      
   report-status:
     runs-on: ubuntu-latest
     needs: run-tests
@@ -95,14 +101,12 @@ jobs:
             const report = fs.readFileSync('relatorio_testes.txt', 'utf8');
             const status = core.getInput('job_status');
             const commentBody = `### Relatório de Testes\n\n**Status:** ${status === 'success' ? '✅ Passou' : '❌ Falhou'}\n\n${report}`;
-
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: commentBody
             });
-
       - name: Criar Issue se algum teste falhar
         if: steps.check_status.outputs.status == 'failure'
         uses: actions/github-script@v7
