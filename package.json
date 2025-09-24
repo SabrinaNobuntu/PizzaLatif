@@ -1,0 +1,8 @@
+{
+  "name": "projeto-raiz",
+  "version": "1.0.0",
+  "description": "Configuração centralizada para o projeto",
+  "scripts": {
+    "test": "jest"
+  }
+}
