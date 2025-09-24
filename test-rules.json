@@ -3,12 +3,12 @@
     {
       "category": "frontend",
       "pattern": "^fontes/frontend/",
-      "cmd": "npm test -- --projects=frontend"
+      "cmd": "npm test -- --projects=fontes/frontend"
     },
     {
       "category": "backend",
       "pattern": "^fontes/backend/",
-      "cmd": "npm test -- --projects=backend"
+      "cmd": "npm test -- --projects=fontes/backend"
     }
   ]
 }
