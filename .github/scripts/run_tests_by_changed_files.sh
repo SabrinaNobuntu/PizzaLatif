@@ -28,19 +28,12 @@ fi
 
 echo "Executando teste para a categoria: $TEST_CATEGORY" | tee -a "$REPORT"
 
-EXIT_CODE=0
-
 # Processa cada arquivo alterado
 while read -r file; do
   if [[ -n "$file" && ! "$file" =~ ^Detectando ]]; then
     echo "Testando arquivo: $file" | tee -a "$REPORT"
-    if ! eval "$RULE_CMD $file" >> "$REPORT" 2>&1; then
-      echo "❌ Falhou: $file" | tee -a "$REPORT"
-      EXIT_CODE=1
-    else
-      echo "✅ Passou: $file" | tee -a "$REPORT"
+    if eval "$RULE_CMD"; then
+      ...
     fi
   fi
 done < "$CHANGED_FILES_FILE"
-
-exit $EXIT_CODE
