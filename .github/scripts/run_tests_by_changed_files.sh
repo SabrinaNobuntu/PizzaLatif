@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(pwd)"
 CHANGED_FILES_FILE="${1:-}"
 TEST_CATEGORY="${2:-}"
 
@@ -14,8 +13,9 @@ if ! command -v jq &> /dev/null; then
   exit 1
 fi
 
-REPORT="$ROOT_DIR/relatorio_testes.txt"
-echo "Relatório de testes - $(date)" > "$REPORT"
+# Define o caminho do relatório por categoria
+REPORT="$(pwd)/relatorio_testes_${TEST_CATEGORY}.txt"
+echo "Relatório de testes (${TEST_CATEGORY}) - $(date)" > "$REPORT"
 
 # Lendo o JSON e encontrando o comando para a categoria de teste específica
 RULES_JSON=$(cat test-rules.json)
@@ -33,7 +33,11 @@ while read -r file; do
   if [[ -n "$file" && ! "$file" =~ ^Detectando ]]; then
     echo "Testando arquivo: $file" | tee -a "$REPORT"
     if eval "$RULE_CMD"; then
-      ...
+      echo "✅ Teste passou: $file" | tee -a "$REPORT"
+    else
+      echo "❌ Teste falhou: $file" | tee -a "$REPORT"
     fi
   fi
 done < "$CHANGED_FILES_FILE"
+
+echo "Relatório finalizado: $REPORT"
