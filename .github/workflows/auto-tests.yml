@@ -48,7 +48,7 @@ jobs:
         run: sudo apt-get install -y jq
 
       - name: Caching de dependências do Node.js
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             fontes/frontend/node_modules
@@ -74,7 +74,7 @@ jobs:
           .github/scripts/run_tests_by_changed_files.sh /tmp/changed_files.txt "${{ matrix.test }}"
 
       - name: Upload do relatório de testes
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: relatorio_testes
           path: relatorio_testes.txt
@@ -118,7 +118,6 @@ jobs:
             const status = '${{ steps.check_status.outputs.status }}';
             const commentBody = `### Relatório de Testes\n\n**Status:** ${status === 'success' ? '✅ Passou' : '❌ Falhou'}\n\n${report}`;
 
-            // Verifica se existe PR associado ao evento
             const prNumber = context.payload.pull_request?.number;
             if (prNumber) {
               github.rest.issues.createComment({
@@ -145,7 +144,7 @@ jobs:
               report = 'Relatório de testes não encontrado.';
             }
 
-            github.issues.create({
+            github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `Falha nos testes - ${new Date().toISOString()}`,
