@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:19.383564Z", 
+        "modified": "2025-09-22T11:17:59.119681Z", 
         "description": "Clientes",  
         "name": "Cliente", 
         "apiUrl": "api/clientes",
-        "route": "",
+        "route": "clientes",
         "title": { 
             "pt": "Clientes", 
             "en": "Clients" 
@@ -35,8 +35,8 @@
         },
         { 
             "name":"telefone", 
-            "type": "number", 
-            "mask": "Numero", 
+            "type": "string", 
+            "mask": "Telefone", 
             "isRequired": false, 
             "visibleCard": true, 
             "visibleGrid": true, 

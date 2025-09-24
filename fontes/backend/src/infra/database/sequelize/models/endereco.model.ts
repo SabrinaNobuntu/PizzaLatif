@@ -4,27 +4,27 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('endereco', { 
       rua: {
       type: DataTypes.STRING , 
-      field: 'Rua', 
+      field: 'rua', 
     }, 
       bairro: {
       type: DataTypes.STRING , 
-      field: 'Bairro', 
+      field: 'bairro', 
     }, 
       cidade: {
       type: DataTypes.STRING , 
-      field: 'Cidade', 
+      field: 'cidade', 
     }, 
       numeroMoradia: {
       type: DataTypes.INTEGER , 
-      field: 'NumeroDaMoradia', 
+      field: 'numero_moradia', 
     }, 
       cep: {
-      type: DataTypes.INTEGER , 
-      field: 'CEP', 
+      type: DataTypes.STRING , 
+      field: 'cep', 
     }, 
       complemento: {
       type: DataTypes.STRING , 
-      field: 'Complemento', 
+      field: 'complemento', 
     }, 
   }); 
 

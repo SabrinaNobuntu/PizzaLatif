@@ -13,7 +13,7 @@ export class ItemPedidoService extends BaseResourceService<ItemPedido> {
   protected http: HttpClient 
 
   constructor(protected override injector: Injector) { 
-    var url = environment.backendUrl+"/api/itemPedido"; 
+    var url = environment.backendUrl+"/api/item-pedido"; 
 
     super(url, injector, ItemPedido.fromJson) 
   } 

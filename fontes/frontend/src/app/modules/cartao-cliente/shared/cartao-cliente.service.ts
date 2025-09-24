@@ -13,7 +13,7 @@ export class CartaoClienteService extends BaseResourceService<CartaoCliente> {
   protected http: HttpClient 
 
   constructor(protected override injector: Injector) { 
-    var url = environment.backendUrl+"/api/cartaoCliente"; 
+    var url = environment.backendUrl+"/api/cartao-cliente"; 
 
     super(url, injector, CartaoCliente.fromJson) 
   } 

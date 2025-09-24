@@ -4,11 +4,11 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('clientes', { 
       nome: {
       type: DataTypes.STRING , 
-      field: 'Nome', 
+      field: 'nome', 
     }, 
       telefone: {
-      type: DataTypes.INTEGER , 
-      field: 'Telefone', 
+      type: DataTypes.STRING , 
+      field: 'telefone', 
     }, 
   }); 
 

@@ -3,6 +3,7 @@ import showTime from './utils/showTime.util';
 import { GetDefaultTenantConnectionUseCase } from './useCases/tenant/getDefaultTenantConnection.useCase';
 import { GetSecurityTenantConnectionUseCase } from './useCases/tenant/getSecurityTenantConnection.useCase';
 import DatabasePermissionService from './domain/services/databasePermission.service';
+import 'dotenv/config';
 
 const PORT = process.env.PORT_SERVER || 8080;
 

@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:30.794188Z", 
+        "modified": "2025-09-22T11:18:10.030475Z", 
         "description": "Pedido",  
         "name": "Pedido", 
         "apiUrl": "api/pedido",
-        "route": "",
+        "route": "pedido",
         "title": { 
             "pt": "Pedido", 
             "en": "Order" 
@@ -34,9 +34,21 @@
             "visibleForm": true
         },
         { 
-            "name":"datahoraPedido", 
-            "type": "number", 
-            "mask": "Numero", 
+            "name":"dataPedido", 
+            "type": "date", 
+            "mask": "Data", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"horaPedido", 
+            "type": "time", 
+            "mask": "Time", 
+            "defaultValue":"00:00", 
             "isRequired": false, 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -70,8 +82,17 @@
             "visibleForm": true
                 },
                 { 
-                    "type": "number", 
-                    "name": "datahoraPagamento", 
+                    "type": "date", 
+                    "name": "dataPagamento", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "time", 
+                    "name": "horaPagamento", 
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 
@@ -117,24 +138,6 @@
                 },
                 { 
                     "type": "string", 
-                    "name": "login", 
-            "visibleCard": true, 
-            "visibleGrid": true, 
-            "visibleFilter": true, 
-            "visibleList": true, 
-            "visibleForm": true
-                },
-                { 
-                    "type": "string", 
-                    "name": "senha", 
-            "visibleCard": true, 
-            "visibleGrid": true, 
-            "visibleFilter": true, 
-            "visibleList": true, 
-            "visibleForm": true
-                },
-                { 
-                    "type": "string", 
                     "name": "comissao", 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -149,7 +152,7 @@
             "type": "foreignKey", 
             "className": "ItemPedido", 
             "many": false, 
-            "apiUrl": "api/itemPedido",
+            "apiUrl": "api/item-pedido",
             "fieldDisplayedInLabel": "nomePedido",
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -212,7 +215,7 @@
             "type": "foreignKey", 
             "className": "CartaoConsumo", 
             "many": false, 
-            "apiUrl": "api/cartaoConsumo",
+            "apiUrl": "api/cartao-consumo",
             "fieldDisplayedInLabel": "numeroCartao",
             "visibleCard": true, 
             "visibleGrid": true, 

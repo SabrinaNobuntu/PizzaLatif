@@ -1,0 +1,31 @@
+replicaCount: 2
+
+image:
+  repository: opendelivery/backend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+env:
+  DB_HOST: postgres
+  DB_PORT: 5432
+  DB_USER: postgres
+  DB_PASSWORD: postgres
+  DB_NAME: opendelivery
+  OPENDELIVERY_CLIENT_ID: your_client_id
+  OPENDELIVERY_CLIENT_SECRET: your_client_secret
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

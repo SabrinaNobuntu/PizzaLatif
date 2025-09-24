@@ -1,11 +1,44 @@
 {
     "config":{ 
-        "modified": "2025-09-17T19:12:29.544235Z", 
+        "modified": "2025-09-22T11:18:27.004075Z", 
         "name": "home", 
         "type": "sandwich",
         "defaultMenu": true
     }, 
     "itens": [ 
+        { 
+            "name": "Backoffice", 
+            "subMenu": [ 
+        { 
+            "name": "Categoria", 
+            "routeUrl": "/categoria", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Garcon", 
+            "routeUrl": "/garcon", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Cardapio", 
+            "routeUrl": "/cardapio", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "Opcional", 
+            "routeUrl": "/opcional", 
+            "icon": "feather:box"
+        },
+        { 
+            "name": "TipoPagamento", 
+            "routeUrl": "/tipoPagamento", 
+            "icon": "feather:box"
+        }
+            ] 
+        },
+        { 
+            "name": "Loja", 
+            "subMenu": [ 
         { 
             "name": "CartaoConsumo", 
             "routeUrl": "/cartaoConsumo", 
@@ -27,38 +60,8 @@
             "icon": "feather:box"
         },
         { 
-            "name": "Categoria", 
-            "routeUrl": "/categoria", 
-            "icon": "feather:box"
-        },
-        { 
-            "name": "Cozinha", 
-            "routeUrl": "/cozinha", 
-            "icon": "feather:box"
-        },
-        { 
             "name": "Endereco", 
             "routeUrl": "/endereco", 
-            "icon": "feather:box"
-        },
-        { 
-            "name": "Garcon", 
-            "routeUrl": "/garcon", 
-            "icon": "feather:box"
-        },
-        { 
-            "name": "ItemPedido", 
-            "routeUrl": "/itemPedido", 
-            "icon": "feather:box"
-        },
-        { 
-            "name": "Cardapio", 
-            "routeUrl": "/cardapio", 
-            "icon": "feather:box"
-        },
-        { 
-            "name": "Opcional", 
-            "routeUrl": "/opcional", 
             "icon": "feather:box"
         },
         { 
@@ -70,21 +73,33 @@
             "name": "Pedido", 
             "routeUrl": "/pedido", 
             "icon": "feather:box"
+        }
+            ] 
         },
         { 
-            "name": "Produto", 
-            "routeUrl": "/produto", 
+            "name": "Cozinha", 
+            "subMenu": [ 
+        { 
+            "name": "Cozinha", 
+            "routeUrl": "/cozinha", 
             "icon": "feather:box"
         },
         { 
-            "name": "TipoPagamento", 
-            "routeUrl": "/tipoPagamento", 
+            "name": "ItemPedido", 
+            "routeUrl": "/itemPedido", 
             "icon": "feather:box"
+        }
+            ] 
         },
+        { 
+            "name": "Entrega", 
+            "subMenu": [ 
         { 
             "name": "Entrega", 
             "routeUrl": "/entrega", 
             "icon": "feather:box"
+        }
+            ] 
         }
     ] 
 }

@@ -23,5 +23,5 @@ export default function defineRoute(app: Application){
     // Custom get ItemPedido 
     router.post("/custom", [checkUserAccess], controller.customQuery);
 
-    app.use('/api/itemPedido', router); 
+    app.use('/api/item-pedido', router); 
   }; 

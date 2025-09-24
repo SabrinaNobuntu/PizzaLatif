@@ -4,35 +4,27 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('cartaoCliente', { 
       numeroCartao: {
       type: DataTypes.INTEGER , 
-      field: ' NumeroCartao', 
+      field: ' numero_cartao', 
     }, 
       nomeImpresso: {
       type: DataTypes.STRING , 
-      field: ' NomeImpresso', 
+      field: ' nome_impresso', 
     }, 
-      anoValidade: {
-      type: DataTypes.INTEGER , 
-      field: ' AnoValidade', 
-    }, 
-      mesValidade: {
-      type: DataTypes.INTEGER , 
-      field: 'MesValidade', 
-    }, 
-      diaValidade: {
-      type: DataTypes.INTEGER , 
-      field: 'DiaValidade', 
+      dataValidade: {
+      type: DataTypes.DATE , 
+      field: ' data_validade', 
     }, 
       cvv: {
       type: DataTypes.INTEGER , 
-      field: 'CVV', 
+      field: 'cvv', 
     }, 
       pedidoCartao: {
       type: DataTypes.STRING , 
-      field: 'PedidoCartao', 
+      field: 'pedido_cartao', 
     }, 
       cpfcnpj: {
-      type: DataTypes.INTEGER , 
-      field: 'CPFCNPJ', 
+      type: DataTypes.STRING , 
+      field: 'cpfcnpj', 
     }, 
   }); 
 

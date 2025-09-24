@@ -7,7 +7,7 @@ export interface IEndereco extends BaseResourceModel {
   bairro?: string
   cidade?: string
   numeroMoradia?: number
-  cep?: number
+  cep?: string
   complemento?: string
   cadastroCliente?: CadastroCliente
   createdAt?: string 
@@ -17,7 +17,7 @@ export class Endereco extends BaseResourceModel implements IEndereco{
   bairro?: string
   cidade?: string
   numeroMoradia?: number
-  cep?: number
+  cep?: string
   complemento?: string
   cadastroCliente?: CadastroCliente
   createdAt?: string 

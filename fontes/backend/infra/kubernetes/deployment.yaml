@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opendelivery-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: opendelivery-backend
+  template:
+    metadata:
+      labels:
+        app: opendelivery-backend
+    spec:
+      containers:
+        - name: backend
+          image: opendelivery/backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: postgres
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASSWORD
+              value: postgres
+            - name: DB_NAME
+              value: opendelivery

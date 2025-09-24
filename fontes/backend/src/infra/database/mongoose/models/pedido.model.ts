@@ -16,8 +16,11 @@ export default function defineModel(mongooseConnection: Connection) {
       pedidoCancelado: {
           type: String,
       },
-      datahoraPedido: {
-          type: Number,
+      dataPedido: {
+          type: Date,
+      },
+      horaPedido: {
+          type: String,
       },
         pagamento: {type: mongoose.Schema.Types.ObjectId, ref: 'pagamento'}, 
         garcon: {type: mongoose.Schema.Types.ObjectId, ref: 'garcon'}, 

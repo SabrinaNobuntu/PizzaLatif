@@ -16,8 +16,11 @@ export default function defineModel(mongooseConnection: Connection) {
       valorPagamento: {
           type: Number,
       },
-      datahoraPagamento: {
-          type: Number,
+      dataPagamento: {
+          type: Date,
+      },
+      horaPagamento: {
+          type: String,
       },
         tipoPagamento: {type: mongoose.Schema.Types.ObjectId, ref: 'tipoPagamento'}, 
     },

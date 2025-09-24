@@ -4,11 +4,15 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('pagamento', { 
       valorPagamento: {
       type: DataTypes.INTEGER , 
-      field: 'Valor_pagamento', 
+      field: 'valor_pagamento', 
     }, 
-      datahoraPagamento: {
-      type: DataTypes.INTEGER , 
-      field: 'DataHora_pagamento', 
+      dataPagamento: {
+      type: DataTypes.DATE , 
+      field: 'data_pagamento', 
+    }, 
+      horaPagamento: {
+      type: DataTypes.STRING , 
+      field: 'hora_pagamento', 
     }, 
   }); 
 

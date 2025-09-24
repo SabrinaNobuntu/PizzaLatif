@@ -3,12 +3,12 @@ import { BaseResourceModel } from "./baseResource.model"
 
 export interface ICliente extends BaseResourceModel { 
   nome?: string
-  telefone?: number
+  telefone?: string
   createdAt?: string 
 } 
 export class Cliente extends BaseResourceModel implements ICliente{ 
   nome?: string
-  telefone?: number
+  telefone?: string
   createdAt?: string 
   constructor(input: ICliente){
     super();

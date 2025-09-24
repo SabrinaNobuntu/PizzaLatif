@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:26.735081Z", 
+        "modified": "2025-09-22T11:18:06.081085Z", 
         "description": "Item Pedido",  
         "name": "ItemPedido", 
-        "apiUrl": "api/itemPedido",
-        "route": "",
+        "apiUrl": "api/item-pedido",
+        "route": "itemPedido",
         "title": { 
             "pt": "Item Pedido", 
             "en": "Order Item" 

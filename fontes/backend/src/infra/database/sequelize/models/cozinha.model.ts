@@ -4,15 +4,19 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('cozinha', { 
       nomePedido: {
       type: DataTypes.STRING , 
-      field: 'Nome_pedido', 
+      field: 'nome_pedido', 
     }, 
-      dataHora: {
-      type: DataTypes.INTEGER , 
-      field: 'DataHora', 
+      data: {
+      type: DataTypes.DATE , 
+      field: 'data', 
+    }, 
+      hora: {
+      type: DataTypes.STRING , 
+      field: 'hora', 
     }, 
       statusPedido: {
       type: DataTypes.STRING , 
-      field: 'StatusPedido', 
+      field: 'status_pedido', 
     }, 
   }); 
 

@@ -6,12 +6,10 @@ export class CartaoCliente extends BaseResourceModel {
     id?: any;
     numeroCartao?: number;
     nomeImpresso?: string;
-    anoValidade?: number;
-    mesValidade?: number;
-    diaValidade?: number;
+    dataValidade?: any;
     cvv?: number;
     pedidoCartao?: string;
-    cpfcnpj?: number;
+    cpfcnpj?: string;
     tipoPagamento?: TipoPagamento;
 
     static fromJson(jsonData: any): CartaoCliente{ 

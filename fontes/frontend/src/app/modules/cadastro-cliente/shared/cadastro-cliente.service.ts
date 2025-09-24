@@ -13,7 +13,7 @@ export class CadastroClienteService extends BaseResourceService<CadastroCliente>
   protected http: HttpClient 
 
   constructor(protected override injector: Injector) { 
-    var url = environment.backendUrl+"/api/cadastroCliente"; 
+    var url = environment.backendUrl+"/api/cadastro-cliente"; 
 
     super(url, injector, CadastroCliente.fromJson) 
   } 

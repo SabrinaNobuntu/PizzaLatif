@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:33.802852Z", 
+        "modified": "2025-09-22T11:18:13.03538Z", 
         "description": "Entrega",  
         "name": "Entrega", 
         "apiUrl": "api/entrega",
-        "route": "",
+        "route": "entrega",
         "title": { 
             "pt": "Entrega", 
             "en": "Delivery" 
@@ -127,8 +127,17 @@
             "visibleForm": true
                 },
                 { 
-                    "type": "number", 
-                    "name": "datahoraPedido", 
+                    "type": "date", 
+                    "name": "dataPedido", 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+                },
+                { 
+                    "type": "time", 
+                    "name": "horaPedido", 
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 
@@ -243,7 +252,7 @@
             "visibleForm": true
                 },
                 { 
-                    "type": "number", 
+                    "type": "string", 
                     "name": "cep", 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -263,7 +272,7 @@
                 { 
            "type": "foreignKey", 
             "name": "cadastroCliente", 
-            "fieldDisplayedInLabel": "nomeCliente sobrenomeCliente",  
+            "fieldDisplayedInLabel": "nomeCliente",  
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 

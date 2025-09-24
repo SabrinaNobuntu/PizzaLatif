@@ -17,7 +17,7 @@ export default function defineModel(mongooseConnection: Connection) {
           type: String,
       },
       telefone: {
-          type: Number,
+          type: String,
       }
     },
     { timestamps: true }

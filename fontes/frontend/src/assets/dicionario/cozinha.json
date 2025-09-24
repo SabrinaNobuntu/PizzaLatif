@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:23.637434Z", 
+        "modified": "2025-09-22T11:18:03.081737Z", 
         "description": "Cozinha",  
         "name": "Cozinha", 
         "apiUrl": "api/cozinha",
-        "route": "",
+        "route": "cozinha",
         "title": { 
             "pt": "Cozinha", 
             "en": "Kitchen" 
@@ -34,9 +34,21 @@
             "visibleForm": true
         },
         { 
-            "name":"dataHora", 
-            "type": "number", 
-            "mask": "Numero", 
+            "name":"data", 
+            "type": "date", 
+            "mask": "Data", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"hora", 
+            "type": "time", 
+            "mask": "Time", 
+            "defaultValue":"00:00", 
             "isRequired": false, 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -60,8 +72,8 @@
             "type": "foreignKey", 
             "className": "ItemPedido", 
             "many": false, 
-            "apiUrl": "api/itemPedido",
-            "fieldDisplayedInLabel": "nomePedido quantidadePedido precoPedido numeroMesa descricao",
+            "apiUrl": "api/item-pedido",
+            "fieldDisplayedInLabel": "nomePedido",
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 

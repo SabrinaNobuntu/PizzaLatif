@@ -5,7 +5,8 @@ import { BaseResourceModel } from "app/shared/models/base-resource.model";
 export class Cozinha extends BaseResourceModel {
     id?: any;
     nomePedido?: string;
-    dataHora?: number;
+    data?: any;
+    hora?: string;
     statusPedido?: string;
     itemPedido?: ItemPedido;
 

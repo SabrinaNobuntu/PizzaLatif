@@ -4,19 +4,19 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('categoria', { 
       nomeCategoria: {
       type: DataTypes.STRING , 
-      field: ' Nome_categoria', 
+      field: ' nome_categoria', 
     }, 
       usaopcoesTamanho: {
       type: DataTypes.STRING , 
-      field: 'Usa_opcoes_tamanho', 
+      field: 'usa_opcoes_tamanho', 
     }, 
       usaopcoesBorda: {
       type: DataTypes.STRING , 
-      field: 'Usa_opcoes_borda', 
+      field: 'usa_opcoes_borda', 
     }, 
       setor: {
       type: DataTypes.STRING , 
-      field: 'Setor', 
+      field: 'setor', 
     }, 
   }); 
 

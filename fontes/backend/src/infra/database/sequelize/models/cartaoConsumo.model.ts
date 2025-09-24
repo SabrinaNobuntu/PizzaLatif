@@ -4,7 +4,7 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('cartaoConsumo', { 
       numeroCartao: {
       type: DataTypes.INTEGER , 
-      field: 'Numero_cartao', 
+      field: 'numero_cartao', 
     }, 
   }); 
 

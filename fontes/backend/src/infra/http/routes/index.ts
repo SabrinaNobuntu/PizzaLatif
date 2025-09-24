@@ -1,3 +1,4 @@
+
 import { Application } from 'express';
 import userRoutes from './user.route';
 import tenantRoutes from './tenant.route';

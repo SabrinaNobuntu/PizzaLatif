@@ -5,24 +5,20 @@ import { TipoPagamento } from "./tipoPagamento.model";
 export interface ICartaoCliente extends BaseResourceModel { 
   numeroCartao?: number
   nomeImpresso?: string
-  anoValidade?: number
-  mesValidade?: number
-  diaValidade?: number
+  dataValidade?: any
   cvv?: number
   pedidoCartao?: string
-  cpfcnpj?: number
+  cpfcnpj?: string
   tipoPagamento?: TipoPagamento
   createdAt?: string 
 } 
 export class CartaoCliente extends BaseResourceModel implements ICartaoCliente{ 
   numeroCartao?: number
   nomeImpresso?: string
-  anoValidade?: number
-  mesValidade?: number
-  diaValidade?: number
+  dataValidade?: any
   cvv?: number
   pedidoCartao?: string
-  cpfcnpj?: number
+  cpfcnpj?: string
   tipoPagamento?: TipoPagamento
   createdAt?: string 
   constructor(input: ICartaoCliente){
@@ -30,9 +26,7 @@ export class CartaoCliente extends BaseResourceModel implements ICartaoCliente{
     this.id = input.id;
     this.numeroCartao = input.numeroCartao;
     this.nomeImpresso = input.nomeImpresso;
-    this.anoValidade = input.anoValidade;
-    this.mesValidade = input.mesValidade;
-    this.diaValidade = input.diaValidade;
+    this.dataValidade = input.dataValidade;
     this.cvv = input.cvv;
     this.pedidoCartao = input.pedidoCartao;
     this.cpfcnpj = input.cpfcnpj;

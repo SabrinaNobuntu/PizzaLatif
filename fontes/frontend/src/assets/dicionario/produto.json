@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:31.799319Z", 
+        "modified": "2025-09-22T11:18:11.037257Z", 
         "description": "Produto",  
         "name": "Produto", 
         "apiUrl": "api/produto",
-        "route": "",
+        "route": "produto",
         "title": { 
             "pt": "Produto", 
             "en": "Product" 
@@ -177,7 +177,7 @@
                 { 
            "type": "foreignKey", 
             "name": "produto", 
-            "fieldDisplayedInLabel": "",  
+            "fieldDisplayedInLabel": "nomeProduto",  
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 

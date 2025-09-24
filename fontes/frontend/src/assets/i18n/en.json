@@ -31,9 +31,7 @@
         "CartaoCliente": "Client Card",
         "numeroCartao": "card number",
         "nomeImpresso": "printed name",
-        "anoValidade": "validity year",
-        "mesValidade": "month validity",
-        "diaValidade": "validity day",
+        "dataValidade": "Expiration date",
         "cvv": "CVV",
         "pedidoCartao": "card request",
         "cpfcnpj": "CPFCNPJ",
@@ -49,7 +47,8 @@
 "Cozinha": {
         "Cozinha": "Kitchen",
         "nomePedido": "Order name",
-        "dataHora": "date and time",
+        "data": "date ",
+        "hora": "time",
         "statusPedido": "order status",
         "itemPedido": "ID Items Ordered"
     },
@@ -66,8 +65,6 @@
 "Garcon": {
         "Garcon": "Garcon",
         "nomeGarcon": "Name Garcon",
-        "login": "Login Garcon",
-        "senha": "Password Garcon",
         "comissao": "Commission"
     },
 "ItemPedido": {
@@ -96,13 +93,15 @@
 "Pagamento": {
         "Pagamento": "Payment",
         "valorPagamento": "Payment amount",
-        "datahoraPagamento": "Payment date and time",
+        "dataPagamento": "Payment date ",
+        "horaPagamento": "Payment time",
         "tipoPagamento": "Payment Type ID"
     },
 "Pedido": {
         "Pedido": "Order",
         "pedidoCancelado": "Client name",
-        "datahoraPedido": "Phone client",
+        "dataPedido": "Date Order",
+        "horaPedido": "Hour Order",
         "pagamento": "Payment  ID",
         "garcon": "ID Garcon",
         "itemPedido": "ID Items Ordered",
@@ -111,12 +110,12 @@
 "Produto": {
         "Produto": "Product",
         "nomeProduto": "Name Product ",
-        "codigo": "Phone client",
-        "descricaoProduto": "Phone client",
-        "precoProduto": "Phone client",
-        "imagem": "Phone client",
-        "categoria": "ID Category",
-        "opcional": "ID Optional "
+        "codigo": "Code",
+        "descricaoProduto": "Product Description",
+        "precoProduto": "Product Price",
+        "imagem": "Image",
+        "categoria": "Category",
+        "opcional": "Optional "
     },
 "TipoPagamento": {
         "TipoPagamento": "Payment Type",
@@ -125,14 +124,14 @@
 "Entrega": {
         "Entrega": "Delivery",
         "status": "Status",
-        "dataEntregaPrevista": "Phone client",
-        "horaEntregaPrevista": "Phone client",
-        "dataEntregaReal": "Phone client",
-        "horaEntregaReal": "Phone client",
-        "motoboy": "Phone client",
-        "observacoes": "Phone client",
+        "dataEntregaPrevista": "Estimated Delivery Date",
+        "horaEntregaPrevista": "Estimated Delivery Time",
+        "dataEntregaReal": "Actual Delivery Date",
+        "horaEntregaReal": "Actual Delivery Time",
+        "motoboy": "Motorcycle courier",
+        "observacoes": "Observations",
         "pedido": "Order",
-        "valor": "Phone client",
+        "valor": "Value",
         "endereco": "Adress"
     }
 }

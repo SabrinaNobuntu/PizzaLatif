@@ -8,7 +8,7 @@ export class Endereco extends BaseResourceModel {
     bairro?: string;
     cidade?: string;
     numeroMoradia?: number;
-    cep?: number;
+    cep?: string;
     complemento?: string;
     cadastroCliente?: CadastroCliente;
 

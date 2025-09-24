@@ -4,11 +4,15 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('pedido', { 
       pedidoCancelado: {
       type: DataTypes.STRING , 
-      field: ' Pedido_cancelado', 
+      field: ' pedido_cancelado', 
     }, 
-      datahoraPedido: {
-      type: DataTypes.INTEGER , 
-      field: '  DataHora_pedido', 
+      dataPedido: {
+      type: DataTypes.DATE , 
+      field: 'data_pedido', 
+    }, 
+      horaPedido: {
+      type: DataTypes.STRING , 
+      field: 'hora_pedido', 
     }, 
   }); 
 

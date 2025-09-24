@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "opendelivery-backend.fullname" . }}
+  labels:
+    app: {{ include "opendelivery-backend.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "opendelivery-backend.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "opendelivery-backend.name" . }}
+    spec:
+      containers:
+        - name: opendelivery-backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: DB_HOST
+              value: {{ .Values.env.DB_HOST }}
+            - name: DB_PORT
+              value: "{{ .Values.env.DB_PORT }}"
+            - name: DB_USER
+              value: {{ .Values.env.DB_USER }}
+            - name: DB_PASSWORD
+              value: {{ .Values.env.DB_PASSWORD }}
+            - name: DB_NAME
+              value: {{ .Values.env.DB_NAME }}
+            - name: OPENDELIVERY_CLIENT_ID
+              value: {{ .Values.env.OPENDELIVERY_CLIENT_ID }}
+            - name: OPENDELIVERY_CLIENT_SECRET
+              value: {{ .Values.env.OPENDELIVERY_CLIENT_SECRET }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}

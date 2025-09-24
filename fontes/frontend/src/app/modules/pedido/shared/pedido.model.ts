@@ -8,7 +8,8 @@ import { BaseResourceModel } from "app/shared/models/base-resource.model";
 export class Pedido extends BaseResourceModel {
     id?: any;
     pedidoCancelado?: string;
-    datahoraPedido?: number;
+    dataPedido?: any;
+    horaPedido?: string;
     pagamento?: Pagamento;
     garcon?: Garcon;
     itemPedido?: ItemPedido;

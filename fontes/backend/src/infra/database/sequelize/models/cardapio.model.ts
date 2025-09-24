@@ -4,15 +4,15 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('cardapio', { 
       nomeMenu: {
       type: DataTypes.STRING , 
-      field: ' Nome_menu', 
+      field: ' nome_menu', 
     }, 
       descricaoMenu: {
       type: DataTypes.STRING , 
-      field: 'Descricao_menu', 
+      field: 'descricao_menu', 
     }, 
       preco: {
       type: DataTypes.INTEGER , 
-      field: ' Preco', 
+      field: ' preco', 
     }, 
   }); 
 

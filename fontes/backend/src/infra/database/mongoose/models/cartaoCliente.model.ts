@@ -19,14 +19,8 @@ export default function defineModel(mongooseConnection: Connection) {
       nomeImpresso: {
           type: String,
       },
-      anoValidade: {
-          type: Number,
-      },
-      mesValidade: {
-          type: Number,
-      },
-      diaValidade: {
-          type: Number,
+      dataValidade: {
+          type: Date,
       },
       cvv: {
           type: Number,
@@ -35,7 +29,7 @@ export default function defineModel(mongooseConnection: Connection) {
           type: String,
       },
       cpfcnpj: {
-          type: Number,
+          type: String,
       },
         tipoPagamento: {type: mongoose.Schema.Types.ObjectId, ref: 'tipoPagamento'}, 
     },

@@ -1,0 +1,7 @@
+{
+  "rules": [
+    { "pattern": "^frontend/", "cmd": "cd frontend && npm ci && npm test" },
+    { "pattern": "^backend/", "cmd": "cd backend && npm ci && npm test" },
+    { "pattern": "\\.py$", "cmd": "pip install -r requirements.txt && pytest -q" }
+  ]
+}

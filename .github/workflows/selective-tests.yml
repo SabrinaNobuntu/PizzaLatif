@@ -1,0 +1,56 @@
+name: Testes seletivos por arquivo modificado
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  selective-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout do repositório (com histórico)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Definir BASE e HEAD (commit range)
+        id: set-range
+        run: |
+          # define BASE/HEAD no env para uso posterior
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+            echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+          else
+            echo "BASE=${{ github.event.before }}" >> $GITHUB_ENV
+            echo "HEAD=${{ github.sha }}" >> $GITHUB_ENV
+          fi
+
+      - name: Detectar arquivos adicionados/alterados
+        id: detect
+        run: |
+          chmod +x ./.github/scripts/detect_changed_files.sh
+          CHANGED=$(.github/scripts/detect_changed_files.sh "$BASE" "$HEAD")
+          # grava saída multi-line em GITHUB_OUTPUT (recomendado)
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Exibir arquivos detectados
+        if: steps.detect.outputs.changed_files != ''
+        run: |
+          echo "Arquivos adicionados/alterados:"
+          echo "${{ steps.detect.outputs.changed_files }}"
+
+      - name: Executar testes com base nas alterações
+        if: steps.detect.outputs.changed_files != ''
+        run: |
+          chmod +x ./.github/scripts/run_tests_by_changed_files.sh
+          CHANGED="${{ steps.detect.outputs.changed_files }}"
+          ./.github/scripts/run_tests_by_changed_files.sh "$CHANGED"

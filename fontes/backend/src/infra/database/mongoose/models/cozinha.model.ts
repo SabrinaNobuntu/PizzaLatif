@@ -16,8 +16,11 @@ export default function defineModel(mongooseConnection: Connection) {
       nomePedido: {
           type: String,
       },
-      dataHora: {
-          type: Number,
+      data: {
+          type: Date,
+      },
+      hora: {
+          type: String,
       },
       statusPedido: {
           type: String,

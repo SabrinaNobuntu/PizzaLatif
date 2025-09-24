@@ -4,23 +4,23 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('itemPedido', { 
       nomePedido: {
       type: DataTypes.STRING , 
-      field: 'Nome_pedido', 
+      field: 'nome_pedido', 
     }, 
       descricao: {
       type: DataTypes.STRING , 
-      field: 'Descricao', 
+      field: 'descricao', 
     }, 
       quantidadePedido: {
       type: DataTypes.INTEGER , 
-      field: ' Qtde_pedido', 
+      field: ' quantidade_pedido', 
     }, 
       precoPedido: {
       type: DataTypes.INTEGER , 
-      field: 'Preco_pedido', 
+      field: 'preco_pedido', 
     }, 
       numeroMesa: {
       type: DataTypes.INTEGER , 
-      field: 'Numero_mesa', 
+      field: 'numero_mesa', 
     }, 
   }); 
 

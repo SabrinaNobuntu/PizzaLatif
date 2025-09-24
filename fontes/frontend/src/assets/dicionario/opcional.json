@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:28.76441Z", 
+        "modified": "2025-09-22T11:18:08.073805Z", 
         "description": "Opcional",  
         "name": "Opcional", 
         "apiUrl": "api/opcional",
-        "route": "",
+        "route": "opcional",
         "title": { 
             "pt": "Opcional", 
             "en": "Optional" 
@@ -60,8 +60,8 @@
             "type": "foreignKey", 
             "className": "Produto", 
             "many": false, 
-            "apiUrl": "",
-            "fieldDisplayedInLabel": "",
+            "apiUrl": "api/produto",
+            "fieldDisplayedInLabel": "nomeProduto",
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 

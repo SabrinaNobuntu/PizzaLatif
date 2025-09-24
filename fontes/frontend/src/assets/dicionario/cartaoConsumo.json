@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:18.38584Z", 
+        "modified": "2025-09-22T11:17:58.110941Z", 
         "description": "Cartão consumo",  
         "name": "CartaoConsumo", 
-        "apiUrl": "api/cartaoConsumo",
-        "route": "",
+        "apiUrl": "api/cartao-consumo",
+        "route": "cartaoConsumo",
         "title": { 
             "pt": "Cartao Consumo", 
             "en": "consumption card" 
@@ -59,7 +59,7 @@
             "visibleForm": true
                 },
                 { 
-                    "type": "number", 
+                    "type": "string", 
                     "name": "telefone", 
             "visibleCard": true, 
             "visibleGrid": true, 

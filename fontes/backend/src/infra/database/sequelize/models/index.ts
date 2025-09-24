@@ -147,47 +147,47 @@ export default async function setModels(tenantConnection: TenantConnection) {
   const entrega = entregaModel(sequelizeConnection); 
 
 
-  cliente.hasOne(cartaoConsumo, {foreignKey: {name: "clientes", allowNull: true, field: "ID_Clientes" }, as: "ALIASclientesALIAScartaoConsumo"}); 
-  cartaoConsumo.belongsTo(cliente,  {foreignKey: {name: "clientes", allowNull: true, field: "ID_Clientes" }, as: "ALIASclientesALIAScartaoConsumo"}); 
+  cliente.hasOne(cartaoConsumo, {foreignKey: {name: "clientes", allowNull: true, field: "clientes" }, as: "ALIASclientesALIAScartaoConsumo"}); 
+  cartaoConsumo.belongsTo(cliente,  {foreignKey: {name: "clientes", allowNull: true, field: "clientes" }, as: "ALIASclientesALIAScartaoConsumo"}); 
 
-  tipoPagamento.hasOne(cartaoCliente, {foreignKey: {name: "tipoPagamento", allowNull: true, field: "ID_TipoPagamento" }, as: "ALIAStipoPagamentoALIAScartaoCliente"}); 
-  cartaoCliente.belongsTo(tipoPagamento,  {foreignKey: {name: "tipoPagamento", allowNull: true, field: "ID_TipoPagamento" }, as: "ALIAStipoPagamentoALIAScartaoCliente"}); 
+  tipoPagamento.hasOne(cartaoCliente, {foreignKey: {name: "tipoPagamento", allowNull: true, field: "tipo_pagamento" }, as: "ALIAStipoPagamentoALIAScartaoCliente"}); 
+  cartaoCliente.belongsTo(tipoPagamento,  {foreignKey: {name: "tipoPagamento", allowNull: true, field: "tipo_pagamento" }, as: "ALIAStipoPagamentoALIAScartaoCliente"}); 
 
-  itemPedido.hasOne(cozinha, {foreignKey: {name: "itemPedido", allowNull: true, field: "ID_ItensPedido" }, as: "ALIASitemPedidoALIAScozinha"}); 
-  cozinha.belongsTo(itemPedido,  {foreignKey: {name: "itemPedido", allowNull: true, field: "ID_ItensPedido" }, as: "ALIASitemPedidoALIAScozinha"}); 
+  itemPedido.hasOne(cozinha, {foreignKey: {name: "itemPedido", allowNull: true, field: "item_pedido" }, as: "ALIASitemPedidoALIAScozinha"}); 
+  cozinha.belongsTo(itemPedido,  {foreignKey: {name: "itemPedido", allowNull: true, field: "item_pedido" }, as: "ALIASitemPedidoALIAScozinha"}); 
 
-  cadastroCliente.hasOne(endereco, {foreignKey: {name: "cadastroCliente", allowNull: true, field: "ID_CadastroCliente" }, as: "ALIAScadastroClienteALIASendereco"}); 
-  endereco.belongsTo(cadastroCliente,  {foreignKey: {name: "cadastroCliente", allowNull: true, field: "ID_CadastroCliente" }, as: "ALIAScadastroClienteALIASendereco"}); 
+  cadastroCliente.hasOne(endereco, {foreignKey: {name: "cadastroCliente", allowNull: true, field: "cadastro_cliente" }, as: "ALIAScadastroClienteALIASendereco"}); 
+  endereco.belongsTo(cadastroCliente,  {foreignKey: {name: "cadastroCliente", allowNull: true, field: "cadastro_cliente" }, as: "ALIAScadastroClienteALIASendereco"}); 
 
-  produto.hasOne(cardapio, {foreignKey: {name: "produto", allowNull: true, field: "ID_Produtos" }, as: "ALIASprodutoALIAScardapio"}); 
-  cardapio.belongsTo(produto,  {foreignKey: {name: "produto", allowNull: true, field: "ID_Produtos" }, as: "ALIASprodutoALIAScardapio"}); 
+  produto.hasOne(cardapio, {foreignKey: {name: "produto", allowNull: true, field: "produto" }, as: "ALIASprodutoALIAScardapio"}); 
+  cardapio.belongsTo(produto,  {foreignKey: {name: "produto", allowNull: true, field: "produto" }, as: "ALIASprodutoALIAScardapio"}); 
 
-  produto.hasOne(opcional, {foreignKey: {name: "produto", allowNull: true, field: " ID_Produtos" }, as: "ALIASprodutoALIASopcional"}); 
-  opcional.belongsTo(produto,  {foreignKey: {name: "produto", allowNull: true, field: " ID_Produtos" }, as: "ALIASprodutoALIASopcional"}); 
+  produto.hasOne(opcional, {foreignKey: {name: "produto", allowNull: true, field: "produto" }, as: "ALIASprodutoALIASopcional"}); 
+  opcional.belongsTo(produto,  {foreignKey: {name: "produto", allowNull: true, field: "produto" }, as: "ALIASprodutoALIASopcional"}); 
 
-  categoria.hasOne(opcional, {foreignKey: {name: "categoria", allowNull: true, field: " ID_Categoria" }, as: "ALIAScategoriaALIASopcional"}); 
-  opcional.belongsTo(categoria,  {foreignKey: {name: "categoria", allowNull: true, field: " ID_Categoria" }, as: "ALIAScategoriaALIASopcional"}); 
+  categoria.hasOne(opcional, {foreignKey: {name: "categoria", allowNull: true, field: "categoria" }, as: "ALIAScategoriaALIASopcional"}); 
+  opcional.belongsTo(categoria,  {foreignKey: {name: "categoria", allowNull: true, field: "categoria" }, as: "ALIAScategoriaALIASopcional"}); 
 
-  tipoPagamento.hasOne(pagamento, {foreignKey: {name: "tipoPagamento", allowNull: true, field: "ID_TipoPagamento" }, as: "ALIAStipoPagamentoALIASpagamento"}); 
-  pagamento.belongsTo(tipoPagamento,  {foreignKey: {name: "tipoPagamento", allowNull: true, field: "ID_TipoPagamento" }, as: "ALIAStipoPagamentoALIASpagamento"}); 
+  tipoPagamento.hasOne(pagamento, {foreignKey: {name: "tipoPagamento", allowNull: true, field: "tipo_pagamento" }, as: "ALIAStipoPagamentoALIASpagamento"}); 
+  pagamento.belongsTo(tipoPagamento,  {foreignKey: {name: "tipoPagamento", allowNull: true, field: "tipo_pagamento" }, as: "ALIAStipoPagamentoALIASpagamento"}); 
 
-  pagamento.hasOne(pedido, {foreignKey: {name: "pagamento", allowNull: true, field: "ID_Pagamento" }, as: "ALIASpagamentoALIASpedido"}); 
-  pedido.belongsTo(pagamento,  {foreignKey: {name: "pagamento", allowNull: true, field: "ID_Pagamento" }, as: "ALIASpagamentoALIASpedido"}); 
+  pagamento.hasOne(pedido, {foreignKey: {name: "pagamento", allowNull: true, field: "pagamento" }, as: "ALIASpagamentoALIASpedido"}); 
+  pedido.belongsTo(pagamento,  {foreignKey: {name: "pagamento", allowNull: true, field: "pagamento" }, as: "ALIASpagamentoALIASpedido"}); 
 
-  garcon.hasOne(pedido, {foreignKey: {name: "garcon", allowNull: true, field: "ID_Garcon" }, as: "ALIASgarconALIASpedido"}); 
-  pedido.belongsTo(garcon,  {foreignKey: {name: "garcon", allowNull: true, field: "ID_Garcon" }, as: "ALIASgarconALIASpedido"}); 
+  garcon.hasOne(pedido, {foreignKey: {name: "garcon", allowNull: true, field: "garcon" }, as: "ALIASgarconALIASpedido"}); 
+  pedido.belongsTo(garcon,  {foreignKey: {name: "garcon", allowNull: true, field: "garcon" }, as: "ALIASgarconALIASpedido"}); 
 
-  itemPedido.hasOne(pedido, {foreignKey: {name: "itemPedido", allowNull: true, field: "ID_ItensPedido" }, as: "ALIASitemPedidoALIASpedido"}); 
-  pedido.belongsTo(itemPedido,  {foreignKey: {name: "itemPedido", allowNull: true, field: "ID_ItensPedido" }, as: "ALIASitemPedidoALIASpedido"}); 
+  itemPedido.hasOne(pedido, {foreignKey: {name: "itemPedido", allowNull: true, field: "item_pedido" }, as: "ALIASitemPedidoALIASpedido"}); 
+  pedido.belongsTo(itemPedido,  {foreignKey: {name: "itemPedido", allowNull: true, field: "item_pedido" }, as: "ALIASitemPedidoALIASpedido"}); 
 
   cartaoConsumo.hasOne(pedido, {foreignKey: {name: "cartaoConsumo", allowNull: true, field: " ID_Cartao" }, as: "ALIAScartaoConsumoALIASpedido"}); 
   pedido.belongsTo(cartaoConsumo,  {foreignKey: {name: "cartaoConsumo", allowNull: true, field: " ID_Cartao" }, as: "ALIAScartaoConsumoALIASpedido"}); 
 
-  categoria.hasOne(produto, {foreignKey: {name: "categoria", allowNull: true, field: "ID_Categoria" }, as: "ALIAScategoriaALIASproduto"}); 
-  produto.belongsTo(categoria,  {foreignKey: {name: "categoria", allowNull: true, field: "ID_Categoria" }, as: "ALIAScategoriaALIASproduto"}); 
+  categoria.hasOne(produto, {foreignKey: {name: "categoria", allowNull: true, field: "categoria" }, as: "ALIAScategoriaALIASproduto"}); 
+  produto.belongsTo(categoria,  {foreignKey: {name: "categoria", allowNull: true, field: "categoria" }, as: "ALIAScategoriaALIASproduto"}); 
 
-  opcional.hasOne(produto, {foreignKey: {name: "opcional", allowNull: true, field: "ID_Opcional" }, as: "ALIASopcionalALIASproduto"}); 
-  produto.belongsTo(opcional,  {foreignKey: {name: "opcional", allowNull: true, field: "ID_Opcional" }, as: "ALIASopcionalALIASproduto"}); 
+  opcional.hasOne(produto, {foreignKey: {name: "opcional", allowNull: true, field: "Opcional" }, as: "ALIASopcionalALIASproduto"}); 
+  produto.belongsTo(opcional,  {foreignKey: {name: "opcional", allowNull: true, field: "Opcional" }, as: "ALIASopcionalALIASproduto"}); 
 
   pedido.hasOne(entrega, {foreignKey: {name: "pedido", allowNull: true, field: "pedido" }, as: "ALIASpedidoALIASentrega"}); 
   entrega.belongsTo(pedido,  {foreignKey: {name: "pedido", allowNull: true, field: "pedido" }, as: "ALIASpedidoALIASentrega"}); 

@@ -7,7 +7,8 @@ import { CartaoConsumo } from "./cartaoConsumo.model";
 
 export interface IPedido extends BaseResourceModel { 
   pedidoCancelado?: string
-  datahoraPedido?: number
+  dataPedido?: any
+  horaPedido?: string
   pagamento?: Pagamento
   garcon?: Garcon
   itemPedido?: ItemPedido
@@ -16,7 +17,8 @@ export interface IPedido extends BaseResourceModel {
 } 
 export class Pedido extends BaseResourceModel implements IPedido{ 
   pedidoCancelado?: string
-  datahoraPedido?: number
+  dataPedido?: any
+  horaPedido?: string
   pagamento?: Pagamento
   garcon?: Garcon
   itemPedido?: ItemPedido
@@ -26,7 +28,8 @@ export class Pedido extends BaseResourceModel implements IPedido{
     super();
     this.id = input.id;
     this.pedidoCancelado = input.pedidoCancelado;
-    this.datahoraPedido = input.datahoraPedido;
+    this.dataPedido = input.dataPedido;
+    this.horaPedido = input.horaPedido;
     this.pagamento = input.pagamento;
     this.garcon = input.garcon;
     this.itemPedido = input.itemPedido;

@@ -1,0 +1,67 @@
+
+{
+  "info": {
+    "name": "Open Delivery API",
+    "_postman_id": "12345678-abcd-ef00-1234-56789abcdef0",
+    "description": "Coleção de endpoints do back-end Open Delivery",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/pedido",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Get Events",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/events",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["events"]
+        }
+      }
+    },
+    {
+      "name": "Get Merchants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/merchants",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["merchants"]
+        }
+      }
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["health"]
+        }
+      }
+    }
+  ]
+}

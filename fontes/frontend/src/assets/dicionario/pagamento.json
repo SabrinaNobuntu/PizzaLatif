@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:29.778649Z", 
+        "modified": "2025-09-22T11:18:09.057688Z", 
         "description": "Pagamento",  
         "name": "Pagamento", 
         "apiUrl": "api/pagamento",
-        "route": "",
+        "route": "pagamento",
         "title": { 
             "pt": "Pagamento", 
             "en": "Payment" 
@@ -34,9 +34,21 @@
             "visibleForm": true
         },
         { 
-            "name":"datahoraPagamento", 
-            "type": "number", 
-            "mask": "Numero", 
+            "name":"dataPagamento", 
+            "type": "date", 
+            "mask": "Data", 
+            "isRequired": false, 
+            "visibleCard": true, 
+            "visibleGrid": true, 
+            "visibleFilter": true, 
+            "visibleList": true, 
+            "visibleForm": true
+        },
+        { 
+            "name":"horaPagamento", 
+            "type": "time", 
+            "mask": "Time", 
+            "defaultValue":"00:00", 
             "isRequired": false, 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -49,7 +61,7 @@
             "type": "foreignKey", 
             "className": "TipoPagamento", 
             "many": false, 
-            "apiUrl": "api/tipoPagamento",
+            "apiUrl": "api/tipo-pagamento",
             "fieldDisplayedInLabel": "tipoPagamento",
             "visibleCard": true, 
             "visibleGrid": true, 

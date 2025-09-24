@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:24.684257Z", 
+        "modified": "2025-09-22T11:18:04.095114Z", 
         "description": "Endereço",  
         "name": "Endereco", 
         "apiUrl": "api/endereco",
-        "route": "",
+        "route": "endereco",
         "title": { 
             "pt": "Endereco", 
             "en": "Address" 
@@ -68,8 +68,8 @@
         },
         { 
             "name":"cep", 
-            "type": "number", 
-            "mask": "Numero", 
+            "type": "string", 
+            "mask": "CEP", 
             "isRequired": false, 
             "visibleCard": true, 
             "visibleGrid": true, 
@@ -93,8 +93,8 @@
             "type": "foreignKey", 
             "className": "CadastroCliente", 
             "many": false, 
-            "apiUrl": "api/cadastroCliente",
-            "fieldDisplayedInLabel": "nomeCliente sobrenomeCliente",
+            "apiUrl": "api/cadastro-cliente",
+            "fieldDisplayedInLabel": "nomeCliente",
             "visibleCard": true, 
             "visibleGrid": true, 
             "visibleFilter": true, 

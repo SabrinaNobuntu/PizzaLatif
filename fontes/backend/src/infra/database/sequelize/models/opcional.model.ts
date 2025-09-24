@@ -4,15 +4,15 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('opcional', { 
       nomeOpcional: {
       type: DataTypes.STRING , 
-      field: 'Nome_opcional', 
+      field: 'nome_opcional', 
     }, 
       tipoOpcional: {
       type: DataTypes.STRING , 
-      field: 'Tipo_opcional', 
+      field: 'tipo_opcional', 
     }, 
       maximaOpcionais: {
       type: DataTypes.INTEGER , 
-      field: 'Maxima_opcionais', 
+      field: 'maxima_opcionais', 
     }, 
   }); 
 

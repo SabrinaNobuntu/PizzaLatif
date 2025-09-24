@@ -4,14 +4,16 @@ import { ItemPedido } from "./itemPedido.model";
 
 export interface ICozinha extends BaseResourceModel { 
   nomePedido?: string
-  dataHora?: number
+  data?: any
+  hora?: string
   statusPedido?: string
   itemPedido?: ItemPedido
   createdAt?: string 
 } 
 export class Cozinha extends BaseResourceModel implements ICozinha{ 
   nomePedido?: string
-  dataHora?: number
+  data?: any
+  hora?: string
   statusPedido?: string
   itemPedido?: ItemPedido
   createdAt?: string 
@@ -19,7 +21,8 @@ export class Cozinha extends BaseResourceModel implements ICozinha{
     super();
     this.id = input.id;
     this.nomePedido = input.nomePedido;
-    this.dataHora = input.dataHora;
+    this.data = input.data;
+    this.hora = input.hora;
     this.statusPedido = input.statusPedido;
     this.itemPedido = input.itemPedido;
     this.createdAt = input.createdAt; 

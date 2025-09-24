@@ -23,5 +23,5 @@ export default function defineRoute(app: Application){
     // Custom get CartaoCliente 
     router.post("/custom", [checkUserAccess], controller.customQuery);
 
-    app.use('/api/cartaoCliente', router); 
+    app.use('/api/cartao-cliente', router); 
   }; 

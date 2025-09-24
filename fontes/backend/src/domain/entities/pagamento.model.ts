@@ -4,20 +4,23 @@ import { TipoPagamento } from "./tipoPagamento.model";
 
 export interface IPagamento extends BaseResourceModel { 
   valorPagamento?: number
-  datahoraPagamento?: number
+  dataPagamento?: any
+  horaPagamento?: string
   tipoPagamento?: TipoPagamento
   createdAt?: string 
 } 
 export class Pagamento extends BaseResourceModel implements IPagamento{ 
   valorPagamento?: number
-  datahoraPagamento?: number
+  dataPagamento?: any
+  horaPagamento?: string
   tipoPagamento?: TipoPagamento
   createdAt?: string 
   constructor(input: IPagamento){
     super();
     this.id = input.id;
     this.valorPagamento = input.valorPagamento;
-    this.datahoraPagamento = input.datahoraPagamento;
+    this.dataPagamento = input.dataPagamento;
+    this.horaPagamento = input.horaPagamento;
     this.tipoPagamento = input.tipoPagamento;
     this.createdAt = input.createdAt; 
  }

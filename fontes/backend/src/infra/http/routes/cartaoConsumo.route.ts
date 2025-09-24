@@ -23,5 +23,5 @@ export default function defineRoute(app: Application){
     // Custom get CartaoConsumo 
     router.post("/custom", [checkUserAccess], controller.customQuery);
 
-    app.use('/api/cartaoConsumo', router); 
+    app.use('/api/cartao-consumo', router); 
   }; 

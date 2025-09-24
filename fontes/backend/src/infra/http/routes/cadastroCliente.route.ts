@@ -23,5 +23,5 @@ export default function defineRoute(app: Application){
     // Custom get CadastroCliente 
     router.post("/custom", [checkUserAccess], controller.customQuery);
 
-    app.use('/api/cadastroCliente', router); 
+    app.use('/api/cadastro-cliente', router); 
   }; 

@@ -5,7 +5,8 @@ import { BaseResourceModel } from "app/shared/models/base-resource.model";
 export class Pagamento extends BaseResourceModel {
     id?: any;
     valorPagamento?: number;
-    datahoraPagamento?: number;
+    dataPagamento?: any;
+    horaPagamento?: string;
     tipoPagamento?: TipoPagamento;
 
     static fromJson(jsonData: any): Pagamento{ 

@@ -23,5 +23,5 @@ export default function defineRoute(app: Application){
     // Custom get TipoPagamento 
     router.post("/custom", [checkUserAccess], controller.customQuery);
 
-    app.use('/api/tipoPagamento', router); 
+    app.use('/api/tipo-pagamento', router); 
   }; 

@@ -3,6 +3,7 @@ import { setRoutes } from './infra/http/routes';
 import { setMiddlewaresAfterRoutes, setMiddlewaresBeforeRoutes } from './infra/http/middlewares';
 import { TenantConnectionService } from './domain/services/tenantConnection.service';
 require('dotenv').config();
+import 'dotenv/config';
 
 const app = express();
 

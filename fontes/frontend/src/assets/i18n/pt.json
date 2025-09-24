@@ -31,9 +31,7 @@
         "CartaoCliente": "Cartão Cliente",
         "numeroCartao": "Nome do cartão",
         "nomeImpresso": " Nome Impresso",
-        "anoValidade": " Ano Validade",
-        "mesValidade": "Mes Validade",
-        "diaValidade": "Dia Validade",
+        "dataValidade": " Data de Validade",
         "cvv": "CVV",
         "pedidoCartao": "Pedido cartão",
         "cpfcnpj": "CPFCNPJ",
@@ -49,7 +47,8 @@
 "Cozinha": {
         "Cozinha": "Cozinha",
         "nomePedido": "Nome do pedido",
-        "dataHora": "Data e Hora",
+        "data": "data",
+        "hora": "hora",
         "statusPedido": "Status do Pedido",
         "itemPedido": "ID Itens Pedidos"
     },
@@ -66,8 +65,6 @@
 "Garcon": {
         "Garcon": "Garçon",
         "nomeGarcon": "Nome do garçon",
-        "login": "Login do Garçon",
-        "senha": "Senha do garçon",
         "comissao": "Comissão"
     },
 "ItemPedido": {
@@ -96,13 +93,15 @@
 "Pagamento": {
         "Pagamento": "Pagamento",
         "valorPagamento": "Valor do pagamento",
-        "datahoraPagamento": "Data e hora de pagamento",
+        "dataPagamento": "Data de pagamento",
+        "horaPagamento": "Hora de pagamento",
         "tipoPagamento": "ID Tipo Pagamento"
     },
 "Pedido": {
         "Pedido": "Pedido",
         "pedidoCancelado": " Pedido Cancelado",
-        "datahoraPedido": "Data e hora de pedido",
+        "dataPedido": "Data de pedido",
+        "horaPedido": "hora de pedido",
         "pagamento": "ID Pagamento",
         "garcon": "ID Garçon",
         "itemPedido": "ID Itens Pedidos",
@@ -112,11 +111,11 @@
         "Produto": "Produto",
         "nomeProduto": "Nome do Produto",
         "codigo": "Código",
-        "descricaoProduto": "Descrição dos produtos",
+        "descricaoProduto": "Descrição do produto",
         "precoProduto": "Preço do Produto",
         "imagem": "Imagem",
-        "categoria": "ID Categoria",
-        "opcional": "ID Opcional"
+        "categoria": "Categoria",
+        "opcional": "Opcional"
     },
 "TipoPagamento": {
         "TipoPagamento": "Tipo Pagamento",

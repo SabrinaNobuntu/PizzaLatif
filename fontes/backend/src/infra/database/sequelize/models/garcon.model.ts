@@ -4,19 +4,11 @@ export default function defineModel(sequelize: Sequelize){
   const schema = sequelize.define('garcon', { 
       nomeGarcon: {
       type: DataTypes.STRING , 
-      field: 'Nome_garcon', 
-    }, 
-      login: {
-      type: DataTypes.STRING , 
-      field: 'Login', 
-    }, 
-      senha: {
-      type: DataTypes.STRING , 
-      field: 'Senha', 
+      field: 'nome_garcon', 
     }, 
       comissao: {
       type: DataTypes.STRING , 
-      field: 'Comissao', 
+      field: 'comissao', 
     }, 
   }); 
 

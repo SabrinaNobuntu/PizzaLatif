@@ -26,7 +26,7 @@ export default function defineModel(mongooseConnection: Connection) {
           type: Number,
       },
       cep: {
-          type: Number,
+          type: String,
       },
       complemento: {
           type: String,

@@ -44,7 +44,7 @@ export class ValidateAccessTokenUseCase {
 
     // Verifica e decodifica o token
     const verifiedToken = jwt.verify(token, publicKey, {
-      clockTolerance: 75,
+      clockTolerance: 5,
       issuer: options.issuer, //Compara se o Emissor do token é o correto
       audience: options.audience,
       algorithms: [algorithm] //Algoritmo de assinatura do JWT

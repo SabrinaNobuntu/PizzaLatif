@@ -13,7 +13,7 @@ export class TipoPagamentoService extends BaseResourceService<TipoPagamento> {
   protected http: HttpClient 
 
   constructor(protected override injector: Injector) { 
-    var url = environment.backendUrl+"/api/tipoPagamento"; 
+    var url = environment.backendUrl+"/api/tipo-pagamento"; 
 
     super(url, injector, TipoPagamento.fromJson) 
   } 

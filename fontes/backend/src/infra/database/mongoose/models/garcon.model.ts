@@ -16,12 +16,6 @@ export default function defineModel(mongooseConnection: Connection) {
       nomeGarcon: {
           type: String,
       },
-      login: {
-          type: String,
-      },
-      senha: {
-          type: String,
-      },
       comissao: {
           type: String,
       }

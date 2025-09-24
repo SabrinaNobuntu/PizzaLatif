@@ -1,10 +1,10 @@
 {
     "config":{ 
-        "modified": "2025-09-17T18:00:32.805328Z", 
+        "modified": "2025-09-22T11:18:12.040132Z", 
         "description": "Tipo do Pagamento",  
         "name": "TipoPagamento", 
-        "apiUrl": "api/tipoPagamento",
-        "route": "",
+        "apiUrl": "api/tipo-pagamento",
+        "route": "tipoPagamento",
         "title": { 
             "pt": "Tipo Pagamento", 
             "en": "Payment Type" 
