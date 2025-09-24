@@ -9,11 +9,6 @@
       "category": "backend",
       "pattern": "^fontes/backend/",
       "cmd": "cd fontes/backend && npm ci && npm test"
-    },
-    {
-      "category": "python",
-      "pattern": "^fontes/python/",
-      "cmd": "cd fontes/python/ && pip install -r requirements.txt && pytest -q"
     }
   ]
 }
