@@ -3,12 +3,12 @@
     {
       "category": "frontend",
       "pattern": "^fontes/frontend/",
-      "cmd": "npx jest -- --projects=fontes/frontend"
+      "cmd": "npx jest --config=fontes/frontend/jest.config.js"
     },
     {
       "category": "backend",
       "pattern": "^fontes/backend/",
-      "cmd": "npx jest --projects=fontes/backend"
+      "cmd": "npx jest --config=fontes/backend/jest.config.js"
     }
   ]
 }
