@@ -16,15 +16,22 @@ jobs:
         with:
           node-version: 20
 
+      - name: Instalar jq
+        run: sudo apt-get install -y jq
+
       - name: Instala dependências
         run: npm install
 
       - name: Detectar arquivos modificados
         id: changes
         run: |
-          ./scripts/detect_changed_files.sh ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
+          chmod +x .github/scripts/detect_changed_files.sh
+          .github/scripts/detect_changed_files.sh ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
           echo "Arquivos alterados:"
           cat changed_files.txt
 
       - name: Rodar testes apenas para arquivos alterados
-        run: ./scripts/run_tests_by_changed_files.sh changed_files.txt
+        run: |
+          chmod +x .github/scripts/run_tests_by_changed_files.sh
+          .github/scripts/run_tests_by_changed_files.sh changed_files.txt backend
+          .github/scripts/run_tests_by_changed_files.sh changed_files.txt frontend
