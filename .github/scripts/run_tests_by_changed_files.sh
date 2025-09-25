@@ -22,15 +22,11 @@ REPORT_FILE="relatorio_testes_${CATEGORY_OVERRIDE}.txt"
 echo "Relatório de testes (${CATEGORY_OVERRIDE}) - $(date)" > "$REPORT_FILE"
 
 while read -r file; do
-  # Processa apenas arquivos JS/TS/SH
   if [[ -n "$file" && "$file" =~ \.(js|ts|jsx|tsx|sh)$ ]]; then
-    # Descobre a categoria do arquivo
     CATEGORY=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .category")
     CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .cmd")
 
-    # Se houver categoria e ainda não tiver rodado, executa
     if [ -n "$CATEGORY" ] && [[ ! " ${RAN_CATEGORIES[*]} " =~ " $CATEGORY " ]]; then
-      # Se houver override de categoria, só roda se bater
       if [ -n "$CATEGORY_OVERRIDE" ] && [ "$CATEGORY" != "$CATEGORY_OVERRIDE" ]; then
         continue
       fi
