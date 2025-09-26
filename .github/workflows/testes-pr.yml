@@ -1,0 +1,138 @@
+name: Testes Automáticos PR
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  detect-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [frontend, backend]
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm install
+        working-directory: fontes/${{ matrix.test }}
+
+      - name: Instalar jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Gerar lista de arquivos alterados
+        id: detect
+        run: |
+          git fetch origin main
+          git diff --name-only origin/main HEAD > changed_files.txt
+          cat changed_files.txt
+
+      - name: Rodar testes (arquivos alterados ou todos)
+        run: |
+          CHANGED_FILES=changed_files.txt
+          CATEGORY="${{ matrix.test }}"
+          REPORT_FILE="relatorio_testes_${CATEGORY}.txt"
+          echo "Relatório de testes ($CATEGORY) - $(date)" > $REPORT_FILE
+          RULES_JSON=$(cat test-rules.json)
+
+          if [ ! -s $CHANGED_FILES ]; then
+            echo "Nenhum arquivo alterado detectado. Rodando todos os testes da categoria $CATEGORY..." | tee -a $REPORT_FILE
+            CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(.category==\"$CATEGORY\") | .cmd")
+            eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Alguns testes falharam" >> $REPORT_FILE
+          else
+            RAN_CATEGORIES=()
+            while read -r file; do
+              file=$(echo "$file" | tr -d '\r' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+              file=$(echo "$file" | tr '\\' '/')
+
+              case "$file" in
+                changed_files.txt | relatorio_*.txt | teste.txt | package.json | test-rules.json)
+                  echo "Ignorando arquivo de lixo: $file" | tee -a $REPORT_FILE
+                  continue
+                  ;;
+              esac
+
+              CATEGORY_FILE=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .category")
+              CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .cmd")
+
+              if [[ "$CATEGORY_FILE" == "$CATEGORY" ]] && [[ ! " ${RAN_CATEGORIES[*]} " =~ " $CATEGORY " ]]; then
+                echo "📂 Arquivo alterado: $file → Rodando testes da categoria: $CATEGORY" | tee -a $REPORT_FILE
+                eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Testes da categoria '$CATEGORY' falharam" >> $REPORT_FILE
+                RAN_CATEGORIES+=("$CATEGORY")
+              fi
+            done < $CHANGED_FILES
+
+            if [ ${#RAN_CATEGORIES[@]} -eq 0 ]; then
+              echo "Nenhuma categoria de teste necessária. Rodando todos os testes da categoria $CATEGORY..." | tee -a $REPORT_FILE
+              CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(.category==\"$CATEGORY\") | .cmd")
+              eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Alguns testes falharam" >> $REPORT_FILE
+            fi
+          fi
+
+      - name: Upload do relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio_testes_${{ matrix.test }}
+          path: relatorio_testes_${{ matrix.test }}.txt
+
+  report-status:
+    runs-on: ubuntu-latest
+    needs: detect-and-test
+    if: always()
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Baixar artifacts frontend
+        uses: actions/download-artifact@v4
+        with:
+          name: relatorio_testes_frontend
+          path: ./artifacts/frontend
+
+      - name: Baixar artifacts backend
+        uses: actions/download-artifact@v4
+        with:
+          name: relatorio_testes_backend
+          path: ./artifacts/backend
+
+      - name: Combinar relatórios
+        run: |
+          cat ./artifacts/frontend/relatorio_testes_frontend.txt \
+              ./artifacts/backend/relatorio_testes_backend.txt > relatorio_testes_completo.txt
+
+      - name: Comentar no PR com o relatório completo
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report = '';
+            try { report = fs.readFileSync('relatorio_testes_completo.txt', 'utf8'); }
+            catch (err) { report = 'Relatório de testes não encontrado.'; }
+
+            const commentBody = `### Relatório de Testes\n\n${report}`;
+            const prNumber = context.payload.pull_request?.number;
+
+            if (prNumber) {
+              github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: commentBody
+              });
+            }
