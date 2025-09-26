@@ -1,14 +1,24 @@
 {
   "rules": [
     {
+      "pattern": "fontes/frontend/.*\\.(js|ts|tsx|jsx)$",
       "category": "frontend",
-      "pattern": "^fontes/frontend/",
-      "cmd": "npx jest --config=fontes/frontend/jest.config.js"
+      "cmd": "cd fontes/frontend && npm run test"
     },
     {
+      "pattern": "fontes/backend/src/.*\\.(ts|js)$",
       "category": "backend",
-      "pattern": "^fontes/backend/",
-      "cmd": "npx jest --config=fontes/backend/jest.config.js"
+      "cmd": "cd fontes/backend && npm run test"
+    },
+    {
+      "pattern": "fontes/backend/.*\\.ts$",
+      "category": "backend",
+      "cmd": "cd fontes/backend && npm run test"
+    },
+    {
+      "pattern": ".github/scripts/.*\\.sh$",
+      "category": "scripts",
+      "cmd": "echo 'Executando scripts internos...'"
     }
   ]
 }

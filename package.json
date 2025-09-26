@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Configuração centralizada para o projeto",
   "scripts": {
-    "test": "npx jest"
+     "test:backend": "npx jest --config=fontes/backend/jest.config.js",
+    "test:frontend": "npx jest --config=fontes/frontend/jest.config.js"
   },
   "devDependencies": {
     "ts-jest": "^29.4.4",

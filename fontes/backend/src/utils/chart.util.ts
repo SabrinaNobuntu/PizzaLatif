@@ -6,7 +6,6 @@ interface IErrorResult {
     message: string;
     code: number;
     status: string;
-    y
 }
 
 interface IChartDefault {

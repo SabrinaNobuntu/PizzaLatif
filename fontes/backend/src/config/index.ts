@@ -1,5 +1,5 @@
 import databaseConfig from './database';
-import openDeliveryConfig from '../../src/config/openDelivery.config';
+import { openDeliveryConfig } from '../../src/config/openDelivery.config';
 import logger from './logger';
 
 const config = {

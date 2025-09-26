@@ -3,6 +3,8 @@ module.exports = {
   displayName: 'backend',
   preset: 'ts-jest',
   testEnvironment: 'node',
-  rootDir: '<rootDir>/fontes/backend',
-  testMatch: ['<rootDir>/src/tests/**/*.spec.ts'],
+  rootDir: '.',
+  testMatch: ['**/__tests__/**/*.ts', '**/?(*.)+(spec|test).ts'],
 };
+
+

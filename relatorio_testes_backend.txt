@@ -1,0 +1,5 @@
+Relatório de testes (backend) - sex, 26 de set de 2025 08:14:21
+Ignorando arquivo de lixo: package.json
+Ignorando arquivo de lixo: test-rules.json
+Ignorando arquivo de lixo: teste.txt
+Nenhuma categoria de teste necessária.
