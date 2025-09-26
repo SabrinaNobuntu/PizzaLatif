@@ -9,7 +9,7 @@ describe('CartaoCliente Model', () => {
       dataValidade: '12/2030',
       cvv: 123,
       pedidoCartao: 'pedido123',
-      cpfcnpj: '12345678909', // <- cpf válido no mock
+      cpfcnpj: '123.456.789-09', // <- cpf válido no mock
       tipoPagamento: { id: 'pix', nome: 'PIX' },
       createdAt: '2025-09-26T12:00:00Z',
     };
