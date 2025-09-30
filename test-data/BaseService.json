@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "_databaseType": "2025-09-30",
+    "_repository": null,
+    "tenantConnection": null
+  },
+  {
+    "id": 2,
+    "_databaseType": "2025-09-30",
+    "_repository": null,
+    "tenantConnection": null
+  },
+  {
+    "id": 3,
+    "_databaseType": "2025-09-29",
+    "_repository": null,
+    "tenantConnection": null
+  }
+]

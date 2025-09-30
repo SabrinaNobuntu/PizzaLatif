@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nomeCategoria": "Unbranded Aluminum Tuna",
+    "usaopcoesTamanho": "Ergonomic Cotton Table",
+    "usaopcoesBorda": "Ebiten Maki",
+    "setor": "Tim Bechtelar",
+    "createdAt": "2025-09-30T05:36:08.813Z"
+  },
+  {
+    "id": 2,
+    "nomeCategoria": "Ergonomic Marble Hat",
+    "usaopcoesTamanho": "Suzanne Schowalter",
+    "usaopcoesBorda": "Brandon Schmitt",
+    "setor": "South Prince",
+    "createdAt": "2025-09-29T20:29:07.452Z"
+  },
+  {
+    "id": 3,
+    "nomeCategoria": "Blueberry Pie",
+    "usaopcoesTamanho": "Tyler Altenwerth",
+    "usaopcoesBorda": "Bespoke Marble Shirt",
+    "setor": "Dr. Laverne Mueller",
+    "createdAt": "2025-09-30T03:35:52.169Z"
+  }
+]

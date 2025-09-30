@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nomeMenu": "Dietrichshire",
+    "descricaoMenu": "Brownview",
+    "preco": 524,
+    "produto": null,
+    "createdAt": "2025-09-30T00:48:50.459Z"
+  },
+  {
+    "id": 2,
+    "nomeMenu": "Erica Gerlach",
+    "descricaoMenu": "Mamie Rosenbaum",
+    "preco": 20,
+    "produto": null,
+    "createdAt": "2025-09-30T02:31:55.267Z"
+  },
+  {
+    "id": 3,
+    "nomeMenu": "Annatto Seed-rubbed Pigeon Salad",
+    "descricaoMenu": "Carla Hoeger",
+    "preco": 72,
+    "produto": null,
+    "createdAt": "2025-09-30T10:02:19.826Z"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nomeCliente": "Modern Steel Hat",
+    "sobrenomeCliente": "Mr. Harry Reilly",
+    "emailCliente": "Arielle.Pollich71@yahoo.com",
+    "emailclienteConfirma": "Arielle.Pollich71@yahoo.com",
+    "senhaCliente": "chV_ddpNOhesfO1",
+    "senhaclienteConfirma": "chV_ddpNOhesfO1",
+    "createdAt": "2025-09-30T03:17:16.354Z"
+  },
+  {
+    "id": 2,
+    "nomeCliente": "Gorgeous Aluminum Chair",
+    "sobrenomeCliente": "Roger Stanton",
+    "emailCliente": "Westley.Olson@yahoo.com",
+    "emailclienteConfirma": "Westley.Olson@yahoo.com",
+    "senhaCliente": "2oyNUMzHElpMxiA",
+    "senhaclienteConfirma": "2oyNUMzHElpMxiA",
+    "createdAt": "2025-09-29T20:33:58.163Z"
+  },
+  {
+    "id": 3,
+    "nomeCliente": "Roderick DuBuque",
+    "sobrenomeCliente": "Russcester",
+    "emailCliente": "Rosalyn_Parisian@yahoo.com",
+    "emailclienteConfirma": "Rosalyn_Parisian@yahoo.com",
+    "senhaCliente": "wi4xDTlwWrY4ycu",
+    "senhaclienteConfirma": "wi4xDTlwWrY4ycu",
+    "createdAt": "2025-09-29T13:21:17.981Z"
+  }
+]

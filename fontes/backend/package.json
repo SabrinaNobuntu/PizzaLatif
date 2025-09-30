@@ -10,7 +10,9 @@
     "migrate": "npx sequelize-cli db:migrate --config config/config.js",
     "seed": "npx sequelize-cli db:seed:all --config config/config.js",
     "healthcheck": "bash src/scripts/healthcheck.sh",
-    "test": "npx jest"
+    "test": "npx jest",
+    "dynamic-tests": "ts-node .github/scripts/run_dynamic_tests.ts",
+     "update-test-data": "ts-node .github/scripts/update-foreign-keys.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,16 +25,18 @@
     "@types/json2csv": "^5.0.7",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/knex": "^0.15.2",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.19.17",
     "@types/nodemailer": "^6.4.15",
     "@types/pg": "8.11.10",
     "@types/pino": "^7.0.4",
     "@types/supertest": "^6.0.3",
+    "faker": "^6.6.6",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "sequelize-cli": "^6.6.3",
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.4",
+    "ts-morph": "^27.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
@@ -58,6 +62,7 @@
     "pg": "^8.13.1",
     "pino": "^9.11.0",
     "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
     "socket.io": "^4.8.1"

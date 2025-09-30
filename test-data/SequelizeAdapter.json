@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "_model": null,
+    "_databaseType": "2025-09-29",
+    "_databaseConnection": "2025-09-29"
+  },
+  {
+    "id": 2,
+    "_model": null,
+    "_databaseType": "2025-09-30",
+    "_databaseConnection": "2025-09-29"
+  },
+  {
+    "id": 3,
+    "_model": null,
+    "_databaseType": "2025-09-30",
+    "_databaseConnection": "2025-09-29"
+  }
+]

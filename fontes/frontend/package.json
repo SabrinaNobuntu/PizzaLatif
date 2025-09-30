@@ -10,7 +10,8 @@
     "start": "ng serve --ssl --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dynamic-tests": "ts-node .github/scripts/run_dynamic_tests.ts"
   },
   "dependencies": {
     "@angular/animations": "18.2.13",

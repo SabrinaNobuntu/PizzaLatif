@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "_instance": null,
+    "_tenantConnections": "Refined Rubber Ball",
+    "maxConnections": 141,
+    "_permissions": null
+  },
+  {
+    "id": 2,
+    "_instance": null,
+    "_tenantConnections": "Julius Auer",
+    "maxConnections": 369,
+    "_permissions": null
+  },
+  {
+    "id": 3,
+    "_instance": null,
+    "_tenantConnections": "Lake Gilbertoworth",
+    "maxConnections": 956,
+    "_permissions": null
+  }
+]

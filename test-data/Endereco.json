@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "rua": "Jacques's Special Cocoa Powder",
+    "bairro": "Hugo Lehner II",
+    "cidade": "Venison Steak",
+    "numeroMoradia": 797,
+    "cep": "16268-926",
+    "complemento": "Justin Lindgren",
+    "cadastroCliente": null,
+    "createdAt": "2025-09-30T08:23:05.516Z"
+  },
+  {
+    "id": 2,
+    "rua": "St. Louis",
+    "bairro": "Gorgeous Marble Mouse",
+    "cidade": "Generic Bronze Sausages",
+    "numeroMoradia": 337,
+    "cep": "19125-853",
+    "complemento": "Mediterranean Water Soup",
+    "cadastroCliente": null,
+    "createdAt": "2025-09-30T10:52:10.229Z"
+  },
+  {
+    "id": 3,
+    "rua": "French Fries With Sausages",
+    "bairro": "Duane Brown",
+    "cidade": "Rene West Sr.",
+    "numeroMoradia": 618,
+    "cep": "08883-420",
+    "complemento": "Handcrafted Wooden Computer",
+    "cadastroCliente": null,
+    "createdAt": "2025-09-30T04:38:16.763Z"
+  }
+]

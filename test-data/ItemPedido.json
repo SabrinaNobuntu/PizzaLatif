@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nomePedido": "Modern Granite Cheese",
+    "descricao": "Darlene Beer IV",
+    "quantidadePedido": 53,
+    "precoPedido": 866,
+    "numeroMesa": 742,
+    "createdAt": "2025-09-29T13:08:38.429Z"
+  },
+  {
+    "id": 2,
+    "nomePedido": "Bruce Kuvalis",
+    "descricao": "Desiree Schuppe",
+    "quantidadePedido": 725,
+    "precoPedido": 379,
+    "numeroMesa": 626,
+    "createdAt": "2025-09-29T19:29:48.312Z"
+  },
+  {
+    "id": 3,
+    "nomePedido": "Johnnie Wilkinson-Hudson IV",
+    "descricao": "Willard Schinner",
+    "quantidadePedido": 138,
+    "precoPedido": 247,
+    "numeroMesa": 118,
+    "createdAt": "2025-09-30T00:15:23.078Z"
+  }
+]

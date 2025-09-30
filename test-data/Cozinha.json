@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nomePedido": "Barberry-infused Ostrich",
+    "data": "2025-09-30",
+    "hora": "18:28:05",
+    "statusPedido": "Manuel Greenfelder I",
+    "itemPedido": null,
+    "createdAt": "2025-09-30T05:26:23.535Z"
+  },
+  {
+    "id": 2,
+    "nomePedido": "Robert Kihn",
+    "data": "2025-09-30",
+    "hora": "14:30:49",
+    "statusPedido": "Bechtelarport",
+    "itemPedido": null,
+    "createdAt": "2025-09-29T18:44:29.491Z"
+  },
+  {
+    "id": 3,
+    "nomePedido": "North Helen",
+    "data": "2025-09-30",
+    "hora": "18:41:42",
+    "statusPedido": "Intelligent Bronze Salad",
+    "itemPedido": null,
+    "createdAt": "2025-09-30T08:35:28.670Z"
+  }
+]

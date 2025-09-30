@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "email": "Margret55@gmail.com",
+    "verificationCode": "Mrs. Velma Kuhic Sr.",
+    "isVerified": true,
+    "verifiedDate": "2025-09-30T08:13:40.161Z",
+    "expirationDate": "2025-09-30T03:32:59.087Z",
+    "createdAt": "2025-09-30T09:50:08.287Z"
+  },
+  {
+    "id": 2,
+    "email": "Myra.Bradtke@gmail.com",
+    "verificationCode": "Port Myraboro",
+    "isVerified": true,
+    "verifiedDate": "2025-09-29T15:19:32.642Z",
+    "expirationDate": "2025-09-30T02:18:09.047Z",
+    "createdAt": "2025-09-30T09:50:28.282Z"
+  },
+  {
+    "id": 3,
+    "email": "Hellen59@hotmail.com",
+    "verificationCode": "Ziemeview",
+    "isVerified": false,
+    "verifiedDate": "2025-09-30T09:57:09.719Z",
+    "expirationDate": "2025-09-29T12:34:47.624Z",
+    "createdAt": "2025-09-29T21:34:10.785Z"
+  }
+]

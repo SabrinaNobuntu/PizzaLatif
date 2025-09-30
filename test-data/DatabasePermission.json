@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": 952,
+    "tenant": 102,
+    "databaseCredential": "2025-09-29",
+    "isAdmin": false,
+    "userUID": "Jalfrezi-crusted Salmon"
+  },
+  {
+    "id": 2,
+    "user": 712,
+    "tenant": 966,
+    "databaseCredential": "2025-09-30",
+    "isAdmin": false,
+    "userUID": "Gail Littel"
+  },
+  {
+    "id": 3,
+    "user": 948,
+    "tenant": 994,
+    "databaseCredential": "2025-09-29",
+    "isAdmin": true,
+    "userUID": "Refined Gold Bacon"
+  }
+]

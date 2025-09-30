@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "graphAPIUrl": "Karnataka Curry Powder Soup",
+    "clientId": "Fresh Ceramic Gloves",
+    "clientSecret": "West Jodie",
+    "tenantID": "Licensed Plastic Soap",
+    "scope": "Kathryn Lebsack",
+    "domainName": "Chicken Wings",
+    "authenticationFlowDomainName": "Fort Princess"
+  },
+  {
+    "id": 2,
+    "graphAPIUrl": "Modern Steel Car",
+    "clientId": "Pork Steak",
+    "clientSecret": "Mr. Julius Zieme",
+    "tenantID": "Madisynmouth",
+    "scope": "Jicama And Rabbit Pie",
+    "domainName": "Goose With Cavalo Sauce",
+    "authenticationFlowDomainName": "Massaman Curry"
+  },
+  {
+    "id": 3,
+    "graphAPIUrl": "Midwest City",
+    "clientId": "Tacos",
+    "clientSecret": "Lake Lorenza",
+    "tenantID": "Practical Gold Bike",
+    "scope": "Caylacester",
+    "domainName": "Mitchell Mraz",
+    "authenticationFlowDomainName": "West Angelina"
+  }
+]

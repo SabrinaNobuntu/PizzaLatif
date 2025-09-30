@@ -2,12 +2,22 @@
   "name": "projeto-raiz",
   "version": "1.0.0",
   "description": "Configuração centralizada para o projeto",
+  "type": "module",
   "scripts": {
-     "test:backend": "npx jest --config=fontes/backend/jest.config.js",
-    "test:frontend": "npx jest --config=fontes/frontend/jest.config.js"
+    "test:backend": "npx jest --config=fontes/backend/jest.config.js",
+    "test:frontend": "npx jest --config=fontes/frontend/jest.config.js",
+    "dynamic-tests": "ts-node .github/scripts/run_dynamic_tests.ts",
+    "update-test-data": "ts-node .github/scripts/update-foreign-keys.ts",
+    "field-generators": "ts-node .github/scripts/fieldGenerators.ts"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@types/faker": "^6.6.8",
+    "@types/node": "^24.5.2",
+    "faker": "^6.6.6",
     "ts-jest": "^29.4.4",
+    "ts-morph": "^27.0.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
 }

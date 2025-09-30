@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "numeroCartao": 645,
+    "clientes": null,
+    "createdAt": "2025-09-29T19:01:37.389Z"
+  },
+  {
+    "id": 2,
+    "numeroCartao": 215,
+    "clientes": null,
+    "createdAt": "2025-09-29T21:23:43.529Z"
+  },
+  {
+    "id": 3,
+    "numeroCartao": 174,
+    "clientes": null,
+    "createdAt": "2025-09-29T19:13:22.458Z"
+  }
+]

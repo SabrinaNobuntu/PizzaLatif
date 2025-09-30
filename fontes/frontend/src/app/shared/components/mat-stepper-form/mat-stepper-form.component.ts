@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injector, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Variation } from 'app/modules/variations/shared/variations.model';
+// import { Variation } from 'app/modules/variations/shared/variations.model';
 import { FormGeneratorService } from 'app/shared/services/form-generator.service';
 import { BaseResourceFormComponent } from '../form/form.component';
 import { BaseResourceModel } from 'app/shared/models/base-resource.model';
 import { BaseResourceService } from 'app/shared/services/shared.service';
-import { VariationService } from 'app/modules/variations/shared/variations.service';
-import { OrderService } from 'app/modules/orders/shared/order.service';
+// import { VariationService } from 'app/modules/variations/shared/variations.service';
+// import { OrderService } from 'app/modules/orders/shared/order.service';
 
 @Component({
   selector: 'app-mat-stepper-form',
