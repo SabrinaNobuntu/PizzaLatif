@@ -21,14 +21,17 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar update-test-data
-        run: npm run update-test-data
-
+      # 1. Rodar dynamic-tests primeiro
       - name: Rodar dynamic-tests
-        run: npm run dynamic-tests
+        run: npx ts-node .github/scripts/run_dynamic_tests.ts
 
+      # 2. Rodar update-test-data depois
+      - name: Rodar update-test-data
+        run: npx ts-node .github/scripts/update-foreign-keys.ts
+
+      # 3. Upload somente da pasta test-data
       - name: Upload test-data como artifact
         uses: actions/upload-artifact@v4
         with:
           name: test-data
-          path: test-data/
+          path: fontes/backend/test-data
