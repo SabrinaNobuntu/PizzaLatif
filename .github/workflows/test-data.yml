@@ -29,9 +29,9 @@ jobs:
       - name: Rodar update-test-data
         run: node --loader ts-node/esm .github/scripts/update-foreign-keys.ts
 
-      # Upload apenas do test-data do backend
-      - name: Upload test-data backend
+      # Upload apenas do test-data gerado
+      - name: Upload test-data como artifact
         uses: actions/upload-artifact@v4
         with:
           name: test-data-backend
-          path: fontes/backend/test-data
+          path: test-data
