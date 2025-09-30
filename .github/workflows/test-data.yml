@@ -1,4 +1,4 @@
-name: Test Data
+name: Gerar Test Data
 
 on:
   workflow_dispatch:
@@ -10,26 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # 2. Instalar Node.js
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # 3. Instalar dependências
       - name: Instalar dependências
         run: npm install
 
-      # 1. Rodar dynamic-tests primeiro
+      # 4. Rodar dynamic-tests primeiro
       - name: Rodar dynamic-tests
         run: npx ts-node .github/scripts/run_dynamic_tests.ts
 
-      # 2. Rodar update-test-data depois
+      # 5. Rodar update-test-data em seguida
       - name: Rodar update-test-data
         run: npx ts-node .github/scripts/update-foreign-keys.ts
 
-      # 3. Upload somente da pasta test-data
+      # 6. Upload somente da pasta test-data
       - name: Upload test-data como artifact
         uses: actions/upload-artifact@v4
         with:
