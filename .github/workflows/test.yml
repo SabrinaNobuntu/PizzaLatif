@@ -1,10 +1,10 @@
-name: Gerar Test Data e Testes Dinâmicos
+name: Criar Test Data
 
 on:
-  workflow_dispatch: # Rodado manualmente no Actions
+  workflow_dispatch: # dispara manualmente
 
 jobs:
-  generate-test-data:
+  create-test-data:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,22 +26,19 @@ jobs:
       - name: Instalar ts-node global
         run: npm install -g ts-node typescript
 
-      - name: Rodar testes dinâmicos
-        run: npm run dynamic-tests
-        working-directory: fontes/backend
-
+      # 🔹 Primeiro gera/atualiza o test-data
       - name: Atualizar test-data
         run: npm run update-test-data
         working-directory: fontes/backend
 
+      # 🔹 Depois roda os testes dinâmicos
+      - name: Rodar testes dinâmicos
+        run: npm run dynamic-tests
+        working-directory: fontes/backend
+
+      # 🔹 Apenas salva a pasta test-data
       - name: Upload do test-data
         uses: actions/upload-artifact@v4
         with:
           name: test-data
           path: fontes/backend/test-data
-
-      - name: Upload do relatório de testes
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorio_testes
-          path: fontes/backend/relatorio_testes_backend.txt
