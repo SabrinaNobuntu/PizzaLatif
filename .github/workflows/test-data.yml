@@ -1,4 +1,4 @@
-name: Gerar Test Data
+name: Gerar Test Data Backend
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  generate-test-data:
+  generate-test-data-backend:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,17 +24,17 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      # 4. Rodar dynamic-tests primeiro
+      # 4. Rodar dynamic-tests
       - name: Rodar dynamic-tests
-        run: node -r ts-node/register .github/scripts/run_dynamic_tests.ts
+        run: npx ts-node-esm .github/scripts/run_dynamic_tests.ts
 
-      # 5. Rodar update-test-data em seguida
+      # 5. Rodar update-test-data
       - name: Rodar update-test-data
-        run: node -r ts-node/register .github/scripts/update-foreign-keys.ts
+        run: npx ts-node-esm .github/scripts/update-foreign-keys.ts
 
-      # 6. Upload somente da pasta test-data
+      # 6. Upload somente da pasta test-data do backend
       - name: Upload test-data como artifact
         uses: actions/upload-artifact@v4
         with:
-          name: test-data
+          name: test-data-backend
           path: fontes/backend/test-data
