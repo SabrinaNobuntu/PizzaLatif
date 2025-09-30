@@ -33,34 +33,60 @@ jobs:
       - name: Instalar jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Atualizar chaves estrangeiras (update-foreign-keys.ts)
-        run: |
-          npm install -g ts-node typescript
-          ts-node fontes/backend/.github/scripts/update-foreign-keys.ts
-        working-directory: fontes/backend
-
       - name: Gerar lista de arquivos alterados
+        id: detect
         run: |
           git fetch origin main
           git diff --name-only origin/main HEAD > changed_files.txt
           cat changed_files.txt
 
-      - name: Rodar testes dinâmicos (run_dynamic_tests.sh)
+      - name: Rodar testes (arquivos alterados ou todos)
         run: |
-          bash fontes/scripts/run_dynamic_tests.sh changed_files.txt ${{ matrix.test }}
-        working-directory: fontes
+          CHANGED_FILES=changed_files.txt
+          CATEGORY="${{ matrix.test }}"
+          REPORT_FILE="relatorio_testes_${CATEGORY}.txt"
+          echo "Relatório de testes ($CATEGORY) - $(date)" > $REPORT_FILE
+          RULES_JSON=$(cat test-rules.json)
+
+          if [ ! -s $CHANGED_FILES ]; then
+            echo "Nenhum arquivo alterado detectado. Rodando todos os testes da categoria $CATEGORY..." | tee -a $REPORT_FILE
+            CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(.category==\"$CATEGORY\") | .cmd")
+            eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Alguns testes falharam" >> $REPORT_FILE
+          else
+            RAN_CATEGORIES=()
+            while read -r file; do
+              file=$(echo "$file" | tr -d '\r' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+              file=$(echo "$file" | tr '\\' '/')
+
+              case "$file" in
+                changed_files.txt | relatorio_*.txt | teste.txt | package.json | test-rules.json)
+                  echo "Ignorando arquivo de lixo: $file" | tee -a $REPORT_FILE
+                  continue
+                  ;;
+              esac
+
+              CATEGORY_FILE=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .category")
+              CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(\"$file\" | test(.pattern)) | .cmd")
+
+              if [[ "$CATEGORY_FILE" == "$CATEGORY" ]] && [[ ! " ${RAN_CATEGORIES[*]} " =~ " $CATEGORY " ]]; then
+                echo "📂 Arquivo alterado: $file → Rodando testes da categoria: $CATEGORY" | tee -a $REPORT_FILE
+                eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Testes da categoria '$CATEGORY' falharam" >> $REPORT_FILE
+                RAN_CATEGORIES+=("$CATEGORY")
+              fi
+            done < $CHANGED_FILES
+
+            if [ ${#RAN_CATEGORIES[@]} -eq 0 ]; then
+              echo "Nenhuma categoria de teste necessária. Rodando todos os testes da categoria $CATEGORY..." | tee -a $REPORT_FILE
+              CMD=$(echo "$RULES_JSON" | jq -r ".rules[] | select(.category==\"$CATEGORY\") | .cmd")
+              eval "$CMD" >> $REPORT_FILE 2>&1 || echo "❌ Alguns testes falharam" >> $REPORT_FILE
+            fi
+          fi
 
       - name: Upload do relatório
         uses: actions/upload-artifact@v4
         with:
           name: relatorio_testes_${{ matrix.test }}
           path: relatorio_testes_${{ matrix.test }}.txt
-
-      - name: Upload do test-data
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-data
-          path: fontes/backend/test-data
 
   report-status:
     runs-on: ubuntu-latest
@@ -84,12 +110,6 @@ jobs:
         with:
           name: relatorio_testes_backend
           path: ./artifacts/backend
-
-      - name: Baixar artifact test-data
-        uses: actions/download-artifact@v4
-        with:
-          name: test-data
-          path: ./artifacts/test-data
 
       - name: Combinar relatórios
         run: |

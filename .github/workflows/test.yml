@@ -1,0 +1,41 @@
+name: Gerar Test Data
+
+on:
+  workflow_dispatch:  # Permite rodar manualmente no GitHub Actions
+
+jobs:
+  generate-test-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm install
+        working-directory: fontes/backend
+
+      - name: Instalar ts-node global
+        run: npm install -g ts-node typescript
+
+      - name: Atualizar test-data
+        run: npm run update-test-data
+        working-directory: fontes/backend
+
+      - name: Rodar testes dinâmicos
+        run: npm run dynamic-tests
+        working-directory: fontes/backend
+
+      - name: Upload da pasta test-data
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-data
+          path: fontes/backend/test-data
