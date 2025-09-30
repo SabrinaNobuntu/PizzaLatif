@@ -24,15 +24,19 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      # 4. Rodar dynamic-tests primeiro
-      - name: Rodar dynamic-tests
-        run: npx ts-node .github/scripts/run_dynamic_tests.ts
+      # 4. Instalar ts-node global para evitar "Permission denied"
+      - name: Instalar ts-node global
+        run: npm install -g ts-node typescript
 
-      # 5. Rodar update-test-data em seguida
+      # 5. Rodar update-test-data primeiro (gera/atualiza test-data)
       - name: Rodar update-test-data
         run: npx ts-node .github/scripts/update-foreign-keys.ts
 
-      # 6. Upload somente da pasta test-data
+      # 6. Rodar dynamic-tests em seguida
+      - name: Rodar dynamic-tests
+        run: npx ts-node .github/scripts/run_dynamic_tests.ts
+
+      # 7. Upload somente da pasta test-data
       - name: Upload test-data como artifact
         uses: actions/upload-artifact@v4
         with:
