@@ -22,15 +22,15 @@ jobs:
 
       # 3. Instalar dependências
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       # 4. Rodar dynamic-tests primeiro
       - name: Rodar dynamic-tests
-        run: npx ts-node --loader ts-node/esm .github/scripts/run_dynamic_tests.ts
+        run: node -r ts-node/register .github/scripts/run_dynamic_tests.ts
 
       # 5. Rodar update-test-data em seguida
       - name: Rodar update-test-data
-        run: npx ts-node --loader ts-node/esm .github/scripts/update-foreign-keys.ts
+        run: node -r ts-node/register .github/scripts/update-foreign-keys.ts
 
       # 6. Upload somente da pasta test-data
       - name: Upload test-data como artifact
