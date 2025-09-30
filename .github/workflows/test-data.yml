@@ -10,30 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Instalar Node.js
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. Instalar dependências
       - name: Instalar dependências
         run: npm ci
 
-      # 4. Rodar dynamic-tests
+      # Rodar dynamic-tests com ts-node/esm
       - name: Rodar dynamic-tests
-        run: npx ts-node-esm .github/scripts/run_dynamic_tests.ts
+        run: node --loader ts-node/esm .github/scripts/run_dynamic_tests.ts
 
-      # 5. Rodar update-test-data
+      # Rodar update-test-data com ts-node/esm
       - name: Rodar update-test-data
-        run: npx ts-node-esm .github/scripts/update-foreign-keys.ts
+        run: node --loader ts-node/esm .github/scripts/update-foreign-keys.ts
 
-      # 6. Upload somente da pasta test-data do backend
-      - name: Upload test-data como artifact
+      # Upload apenas do test-data do backend
+      - name: Upload test-data backend
         uses: actions/upload-artifact@v4
         with:
           name: test-data-backend
